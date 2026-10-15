@@ -215,3 +215,8 @@
 **Decisión:** APROBADO clientes (96%). Pendiente aceptado: Q-01 (vendedor ve que un cliente ya existe sin ver sus datos) queda 💡 con la recomendación. ✅ Sin SQL (prueba).
 **Origen:** cierre de módulo + aprobación del dueño ("ya termina todo esto, avanza")
 **Consecuencias:** sigue FASE 1 del módulo Cotizaciones.
+
+### D-044 · seguimiento / OT-001 · 2026-10-15
+**Decisión:** el aviso de "cotización por vencer" llega como sección del resumen diario por correo (D-012). ✅
+**Origen:** OT-001, pregunta de programador 1
+**Consecuencias:** sin canal nuevo ni costo de WhatsApp.
