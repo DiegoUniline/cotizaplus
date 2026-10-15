@@ -160,3 +160,8 @@
 **Decisión:** APROBADO plataforma (100% confirmado en el cierre). ✅ Por indicación del dueño es prueba del flujo: no se genera SQL ni código.
 **Origen:** cierre de módulo + aprobación del dueño
 **Consecuencias:** módulo Plataforma cerrado; sigue FASE 1 del módulo Catálogo.
+
+### D-033 · catálogo / atributos · 2026-10-15
+**Decisión:** `atributos` guarda nombre, tipo (texto, lista, medida, número), unidad y obligatorio. Sin orden ni editable_al_cotizar. ✅
+**Origen:** P-034
+**Consecuencias:** orden de aparición = alfabético o de creación (💡, se define en Paso 3); si el vendedor puede cambiar el valor en la partida queda ❓ para el Paso 3.

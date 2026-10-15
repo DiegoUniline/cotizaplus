@@ -5,12 +5,11 @@
 
 ## Dónde vamos
 - **Fase:** FASE 1 — módulo Catálogo, Paso 2 (campos por tabla)
-- **Módulo en curso:** Catálogo · tabla `atributos` (Plataforma ✅ APROBADO, D-032, sin SQL)
-- **Última pregunta:** P-034 (marcar campos de `atributos`) — ABIERTA
+- **Módulo en curso:** Catálogo · tabla `atributo_opciones` (atributos ✅ D-033)
+- **Última pregunta:** P-035 (marcar campos de `atributo_opciones`) — ABIERTA
 - **Siguiente paso exacto:** registrar P-034; luego `atributo_opciones` y `productos` (Paso 2), pasos 3–4 con propuestas para marcar, y cierre de módulo Catálogo (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
-- [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
 - [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
 - [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
 - [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
@@ -20,6 +19,7 @@
 - [D-030](decisiones.md) · plataforma · límites, prueba y gracia confirmados
 - [D-031](decisiones.md) · plataforma · IVA incluido, reasignación, plantillas, casos borde
 - [D-032](decisiones.md) · plataforma · APROBADO (sin SQL, prueba)
+- [D-033](decisiones.md) · atributos · nombre, tipo, unidad, obligatorio
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.
@@ -44,7 +44,7 @@
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Catálogo | diseño | 1 · paso 2 (atributos) | — | P-034 |
+| Catálogo | diseño | 1 · paso 2 (atributo_opciones) | — | P-035 |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |

@@ -187,9 +187,16 @@
 **Recomendación:** A
 **Respuesta:** A) Sin subdominio. (D-029)
 
-### P-034 · catálogo / atributos · ALTA · ABIERTA
+### P-034 · catálogo / atributos · ALTA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2 del módulo Catálogo, tabla `atributos` (D-010: cada empresa define sus atributos).
 **Pregunta:** ¿Cuáles campos de `atributos` se quedan? Propuestos: nombre, tipo (texto, lista, medida, número), unidad, obligatorio, editable_al_cotizar, orden.
 **Recomendación:** todos.
 **Impacto en datos:** estructura de `atributos`.
+**Respuesta:** se quedan nombre, tipo, unidad, obligatorio. Quitó: editable_al_cotizar, orden. (D-033)
+
+### P-035 · catálogo / atributo_opciones · MEDIA · ABIERTA
+**Contexto:** FASE 1 Paso 2. Opciones de un atributo tipo lista (Rojo, Azul).
+**Pregunta:** ¿Cuáles campos de `atributo_opciones` se quedan? Propuestos: valor, ajuste_precio.
+**Recomendación:** valor; ajuste_precio solo si una opción cambia el precio (ej. color especial +$50).
+**Impacto en datos:** estructura de `atributo_opciones`.
 **Respuesta:**
