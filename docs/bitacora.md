@@ -39,3 +39,4 @@
 - 2026-10-15 · arquitecto · repregunta negativa: atributos sin orden ni editable; productos con sku y descripción · D-037 · aprobados PR-01, PR-03, PE-02, QS-01..05 · cierre catálogo 82%
 - 2026-10-15 · arquitecto · R-09: orden alfabético · cierre catálogo 86%
 - 2026-10-15 · arquitecto · Q-01: precio de producto sin IVA · cierre catálogo 89%
+- 2026-10-15 · arquitecto · Q-02: catálogo compartido, marca opcional · D-038 · mapa y diagrama +producto_marcas · cierre catálogo 93%

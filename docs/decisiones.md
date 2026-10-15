@@ -185,3 +185,8 @@
 **Decisión:** (repregunta en sentido negativo) `atributos` sin orden ni editable_al_cotizar (confirmado: los quitó explícitamente). `productos` conserva sku y descripcion (no los quitó). ✅ Corrige D-035: productos = sku, nombre, descripcion, imagen, unidad, precio, tipo_cobro, atributos.
 **Origen:** repregunta D-036
 **Consecuencias:** importar Excel puede emparejar por sku si existe, si no por nombre (💡, Q-04).
+
+### D-038 · catálogo · 2026-10-15
+**Decisión:** catálogo compartido entre marcas; cada producto puede limitarse a ciertas marcas (opcional). ✅
+**Origen:** cierre Catálogo Q-02
+**Consecuencias:** nueva tabla `producto_marcas` (N:M); sin filas = todas las marcas. Mapa y diagrama actualizados.

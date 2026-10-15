@@ -25,6 +25,11 @@ erDiagram
     empresas ||--o{ atributos : "define"
     atributos ||--o{ atributo_opciones : "tiene opciones"
     empresas ||--o{ productos : "vende"
+    productos ||--o{ producto_marcas : "limitado a"
+    marcas ||--o{ producto_marcas : "ofrece"
+    productos ||--o{ producto_atributos : "tiene valores"
+    atributos ||--o{ producto_atributos : "se usa en"
+    atributo_opciones |o--o{ producto_atributos : "opción elegida"
 
     %% ===== Clientes =====
     empresas ||--o{ clientes : "atiende a"

@@ -17,6 +17,7 @@ Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`
 | 7 | Catálogo | atributos | Campos que crea cada empresa (Color, Medida, Modelo) y su tipo | 1 | D-010 | ✅ |
 | 8 | Catálogo | atributo_opciones | Valores de un atributo tipo lista (Rojo, Azul) | 1 | D-010 | ✅ |
 | 9 | Catálogo | productos | Catálogo con imagen, precio, unidad, tipo de cobro y valores de atributos | 1 | D-009, D-010 | ✅ |
+| 9b | Catálogo | producto_marcas | Marcas en las que se puede usar un producto (vacío = todas) | 1 | D-038 | ✅ |
 | 10 | Clientes | clientes | A quién se le cotiza; con vendedor asignado | 1 | D-008 | ✅ |
 | 10b | Clientes | contactos_cliente | Personas de contacto de un cliente (compras, pagos…) | 1 | D-020 | ✅ |
 | 11 | Cotizaciones | cotizaciones | Encabezado, estado, totales por tipo de cobro, código de liga pública | 1 | D-009, D-012 | ✅ |

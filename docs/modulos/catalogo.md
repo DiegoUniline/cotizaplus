@@ -1,5 +1,5 @@
 # Módulo: Catálogo
-Conocimiento: 89% (✅ 25 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
+Conocimiento: 93% (✅ 26 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
 
 ## 1. Propósito
 Atributos que define cada empresa y su catálogo de productos con imagen, precio, unidad y tipo de cobro. ✅ (D-009, D-010)
@@ -43,11 +43,18 @@ Lleva `atributo_id uuid not null references atributos(id)`.
 | opcion_id | uuid → atributo_opciones | sí | null | Opción si el atributo es lista | — | 💡 | D-034 |
 | valor | text | sí | null | Valor si es texto, medida o número | — | 💡 | D-033 |
 
+### Tabla `producto_marcas` (D-038)
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| producto_id | uuid → productos | no | — | Producto | unique (producto_id, marca_id) | ✅ | Q-02 |
+| marca_id | uuid → marcas | no | — | Marca donde se puede usar | misma empresa | ✅ | Q-02 |
+Si un producto no tiene filas aquí, se puede usar en todas las marcas.
+
 ## 11. Preguntas abiertas
 P-036.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **89%** (✅ 25 / 28). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **93%** (✅ 26 / 28). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -76,6 +83,6 @@ Confirmado por el dueño: **89%** (✅ 25 / 28). Mínimo para APROBADO: 90%.
 | QS-04 | Casos borde | Cambiar ajuste_precio de una opción no afecta partidas existentes | ✅ |
 | QS-05 | Casos borde | Atributo obligatorio agregado después: solo se exige en partidas nuevas | ✅ |
 | Q-01 | Pendientes | Precio del producto sin IVA; la cotización suma el IVA | ✅ |
-| Q-02 | Pendientes | ¿Catálogo compartido entre marcas o por marca? | ❓ |
+| Q-02 | Pendientes | Catálogo compartido; producto limitable a marcas (producto_marcas, D-038) | ✅ |
 | Q-03 | Pendientes | ¿El vendedor puede cambiar precio y atributos en la partida? | ❓ |
 | Q-04 | Pendientes | Importar Excel: si el producto ya existe (mismo nombre), ¿actualizar o saltar? | ❓ |
