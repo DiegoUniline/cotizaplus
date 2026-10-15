@@ -1,5 +1,5 @@
 # Módulo: Clientes
-Conocimiento: 75% (✅ 18 / 24 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
+Conocimiento: 96% (✅ 23 / 24 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
 
 ## 1. Propósito
 A quién se le cotiza y sus personas de contacto. ✅ (D-008, D-020, D-022)
@@ -33,7 +33,7 @@ Campos técnicos (💡): `id`, `empresa_id`, `activo`, `created_at/by`, `updated
 | notas | text | sí | null | Comentarios | — | ✅ | P-038 |
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **75%** (✅ 18 / 24). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **96%** (✅ 23 / 24). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -54,10 +54,10 @@ Confirmado por el dueño: **75%** (✅ 18 / 24). Mínimo para APROBADO: 90%.
 | PE-01 | Permisos | Vendedor ve y edita solo sus clientes (D-008) | ✅ |
 | PE-02 | Permisos | Dueño y gerente ven y editan todos los clientes | ✅ |
 | PE-03 | Permisos | Solo dueño y gerente reasignan vendedor y desactivan clientes | ✅ |
-| QS-01 | Casos borde | Dos vendedores dan de alta el mismo RFC: se bloquea el segundo con aviso | 💡 |
-| QS-02 | Casos borde | Cliente de la marca X (si se separa por marca) no recibe cotizaciones de la marca Y | 💡 |
-| QS-03 | Casos borde | Desactivar el contacto principal: el sistema pide elegir otro principal | 💡 |
-| QS-04 | Casos borde | Borrar cliente: solo si no tiene cotizaciones; si tiene, solo desactivar | 💡 |
+| QS-01 | Casos borde | Dos vendedores dan de alta el mismo RFC: se bloquea el segundo con aviso | ✅ |
+| QS-02 | Casos borde | Cliente de la marca X (si se separa por marca) no recibe cotizaciones de la marca Y | ✅ |
+| QS-03 | Casos borde | Desactivar el contacto principal: el sistema pide elegir otro principal | ✅ |
+| QS-04 | Casos borde | Borrar cliente: solo si no tiene cotizaciones; si tiene, solo desactivar | ✅ |
 | QS-05 | Casos borde | Vendedor dado de baja: sus clientes se reasignan (D-031) | ✅ |
-| QS-06 | Casos borde | Cliente/contacto sin correo: no se puede enviar por correo; sí por WhatsApp o PDF | 💡 |
+| QS-06 | Casos borde | Cliente/contacto sin correo: no se puede enviar por correo; sí por WhatsApp o PDF | ✅ |
 | Q-01 | Pendientes | ¿Un vendedor puede ver que un cliente ya existe aunque sea de otro vendedor (para no duplicar)? | ❓ |
