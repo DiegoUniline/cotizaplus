@@ -7,7 +7,7 @@
 - **Fase:** FASE 1 — módulo Cotizaciones, Paso 2 (campos por tabla)
 - **Módulo en curso:** Cotizaciones · tabla `cotizaciones` (Clientes ✅ APROBADO D-043, sin SQL)
 - **Última pregunta:** P-039 (campos de `cotizaciones`) — EN PAUSA: el dueño preguntó qué sigue suponiendo todos los módulos listos
-- **Siguiente paso exacto:** OT-001 redactada (docs/ordenes/OT-001.md); esperar OK / cambiar / ver completa. Simulación: con OK se marca como terminada sin código. P-039 en pausa.
+- **Siguiente paso exacto:** OT-001 ✅ terminada (simulación, sin código). Esperar al dueño: otra OT de prueba, retomar diseño de Cotizaciones (P-039) o terminar la prueba.
 
 ## Decisiones recientes (últimas 10)
 - [D-039](decisiones.md) · catálogo · alfabético, sin IVA, partida editable, importar actualiza

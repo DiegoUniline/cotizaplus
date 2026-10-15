@@ -22,6 +22,7 @@ Campos de negocio confirmados en P-019 (D-025). Comportamiento de cada campo (Pa
 | tasa_iva | numeric(7,4) | sí | 0.1600 | IVA por defecto (null = exento) | in (0.16, 0.08, 0) o null | ✅ / 💡 | P-019 |
 | vigencia_dias | int | no | 15 | Días de vigencia por defecto | 1–365 | ✅ / 💡 default | P-019 |
 | condiciones | text | sí | null | Pie de cotización por defecto | ≤ 4,000 caracteres | ✅ | P-019 |
+| dias_aviso_vencimiento | int | no | 3 | Días antes de vencer en que se avisa en el resumen diario | 0–30 | ✅ | D-046 (OT-001) |
 
 Quitado por el dueño: `subdominio` ⚠️ (contradice D-017 "subdominio propio por empresa"; 💡 propuesta: pasa a `marcas`, ver P-029).
 Movidos a `marcas` (D-022): logo, color de marca, razón social, RFC, dirección, sitio web, prefijo de folio, plantilla PDF.

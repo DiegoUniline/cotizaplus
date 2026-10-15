@@ -56,3 +56,4 @@
 - 2026-10-15 · desarrollador · OT-001: cuándo → configurable, 3 días por defecto · D-046 (agrega campo a empresas)
 - 2026-10-15 · desarrollador · OT-001: repetir cada día hasta vencer · D-047
 - 2026-10-15 · desarrollador · OT-001: estados Enviada/Vista/En negociación · D-048 · OT-001 redactada
+- 2026-10-15 · desarrollador · OT-001 OK del dueño → TERMINADA (simulación, sin código) · plataforma.md + dias_aviso_vencimiento
