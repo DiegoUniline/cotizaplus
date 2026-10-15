@@ -42,3 +42,4 @@
 - 2026-10-15 · arquitecto · Q-02: catálogo compartido, marca opcional · D-038 · mapa y diagrama +producto_marcas · cierre catálogo 93%
 - 2026-10-15 · arquitecto · Q-03: vendedor cambia precio y atributos en la partida · cierre catálogo 96%
 - 2026-10-15 · arquitecto · Q-04: importar actualiza · D-039 · cierre Catálogo 100% · cierre catálogo 100%
+- 2026-10-15 · arquitecto · APROBADO catálogo · D-040 · inicia Clientes · P-037 abierta

@@ -44,5 +44,6 @@ Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`
 | módulo | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|
 | Plataforma | ✅ APROBADO (sin SQL) | 100% | — |
-| Catálogo | cierre ✅ | 100% | — |
+| Catálogo | ✅ APROBADO (sin SQL) | 100% | — |
+| Clientes | 1 · paso 2 | — | P-037 |
 | resto | 1 · paso 1 ✅ | — | — |

@@ -4,22 +4,22 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Cierre de módulo Catálogo terminado (100%)
-- **Módulo en curso:** Catálogo — listo para APROBADO (sin SQL: prueba del flujo)
-- **Última pregunta:** ¿APROBADO catálogo? — ABIERTA
-- **Siguiente paso exacto:** con APROBADO: registrar D-XXX y pasar a FASE 1 del módulo Clientes (clientes, contactos_cliente). Sin SQL.
+- **Fase:** FASE 1 — módulo Clientes, Paso 2 (campos por tabla)
+- **Módulo en curso:** Clientes · tabla `clientes` (Catálogo ✅ APROBADO D-040, sin SQL)
+- **Última pregunta:** P-037 (¿qué campos de `clientes` quitas?) — ABIERTA
+- **Siguiente paso exacto:** registrar P-037; luego `contactos_cliente`; cierre de módulo Clientes (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
-- [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
-- [D-027](decisiones.md) · usuarios_empresa · 9 campos (3 agregados por el dueño)
-- [D-028](decisiones.md) · plataforma · tablas restantes 💡, pasa a FASE 2
-- [D-029](decisiones.md) · plataforma · sin subdominio
-- [D-030](decisiones.md) · plataforma · límites, prueba y gracia confirmados
 - [D-031](decisiones.md) · plataforma · IVA incluido, reasignación, plantillas, casos borde
 - [D-032](decisiones.md) · plataforma · APROBADO (sin SQL, prueba)
 - [D-033](decisiones.md) · atributos · nombre, tipo, unidad, obligatorio
 - [D-034](decisiones.md) · atributo_opciones · valor + ajuste_precio
 - [D-035](decisiones.md) · productos · como el mapa, sin sku ni descripción
+- [D-036](decisiones.md) · catálogo · corrección: no marcado ≠ quitar
+- [D-037](decisiones.md) · catálogo · atributos sin orden/editable; productos con sku y descripción
+- [D-038](decisiones.md) · catálogo · compartido, producto limitable a marcas
+- [D-039](decisiones.md) · catálogo · alfabético, sin IVA, partida editable, importar actualiza
+- [D-040](decisiones.md) · catálogo · APROBADO (sin SQL)
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.
@@ -44,8 +44,8 @@
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Catálogo | diseño | cierre ✅ | 100% | — |
-| Clientes | diseño | 1 · paso 1 ✅ | — | — |
+| Catálogo | diseño | ✅ APROBADO (sin SQL) | 100% | — |
+| Clientes | diseño | 1 · paso 2 (clientes) | — | P-037 |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |
 | Seguimiento | diseño | 1 · paso 1 ✅ | — | — |
