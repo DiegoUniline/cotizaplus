@@ -27,12 +27,28 @@ Quitado por el dueño: `subdominio` ⚠️ (contradice D-017 "subdominio propio 
 Movidos a `marcas` (D-022): logo, color de marca, razón social, RFC, dirección, sitio web, prefijo de folio, plantilla PDF.
 
 ### Tabla `marcas`
-❓ Campos por confirmar (P-029).
+Campos confirmados en P-029 (D-026). Lleva `empresa_id uuid not null references empresas(id)`.
+
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| nombre | text | no | — | Nombre comercial de la marca | unique (empresa_id, nombre) | ✅ / 💡 regla | P-029 |
+| logo | text (ruta en Storage) | sí | null | Logo para PDF y liga | png/jpg/svg ≤ 2 MB | ✅ / 💡 | P-029 |
+| color_marca | text | sí | null | Color principal | `^#[0-9A-Fa-f]{6}$` | ✅ / 💡 | P-029 |
+| plantilla_pdf_id | uuid → plantillas_pdf | no | plantilla base | Plantilla por defecto | — | ✅ / 💡 default | P-029 |
+| razon_social | text | sí | null | Nombre fiscal | — | ✅ | P-029 |
+| rfc | text | sí | null | RFC | upper, formato SAT 12–13 | ✅ / 💡 | P-029 |
+| direccion | text | sí | null | Dirección en el PDF | — | ✅ | P-029 |
+| prefijo_folio | text | no | — | Inicio del folio (ACME-) | 1–10 caracteres; unique (empresa_id, prefijo_folio) 💡 | ✅ / 💡 | P-029, D-024 |
+| telefono | text | sí | null | Teléfono en el PDF | `^\d{10}$` | ✅ / 💡 | P-029 |
+| correo | text | sí | null | Correo en el PDF | formato correo | ✅ / 💡 | P-029 |
+| sitio_web | text | sí | null | Página web | URL | ✅ / 💡 | P-029 |
+
+Quitado por el dueño: `subdominio` (también lo quitó de empresas) → ⚠️ el subdominio propio de D-017 queda fuera hasta que el dueño lo confirme.
 
 ## 10. Inconsistencias ⚠️
 | # | Descripción | Dónde | Impacto | Severidad |
 |---|---|---|---|---|
-| 1 | Se quitó `subdominio` de empresas, pero D-017 decidió subdominio propio | P-019 vs D-017 | dónde vive el subdominio (Fase 2) | baja |
+| 1 | Se quitó `subdominio` de empresas (P-019) y de marcas (P-029), pero D-017 decidió subdominio propio | P-019, P-029 vs D-017 | ¿se elimina el subdominio de la Fase 2? | baja |
 
 ## 11. Preguntas abiertas
-P-029 (campos de `marcas`).
+P-030 (campos de `usuarios_empresa`). Confirmar si el subdominio (D-017) se elimina.

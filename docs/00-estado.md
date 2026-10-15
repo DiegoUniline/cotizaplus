@@ -5,12 +5,11 @@
 
 ## Dónde vamos
 - **Fase:** FASE 1 — Paso 2 (campos por tabla). Paso 1b ✅ · Paso 1c cerrado con 💡 (D-024)
-- **Módulo en curso:** Plataforma · tabla `marcas` (empresas ✅ D-025, ver modulos/plataforma.md)
-- **Última pregunta:** P-029 (marcar campos de `marcas`) — ABIERTA
-- **Siguiente paso exacto:** registrar P-029; luego `usuarios_empresa` (Paso 2). Pasos 3–4 se están suponiendo (💡) por pedido del dueño.
+- **Módulo en curso:** Plataforma · tabla `usuarios_empresa` (empresas ✅ D-025, marcas ✅ D-026)
+- **Última pregunta:** P-030 (marcar campos de `usuarios_empresa`) — ABIERTA
+- **Siguiente paso exacto:** registrar P-030; luego `usuario_marcas`, `invitaciones`, `planes`, `suscripciones`, `pagos` (Paso 2). Pasos 3–4 se suponen (💡) por pedido del dueño.
 
 ## Decisiones recientes (últimas 10)
-- [D-016](decisiones.md) · integraciones · importar Excel y pedidos
 - [D-017](decisiones.md) · plataforma · plantillas, subdominio, correo noreply con Gmail API
 - [D-018](decisiones.md) · visión · PWA con Next.js + Supabase
 - [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
@@ -20,6 +19,7 @@
 - [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
 - [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
 - [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
+- [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c no confirmadas (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables.
@@ -33,7 +33,7 @@
 - Plan anual con descuento para reducir comisión de Stripe (~8% en $69).
 
 ## Pendientes / bloqueos ❓
-- ⚠️ Subdominio: se quitó de empresas (P-019) pero D-017 lo pide; 💡 moverlo a marcas (P-029).
+- ⚠️ Subdominio: el dueño lo quitó de empresas (P-019) y de marcas (P-029), pero D-017 lo pide. Confirmar si sale de la Fase 2.
 - Precio de los paquetes de WhatsApp (D-013).
 - ¿Los precios de planes incluyen IVA? ¿Se factura la renta?
 - Opciones A/B en una cotización y retenciones (D-009).
@@ -52,7 +52,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 1 · paso 2 (marcas) | — | P-029 |
+| Plataforma | diseño | 1 · paso 2 (usuarios_empresa) | — | P-030 |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |

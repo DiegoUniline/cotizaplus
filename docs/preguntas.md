@@ -152,9 +152,16 @@
 - P-027 · ¿Vendedores por cliente? → 💡 Uno solo; dueño o gerente lo reasignan.
 - P-028 · ¿Motivos de rechazo? → 💡 Lista configurable por empresa con valores iniciales (precio, tiempo de entrega, eligió a la competencia, otro).
 
-### P-029 · plataforma / marcas · ALTA · ABIERTA
+### P-029 · plataforma / marcas · ALTA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2, tabla `marcas` (D-022). Campos propuestos: nombre, logo, color_marca, razon_social, rfc, direccion, telefono, correo, sitio_web, prefijo_folio, plantilla_pdf, subdominio (💡 movido desde empresas por la inconsistencia con D-017).
 **Pregunta:** ¿Cuáles campos de `marcas` se quedan?
 **Recomendación:** todos.
 **Impacto en datos:** estructura de `marcas`.
+**Respuesta:** se quedan nombre, logo, color_marca, plantilla_pdf, razon_social, rfc, direccion, prefijo_folio, telefono, correo, sitio_web. Quitó: subdominio. (D-026)
+
+### P-030 · plataforma / usuarios_empresa · ALTA · ABIERTA
+**Contexto:** FASE 1 Paso 2. Campos propuestos: nombre, correo (login), telefono, foto, rol (dueño/gerente/vendedor), puesto (sale en la firma del PDF).
+**Pregunta:** ¿Cuáles campos de `usuarios_empresa` se quedan?
+**Recomendación:** todos.
+**Impacto en datos:** estructura de `usuarios_empresa`.
 **Respuesta:**

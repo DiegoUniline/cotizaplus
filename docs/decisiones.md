@@ -125,3 +125,8 @@
 **Decisión:** `empresas` guarda nombre, correo, telefono, clientes_por_marca, vendedores_por_marca, zona_horaria, moneda, tasa_iva, vigencia_dias y condiciones. Sin subdominio. ✅
 **Origen:** P-019
 **Consecuencias:** diccionario en modulos/plataforma.md. ⚠️ Choca con D-017 (subdominio propio); 💡 se propone mover subdominio a `marcas` (P-029). Reglas de campo y defaults: 💡 sin confirmar.
+
+### D-026 · plataforma / marcas · 2026-10-15
+**Decisión:** `marcas` guarda nombre, logo, color_marca, plantilla_pdf, razon_social, rfc, direccion, prefijo_folio, telefono, correo, sitio_web. ✅
+**Origen:** P-029
+**Consecuencias:** el PDF y la liga toman imagen y datos de la marca. ⚠️ El dueño quitó el subdominio también de marcas: contradice D-017; se confirma al aprobar el módulo.
