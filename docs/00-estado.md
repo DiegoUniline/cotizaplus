@@ -52,7 +52,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 2 · propuesta | 35% | P-032 + 8 ❓ |
+| Plataforma | diseño | 2 · propuesta | 20% | P-032 + 8 ❓ |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |

@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 35% (✅ 31 / total 88: campos y reglas) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 20% (✅ 24 / total 123 filas con certeza; las de "✅ / 💡" cuentan como no confirmadas) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
