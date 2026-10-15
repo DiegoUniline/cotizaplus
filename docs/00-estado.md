@@ -7,7 +7,7 @@
 - **Fase:** FASE 1 — módulo Cotizaciones, Paso 2 (campos por tabla)
 - **Módulo en curso:** Cotizaciones · tabla `cotizaciones` (Clientes ✅ APROBADO D-043, sin SQL)
 - **Última pregunta:** P-039 (campos de `cotizaciones`) — EN PAUSA: el dueño preguntó qué sigue suponiendo todos los módulos listos
-- **Siguiente paso exacto:** registrar P-039; luego `cotizacion_partidas`, `folios`, `plantillas_pdf`; cierre de módulo Cotizaciones (≥ 90%).
+- **Siguiente paso exacto:** simular una orden de trabajo (skill orden-de-trabajo) con un pedido del dueño en sus palabras; OT en /docs/ordenes/OT-001.md, sin código. P-039 en pausa.
 
 ## Decisiones recientes (últimas 10)
 - [D-034](decisiones.md) · atributo_opciones · valor + ajuste_precio

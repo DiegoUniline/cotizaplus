@@ -50,3 +50,4 @@
 - 2026-10-15 · arquitecto · Q-01 sin respuesta: dueño pide terminar y avanzar · queda 💡 · cierre Clientes 96% · cierre clientes 96%
 - 2026-10-15 · arquitecto · APROBADO clientes (96%) · D-043 · inicia Cotizaciones · P-039 abierta
 - 2026-10-15 · arquitecto · dueño pregunta qué sigue suponiendo todos los módulos listos · P-039 queda en pausa
+- 2026-10-15 · arquitecto · dueño elige simular una orden de trabajo (sin código)
