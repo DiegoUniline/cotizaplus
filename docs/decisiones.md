@@ -155,3 +155,8 @@
 **Decisión:** ✅ precios de planes con IVA incluido; al dar de baja a un usuario el dueño elige a quién pasan sus clientes y cotizaciones (si no, al dueño); 3 plantillas de PDF iniciales (clásica, moderna, minimalista); un segundo pago del mismo periodo extiende un periodo más; empresa cancelada: solo lectura 30 días para exportar y luego se borran sus datos; al activar clientes por marca, los existentes pasan a la marca principal y el dueño puede moverlos.
 **Origen:** cierre de módulo Plataforma (Q-01..Q-03, QS-03, QS-09, QS-12)
 **Consecuencias:** `planes.precio_mensual` con IVA; RPC de baja de usuario con reasignación; seed de 3 plantillas; job de borrado a 30 días tras cancelación (requiere aviso en términos de servicio).
+
+### D-032 · plataforma · 2026-10-15
+**Decisión:** APROBADO plataforma (100% confirmado en el cierre). ✅ Por indicación del dueño es prueba del flujo: no se genera SQL ni código.
+**Origen:** cierre de módulo + aprobación del dueño
+**Consecuencias:** módulo Plataforma cerrado; sigue FASE 1 del módulo Catálogo.

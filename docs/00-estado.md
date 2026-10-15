@@ -4,15 +4,12 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Cierre de módulo Plataforma terminado (100%)
-- **Módulo en curso:** Plataforma — listo para APROBADO (sin generar SQL: prueba del flujo)
-- **Última pregunta:** ¿APROBADO plataforma? — ABIERTA
-- **Siguiente paso exacto:** con APROBADO: registrar D-XXX y pasar a FASE 1 del módulo Catálogo (atributos, atributo_opciones, productos). No generar SQL (el dueño indicó que es prueba del flujo).
+- **Fase:** FASE 1 — módulo Catálogo, Paso 2 (campos por tabla)
+- **Módulo en curso:** Catálogo · tabla `atributos` (Plataforma ✅ APROBADO, D-032, sin SQL)
+- **Última pregunta:** P-034 (marcar campos de `atributos`) — ABIERTA
+- **Siguiente paso exacto:** registrar P-034; luego `atributo_opciones` y `productos` (Paso 2), pasos 3–4 con propuestas para marcar, y cierre de módulo Catálogo (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
-- [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
-- [D-020](decisiones.md) · mapa · 29 tablas aprobadas + contactos_cliente
-- [D-021](decisiones.md) · usuarios · un correo = una empresa
 - [D-022](decisiones.md) · marcas · varias marcas por empresa; clientes compartidos o separados (lo decide la empresa)
 - [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
 - [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
@@ -20,25 +17,21 @@
 - [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
 - [D-027](decisiones.md) · usuarios_empresa · 9 campos (3 agregados por el dueño)
 - [D-028](decisiones.md) · plataforma · tablas restantes 💡, pasa a FASE 2
+- [D-029](decisiones.md) · plataforma · sin subdominio
+- [D-030](decisiones.md) · plataforma · límites, prueba y gracia confirmados
+- [D-031](decisiones.md) · plataforma · IVA incluido, reasignación, plantillas, casos borde
+- [D-032](decisiones.md) · plataforma · APROBADO (sin SQL, prueba)
 
 ## Propuestas pendientes de aprobación 💡
-- Relaciones del Paso 1c no confirmadas (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables.
-- Nota del dueño: "estamos probando, no hacemos realmente una app" — sesión de prueba del proceso.
-- Campos de `empresas` — P-019.
-- Límites por plan: Básico 1 usuario / 30 cotizaciones; Pro 5 / 300; Empresa ilimitado (D-006).
-- Prueba de 14 días, funciones de Pro, sin tarjeta (D-007).
-- El dueño de la cuenta invita a sus usuarios por correo (D-007).
-- 5 días de gracia si falla un cobro de Stripe (D-005).
-- Folios con prefijo y consecutivo propios por empresa (D-017).
-- Plan anual con descuento para reducir comisión de Stripe (~8% en $69).
+- Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.
+- Nota del dueño: sesión de prueba del flujo; no generar SQL ni app.
 
 ## Pendientes / bloqueos ❓
 - Precio de los paquetes de WhatsApp (D-013).
-- ¿Los precios de planes incluyen IVA? ¿Se factura la renta?
+- ¿Se factura (CFDI) la renta de Cotizaplus?
 - Opciones A/B en una cotización y retenciones (D-009).
-- Qué pasa con los datos de una empresa que cancela.
 - Dominio cotizaplus.com: ¿disponible o ya es del dueño?
-- Aviso de privacidad y términos de servicio (nueva LFPDPPP).
+- Aviso de privacidad y términos de servicio (nueva LFPDPPP; necesarios para el borrado a 30 días, D-031).
 - Quién programa la Fase 1 y empresas piloto (D-018).
 - Hosting de Next.js.
 - Meta de empresas a 3 años.
@@ -51,8 +44,8 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 2 · propuesta | 100% | P-032 + 8 ❓ |
-| Catálogo | diseño | 1 · paso 1 ✅ | — | — |
+| Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
+| Catálogo | diseño | 1 · paso 2 (atributos) | — | P-034 |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |
