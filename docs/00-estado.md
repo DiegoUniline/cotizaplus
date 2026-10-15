@@ -4,13 +4,12 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — módulo Catálogo, Paso 2 (campos por tabla)
-- **Módulo en curso:** Catálogo · tabla `productos` (atributos D-033, atributo_opciones D-034 ✅)
-- **Última pregunta:** P-036 (marcar campos de `productos`) — ABIERTA
-- **Siguiente paso exacto:** registrar P-034; luego `atributo_opciones` y `productos` (Paso 2), pasos 3–4 con propuestas para marcar, y cierre de módulo Catálogo (≥ 90%).
+- **Fase:** FASE 1 — Cierre de módulo Catálogo (propuestas para marcar + ❓)
+- **Módulo en curso:** Catálogo (atributos D-033, atributo_opciones D-034, productos D-035 ✅)
+- **Última pregunta:** cierre Catálogo — marcar propuestas grupo 1 — ABIERTA
+- **Siguiente paso exacto:** marcar propuestas (§12 de modulos/catalogo.md); resolver ❓ uno por uno; si ≥ 90% pedir APROBADO catálogo (sin SQL); luego módulo Clientes.
 
 ## Decisiones recientes (últimas 10)
-- [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
 - [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
 - [D-027](decisiones.md) · usuarios_empresa · 9 campos (3 agregados por el dueño)
 - [D-028](decisiones.md) · plataforma · tablas restantes 💡, pasa a FASE 2
@@ -20,6 +19,7 @@
 - [D-032](decisiones.md) · plataforma · APROBADO (sin SQL, prueba)
 - [D-033](decisiones.md) · atributos · nombre, tipo, unidad, obligatorio
 - [D-034](decisiones.md) · atributo_opciones · valor + ajuste_precio
+- [D-035](decisiones.md) · productos · como el mapa, sin sku ni descripción
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.
@@ -44,7 +44,7 @@
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Catálogo | diseño | 1 · paso 2 (productos) | — | P-036 |
+| Catálogo | diseño | 1 · cierre | — | ver §12 |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |

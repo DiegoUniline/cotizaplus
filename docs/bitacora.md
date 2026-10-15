@@ -32,3 +32,5 @@
 - 2026-10-15 · arquitecto · P-035: quitó 'valor' (dudoso) · se repregunta
 - 2026-10-15 · arquitecto · P-035 respondida tras repregunta: valor + ajuste_precio · D-034 · P-036 abierta
 - 2026-10-15 · arquitecto · P-036: solo nombre y tipo_cobro → contradicción con D-020/D-010 · alto total, se pregunta
+- 2026-10-15 · arquitecto · P-036 resuelta: productos como el mapa · D-035 · inicia cierre Catálogo
+- 2026-10-15 · arquitecto · checklist de cierre Catálogo (28 ítems) · cierre catálogo 11%

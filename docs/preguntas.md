@@ -202,9 +202,10 @@
 **Respuesta:** ⚠️ marcó solo ajuste_precio y quitó valor; sin valor la opción no tendría nombre → se repregunta solo esa parte.
 **Respuesta final:** valor + ajuste_precio. (D-034)
 
-### P-036 · catálogo / productos · ALTA · ABIERTA
+### P-036 · catálogo / productos · ALTA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2. Campos propuestos: sku, nombre, descripcion, imagen, unidad, precio, tipo_cobro (único/mensual/por hora), atributos (valores).
 **Pregunta:** ¿Cuáles campos de `productos` se quedan?
 **Recomendación:** todos.
 **Impacto en datos:** estructura de `productos`.
 **Respuesta:** marcó solo nombre y tipo_cobro. ⚠️ Contradice el mapa aprobado (D-020: productos "con imagen, precio, unidad, tipo de cobro y valores de atributos") y D-010 (valores de atributos en producto). Se resuelve antes de seguir.
+**Repregunta:** ¿como el mapa, producto mínimo o mixto? → **Como el mapa.** Quedan nombre, imagen, unidad, precio, tipo_cobro y atributos; sku y descripcion fuera. (D-035)

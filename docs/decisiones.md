@@ -170,3 +170,8 @@
 **Decisión:** `atributo_opciones` guarda valor y ajuste_precio. ✅
 **Origen:** P-035 (con repregunta)
 **Consecuencias:** al elegir una opción en la partida, el precio unitario suma o resta el ajuste (💡 cómo se calcula, Paso 3).
+
+### D-035 · catálogo / productos · 2026-10-15
+**Decisión:** `productos` guarda nombre, imagen, unidad, precio, tipo_cobro y valores de atributos (como el mapa D-020). Sin sku ni descripcion. ✅
+**Origen:** P-036 (contradicción resuelta)
+**Consecuencias:** al cotizar se copian a la partida; la descripción de la partida se captura en la cotización (D-009). Importar de Excel se empareja por nombre (sin SKU).
