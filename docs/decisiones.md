@@ -130,3 +130,8 @@
 **Decisión:** `marcas` guarda nombre, logo, color_marca, plantilla_pdf, razon_social, rfc, direccion, prefijo_folio, telefono, correo, sitio_web. ✅
 **Origen:** P-029
 **Consecuencias:** el PDF y la liga toman imagen y datos de la marca. ⚠️ El dueño quitó el subdominio también de marcas: contradice D-017; se confirma al aprobar el módulo.
+
+### D-027 · plataforma / usuarios_empresa · 2026-10-15
+**Decisión:** `usuarios_empresa` guarda nombre, nombre_completo, correo, telefono, foto, rol, puesto, fecha_alta y leyenda_contacto. ✅
+**Origen:** P-030
+**Consecuencias:** 💡 interpretación: nombre = nombre corto en la app y nombre_completo = firma del PDF; fecha_alta es editable y distinta de created_at; leyenda_contacto se copia al PDF de las cotizaciones del usuario (la cotización guarda copia al emitirse).

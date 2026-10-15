@@ -5,12 +5,11 @@
 
 ## Dónde vamos
 - **Fase:** FASE 1 — Paso 2 (campos por tabla). Paso 1b ✅ · Paso 1c cerrado con 💡 (D-024)
-- **Módulo en curso:** Plataforma · tabla `usuarios_empresa` (empresas ✅ D-025, marcas ✅ D-026)
-- **Última pregunta:** P-030 (marcar campos de `usuarios_empresa`) — ABIERTA
-- **Siguiente paso exacto:** registrar P-030; luego `usuario_marcas`, `invitaciones`, `planes`, `suscripciones`, `pagos` (Paso 2). Pasos 3–4 se suponen (💡) por pedido del dueño.
+- **Módulo en curso:** Plataforma · tabla `invitaciones` (empresas D-025, marcas D-026, usuarios_empresa D-027 ✅; usuario_marcas solo llaves)
+- **Última pregunta:** P-031 (marcar campos de `invitaciones`) — ABIERTA
+- **Siguiente paso exacto:** registrar P-031; luego `planes`, `suscripciones`, `pagos` (Paso 2). Pasos 3–4 se suponen (💡) por pedido del dueño.
 
 ## Decisiones recientes (últimas 10)
-- [D-017](decisiones.md) · plataforma · plantillas, subdominio, correo noreply con Gmail API
 - [D-018](decisiones.md) · visión · PWA con Next.js + Supabase
 - [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
 - [D-020](decisiones.md) · mapa · 29 tablas aprobadas + contactos_cliente
@@ -20,6 +19,7 @@
 - [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
 - [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
 - [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
+- [D-027](decisiones.md) · usuarios_empresa · 9 campos (3 agregados por el dueño)
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c no confirmadas (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables.
@@ -52,7 +52,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 1 · paso 2 (usuarios_empresa) | — | P-030 |
+| Plataforma | diseño | 1 · paso 2 (invitaciones) | — | P-031 |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |

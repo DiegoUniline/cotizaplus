@@ -16,3 +16,4 @@
 - 2026-10-15 · arquitecto · dueño pide suponer y avanzar (prueba) · Paso 1c cerrado con 💡 · D-024 · P-019 reanudada
 - 2026-10-15 · arquitecto · P-019 respondida: 10 campos, sin subdominio ⚠️ · D-025 · modulos/plataforma.md creado · P-029 abierta
 - 2026-10-15 · arquitecto · P-029 respondida: 11 campos de marcas, sin subdominio ⚠️ · D-026 · P-030 abierta
+- 2026-10-15 · arquitecto · P-030 respondida: 6 campos + fecha_alta, nombre_completo, leyenda_contacto · D-027 · P-031 abierta

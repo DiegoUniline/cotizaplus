@@ -45,10 +45,27 @@ Campos confirmados en P-029 (D-026). Lleva `empresa_id uuid not null references 
 
 Quitado por el dueño: `subdominio` (también lo quitó de empresas) → ⚠️ el subdominio propio de D-017 queda fuera hasta que el dueño lo confirme.
 
+### Tabla `usuarios_empresa`
+Campos confirmados en P-030 (D-027). Lleva `empresa_id` y `user_id uuid not null unique references auth.users(id)` (un correo = una empresa, D-021).
+
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| nombre | text | no | — | Nombre corto con el que se muestra en la app | 1–60 | ✅ / 💡 interpretación | P-030 |
+| nombre_completo | text | no | — | Nombre completo (firma del PDF) | 1–150 | ✅ agregado por el dueño | P-030 |
+| correo | text | no | — | Correo de acceso (copia del de auth) | unique global | ✅ | P-030, D-021 |
+| telefono | text | sí | null | WhatsApp del usuario | `^\d{10}$` | ✅ | P-030 |
+| foto | text (Storage) | sí | null | Foto de perfil | ≤ 2 MB | ✅ | P-030 |
+| rol | text | no | 'vendedor' | Dueño, gerente o vendedor | check in ('dueno','gerente','vendedor') | ✅ / 💡 default | P-030, D-008 |
+| puesto | text | sí | null | Puesto que sale en la firma del PDF | ≤ 80 | ✅ | P-030 |
+| fecha_alta | date | no | current_date | Fecha en que el usuario entró a la empresa (editable; distinta de created_at) | ≤ hoy | ✅ agregado / 💡 interpretación | P-030 |
+| leyenda_contacto | text | sí | null | Bloque con datos de contacto del usuario que se copia automáticamente al PDF de sus cotizaciones | ≤ 500; 💡 la cotización guarda copia al emitirse | ✅ agregado / 💡 cómo se copia | P-030 |
+
+Nota: en "Rol y firma" el dueño marcó "Something else" sin texto → no se agregó nada.
+
 ## 10. Inconsistencias ⚠️
 | # | Descripción | Dónde | Impacto | Severidad |
 |---|---|---|---|---|
 | 1 | Se quitó `subdominio` de empresas (P-019) y de marcas (P-029), pero D-017 decidió subdominio propio | P-019, P-029 vs D-017 | ¿se elimina el subdominio de la Fase 2? | baja |
 
 ## 11. Preguntas abiertas
-P-030 (campos de `usuarios_empresa`). Confirmar si el subdominio (D-017) se elimina.
+P-031 (campos de `invitaciones`). Confirmar si el subdominio (D-017) se elimina.

@@ -159,9 +159,16 @@
 **Impacto en datos:** estructura de `marcas`.
 **Respuesta:** se quedan nombre, logo, color_marca, plantilla_pdf, razon_social, rfc, direccion, prefijo_folio, telefono, correo, sitio_web. Quitó: subdominio. (D-026)
 
-### P-030 · plataforma / usuarios_empresa · ALTA · ABIERTA
+### P-030 · plataforma / usuarios_empresa · ALTA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2. Campos propuestos: nombre, correo (login), telefono, foto, rol (dueño/gerente/vendedor), puesto (sale en la firma del PDF).
 **Pregunta:** ¿Cuáles campos de `usuarios_empresa` se quedan?
 **Recomendación:** todos.
 **Impacto en datos:** estructura de `usuarios_empresa`.
+**Respuesta:** se quedan nombre, correo, telefono, foto, rol, puesto. Agregó: "Fecha de Alta", "Nombre Completo", "Leyenda donde podamos poner sus datos de contacto y se jalen". Marcó "Something else" sin texto (ignorado). (D-027)
+
+### P-031 · plataforma / invitaciones · MEDIA · ABIERTA
+**Contexto:** FASE 1 Paso 2. Campos propuestos: correo, nombre_completo, rol, marcas (si vendedores_por_marca), mensaje. Automáticos: estado, vence_el, invitado_por.
+**Pregunta:** ¿Cuáles campos de `invitaciones` se quedan?
+**Recomendación:** todos.
+**Impacto en datos:** estructura de `invitaciones`.
 **Respuesta:**
