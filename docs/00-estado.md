@@ -4,10 +4,10 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Cierre de módulo Plataforma (contradicciones → propuestas → %)
-- **Módulo en curso:** Plataforma — propuesta lista, NO aprobada (prueba del flujo)
-- **Última pregunta:** cierre Plataforma — Q-01 (¿precios con IVA?) — ABIERTA
-- **Siguiente paso exacto:** resolver X-01; marcar propuestas por grupos (§12); preguntar ❓ uno por uno; si ≥ 90% pedir APROBADO, si no, mostrar lo que falta y no pasar a otro módulo.
+- **Fase:** FASE 1 — Cierre de módulo Plataforma terminado (100%)
+- **Módulo en curso:** Plataforma — listo para APROBADO (sin generar SQL: prueba del flujo)
+- **Última pregunta:** ¿APROBADO plataforma? — ABIERTA
+- **Siguiente paso exacto:** con APROBADO: registrar D-XXX y pasar a FASE 1 del módulo Catálogo (atributos, atributo_opciones, productos). No generar SQL (el dueño indicó que es prueba del flujo).
 
 ## Decisiones recientes (últimas 10)
 - [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
@@ -51,7 +51,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 2 · propuesta | 91% | P-032 + 8 ❓ |
+| Plataforma | diseño | 2 · propuesta | 100% | P-032 + 8 ❓ |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |

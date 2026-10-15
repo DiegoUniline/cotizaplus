@@ -150,3 +150,8 @@
 **Decisión:** se confirman límites y funciones por plan (Básico 1 usuario/30 cotizaciones; Pro 5/300; Empresa ilimitado; recordatorios desde Pro; aprobación de descuentos solo Empresa), prueba de 14 días con funciones de Pro sin tarjeta y 5 días de gracia. ✅ Confirma los 💡 de D-005, D-006 y D-007.
 **Origen:** cierre de módulo Plataforma, grupo 2
 **Consecuencias:** valores de `planes` y `suscripciones` confirmados.
+
+### D-031 · plataforma · 2026-10-15
+**Decisión:** ✅ precios de planes con IVA incluido; al dar de baja a un usuario el dueño elige a quién pasan sus clientes y cotizaciones (si no, al dueño); 3 plantillas de PDF iniciales (clásica, moderna, minimalista); un segundo pago del mismo periodo extiende un periodo más; empresa cancelada: solo lectura 30 días para exportar y luego se borran sus datos; al activar clientes por marca, los existentes pasan a la marca principal y el dueño puede moverlos.
+**Origen:** cierre de módulo Plataforma (Q-01..Q-03, QS-03, QS-09, QS-12)
+**Consecuencias:** `planes.precio_mensual` con IVA; RPC de baja de usuario con reasignación; seed de 3 plantillas; job de borrado a 30 días tras cancelación (requiere aviso en términos de servicio).

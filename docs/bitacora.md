@@ -25,3 +25,4 @@
 - 2026-10-15 · arquitecto · cierre grupo 2 aprobado completo: R-09..R-16, E-01..E-07 · D-030 · cierre plataforma 54%
 - 2026-10-15 · arquitecto · cierre grupo 3 aprobado completo: PR-01..PR-09, PE-01..PE-05 · cierre plataforma 75%
 - 2026-10-15 · arquitecto · cierre grupo 4 casos borde aprobado completo · cierre plataforma 91%
+- 2026-10-15 · arquitecto · pendientes Q-01..Q-03, QS-03, QS-09, QS-12 confirmados · D-031 · cierre plataforma 100%

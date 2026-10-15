@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 91% (✅ 59 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 100% (✅ 65 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -253,16 +253,11 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 | 1 | ~~Subdominio~~ resuelto: sin subdominio (D-029) | — | — | — |
 
 ## 11. Preguntas abiertas
-- P-031 invitaciones: no contestada; campos 💡.
-- ¿Precios incluyen IVA? ¿Se factura la renta?
-- Qué pasa con datos de una empresa que cancela (§7 #9).
-- Doble pago en el mismo periodo (§7 #3).
-- Activar clientes_por_marca con clientes existentes (§7 #12).
-- A quién se reasignan clientes y cotizaciones de un usuario dado de baja.
-- Plantillas PDF iniciales.
+- Resueltas en el cierre (§12, D-029 a D-031).
+- Fuera del módulo: ¿se factura (CFDI) la renta de Cotizaplus? ❓
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **91%** (✅ 59 / 65). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **100%** (✅ 65 / 65). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -316,18 +311,18 @@ Confirmado por el dueño: **91%** (✅ 59 / 65). Mínimo para APROBADO: 90%.
 | PE-06 | Permisos | Vendedor solo ve sus marcas cuando la empresa lo activa | ✅ |
 | QS-01 | Casos borde | Cobro de Stripe duplicado: se registra una vez | ✅ |
 | QS-02 | Casos borde | Avisos de Stripe fuera de orden: se verifica en Stripe antes de cambiar | ✅ |
-| QS-03 | Casos borde | Pago doble del mismo periodo (transferencia + tarjeta) | ❓ |
+| QS-03 | Casos borde | Pago doble del mismo periodo: extiende un periodo (D-031) | ✅ |
 | QS-04 | Casos borde | Bajar de Pro a Básico con 5 usuarios: no se permite hasta dejar 1 | ✅ |
 | QS-05 | Casos borde | Siempre al menos un dueño activo | ✅ |
 | QS-06 | Casos borde | Invitar un correo de otra empresa: rechazado | ✅ |
 | QS-07 | Casos borde | Invitación vencida: no entra, se reenvía | ✅ |
 | QS-08 | Casos borde | Fin de prueba sin pago: solo lectura | ✅ |
-| QS-09 | Casos borde | Qué pasa con los datos cuando una empresa cancela | ❓ |
+| QS-09 | Casos borde | Empresa cancela: solo lectura 30 días y luego borrado (D-031) | ✅ |
 | QS-10 | Casos borde | Marca desactivada con cotizaciones abiertas: siguen; no aparece en nuevas | ✅ |
 | QS-11 | Casos borde | Cambio de prefijo de folio: consecutivo no se reinicia | ✅ |
-| QS-12 | Casos borde | Activar clientes por marca con clientes existentes | ❓ |
+| QS-12 | Casos borde | Activar clientes por marca: existentes a la marca principal (D-031) | ✅ |
 | QS-13 | Casos borde | Dos aceptan la misma invitación a la vez: solo una gana | ✅ |
 | QS-14 | Casos borde | Límite de usuarios alcanzado: no deja invitar, ofrece subir de plan | ✅ |
-| Q-01 | Pendientes | ¿Los precios de los planes incluyen IVA? | ❓ |
-| Q-02 | Pendientes | A quién se reasignan clientes y cotizaciones de un usuario dado de baja | ❓ |
-| Q-03 | Pendientes | Plantillas de PDF iniciales | ❓ |
+| Q-01 | Pendientes | Precios de planes con IVA incluido (D-031) | ✅ |
+| Q-02 | Pendientes | Baja de usuario: el dueño elige a quién reasignar; si no, al dueño (D-031) | ✅ |
+| Q-03 | Pendientes | 3 plantillas PDF: clásica, moderna, minimalista (D-031) | ✅ |
