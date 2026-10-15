@@ -115,3 +115,8 @@
 **Decisión:** cada empresa configura si sus vendedores cotizan con todas las marcas o solo con las asignadas. ✅
 **Origen:** P-021
 **Consecuencias:** ajuste `vendedores_por_marca` en empresas; tabla `usuario_marcas` (N:M) usada solo si está activo; RLS filtra por marca cuando aplica.
+
+### D-024 · relaciones · 2026-10-15
+**Decisión:** 💡 PROPUESTO (el dueño pidió suponer y avanzar, P-022): folio por marca; contacto de un solo cliente; cotización a un contacto principal con copias opcionales; editar una enviada crea versión nueva; cerradas no se editan; una cotización = un pedido; un vendedor por cliente; motivos de rechazo configurables con seed.
+**Origen:** P-022 a P-028 (no confirmadas)
+**Consecuencias:** folios con llave (empresa, marca, tipo); prefijo de folio en `marcas`; `cotizaciones` con `version` y `cotizacion_origen_id`; `envios` con destinatarios en copia; `pedidos.cotizacion_id` único. Todo revisable al aprobar el módulo.

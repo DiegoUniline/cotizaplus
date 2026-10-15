@@ -114,7 +114,7 @@
 **Pregunta:** ¿Agrego, quito o cambio algún campo? (o "OK")
 **Recomendación:** OK — cubre lo decidido en D-017 y lo que sale en el PDF.
 **Impacto en datos:** estructura de `empresas`.
-**Respuesta:** EN PAUSA — el dueño pidió primero diagrama ER y preguntas de relaciones (Paso 1b/1c).
+**Respuesta:** EN PAUSA — el dueño pidió primero diagrama ER y preguntas de relaciones (Paso 1b/1c). Reanudada con lista ajustada: datos de imagen, fiscales y folio pasan a `marcas` (D-022, D-024).
 
 ### P-020 · plataforma / usuarios · ALTA · RESPONDIDA
 **Contexto:** usuarios_empresa une un login con una empresa; define si el login es por empresa o compartido.
@@ -134,10 +134,19 @@
 **Impacto en datos:** tabla usuario_marcas (N:M) y RLS por marca.
 **Respuesta:** C) Lo decide cada empresa. (D-023)
 
-### P-022 · plataforma / folios · ALTA · ABIERTA
+### P-022 · plataforma / folios · ALTA · RESPONDIDA
 **Contexto:** Con varias marcas (D-022) hay que definir cómo se numeran las cotizaciones.
 **Pregunta:** ¿El folio de las cotizaciones es por marca o uno solo para toda la empresa?
 **Opciones:** A) Por marca (ACME-00001, BETA-00001)  B) Uno solo por empresa  C) Lo decide cada empresa
 **Recomendación:** A — si cada marca se presenta como un negocio distinto, sus folios no deben brincar números de la otra.
 **Impacto en datos:** folios con llave (empresa, marca, tipo) o (empresa, tipo); prefijo en marcas o en empresas.
-**Respuesta:** <!--resp P-022-->
+**Respuesta:** El dueño: "ya supón que tienes todos los datos, pasa al siguiente punto; estamos probando, no hacemos realmente una app" → se aplica la recomendación como 💡 PROPUESTO: folio por marca. (D-024)
+
+### P-023 a P-028 · relaciones · Paso 1c · NO SE PREGUNTARON
+**Contexto:** el dueño pidió saltar al siguiente punto ("supón que tienes todos los datos"). Se aplican las recomendaciones como 💡 PROPUESTO (D-024), sin confirmar:
+- P-023 · ¿Un contacto puede pertenecer a dos clientes? → 💡 No, cada contacto es de un cliente.
+- P-024 · ¿A quién le llega la cotización? → 💡 A un contacto principal, con copia opcional a otros contactos del cliente.
+- P-025 · ¿Editar una cotización enviada? → 💡 Crea una versión nueva (v2) y la anterior queda guardada; aceptada/rechazada/vencida no se editan (se duplica).
+- P-026 · ¿Cotización ↔ pedido? → 💡 Una cotización aceptada genera un solo pedido.
+- P-027 · ¿Vendedores por cliente? → 💡 Uno solo; dueño o gerente lo reasignan.
+- P-028 · ¿Motivos de rechazo? → 💡 Lista configurable por empresa con valores iniciales (precio, tiempo de entrega, eligió a la competencia, otro).

@@ -16,7 +16,7 @@ erDiagram
     usuarios_empresa ||--o{ usuario_marcas : "asignado a"
     marcas ||--o{ usuario_marcas : "atendida por"
     %% usuario_marcas aplica solo si la empresa activa vendedores por marca (D-023)
-    %% ❓ ¿qué datos son de la marca y cuáles de la empresa? ¿folios por marca?
+    marcas ||--o{ folios : "numera (💡 D-024)"
     empresas ||--o{ invitaciones : "envía"
     plantillas_pdf |o--o{ empresas : "por defecto de"
     empresas ||--o{ folios : "lleva consecutivos en"
@@ -25,26 +25,22 @@ erDiagram
     empresas ||--o{ atributos : "define"
     atributos ||--o{ atributo_opciones : "tiene opciones"
     empresas ||--o{ productos : "vende"
-    %% ❓ valores de atributos del producto: ¿tabla aparte o dentro del producto?
 
     %% ===== Clientes =====
     empresas ||--o{ clientes : "atiende a"
     marcas |o--o{ clientes : "dueña del cliente (si la empresa separa por marca)"
     usuarios_empresa |o--o{ clientes : "vendedor asignado de"
-    %% ❓ ¿un cliente puede tener más de un vendedor?
     clientes ||--o{ contactos_cliente : "tiene"
-    %% ❓ ¿un contacto puede pertenecer a dos clientes?
 
     %% ===== Cotizaciones =====
     clientes ||--o{ cotizaciones : "recibe"
     marcas ||--o{ cotizaciones : "sale con la marca"
     contactos_cliente |o--o{ cotizaciones : "dirigida a"
-    %% ❓ ¿a un contacto, a uno con copia, o a varios?
     usuarios_empresa ||--o{ cotizaciones : "elabora"
     plantillas_pdf ||--o{ cotizaciones : "se imprime con"
+    cotizaciones |o--o{ cotizaciones : "versión anterior de (💡)"
     cotizaciones ||--o{ cotizacion_partidas : "contiene"
     productos |o--o{ cotizacion_partidas : "se copia en"
-    %% ❓ ¿editar una enviada crea versión nueva (v2) o sobrescribe?
 
     %% ===== Envío y respuesta del cliente =====
     cotizaciones ||--o{ envios : "se envía en"
@@ -57,7 +53,6 @@ erDiagram
     cotizaciones ||--o{ seguimientos : "tiene bitácora"
     usuarios_empresa ||--o{ seguimientos : "registra"
     empresas ||--o{ motivos_rechazo : "configura"
-    %% ❓ motivos de rechazo fijos o configurables por empresa
 
     %% ===== Importación y super-admin =====
     empresas ||--o{ importaciones : "importa"
@@ -67,8 +62,7 @@ erDiagram
     avisos_plataforma }o--o{ empresas : "se muestra a todas"
 
     %% ===== Fase 2 =====
-    cotizaciones ||--o{ pedidos : "genera"
-    %% ❓ ¿una cotización = un pedido, o varios?
+    cotizaciones ||--o| pedidos : "genera (💡 1:1)"
     pedidos ||--o{ pedido_partidas : "contiene"
     cotizacion_partidas |o--o{ pedido_partidas : "se copia en"
     empresas ||--|| recordatorios_config : "configura"
@@ -86,10 +80,10 @@ erDiagram
 | auth_users ↔ empresas | ¿Un usuario en varias empresas? | ✅ No (D-021) |
 | empresas ↔ marcas | ¿Varias marcas por empresa? | ✅ Sí (D-022) |
 | marcas ↔ vendedores | ¿Un vendedor cotiza para todas las marcas o solo las asignadas? | ✅ Lo decide cada empresa (D-023) |
-| marcas ↔ folios | ¿Folio por marca o uno por empresa? | ❓ |
-| contactos_cliente ↔ clientes | ¿Un contacto en dos clientes? | ❓ |
-| cotizaciones ↔ contactos_cliente | ¿A quién le llega la cotización? | ❓ |
-| cotizaciones (versiones) | ¿Editar una enviada crea v2 o sobrescribe? | ❓ |
-| cotizaciones ↔ pedidos | ¿Una cotización = un pedido? | ❓ |
-| clientes ↔ vendedor | ¿Uno o varios vendedores por cliente? | ❓ |
-| motivos_rechazo | ¿Fijos o configurables? | ❓ |
+| marcas ↔ folios | ¿Folio por marca o uno por empresa? | 💡 Por marca (D-024) |
+| contactos_cliente ↔ clientes | ¿Un contacto en dos clientes? | 💡 No (D-024) |
+| cotizaciones ↔ contactos_cliente | ¿A quién le llega la cotización? | 💡 Contacto principal + copias (D-024) |
+| cotizaciones (versiones) | ¿Editar una enviada crea v2 o sobrescribe? | 💡 Versión nueva (D-024) |
+| cotizaciones ↔ pedidos | ¿Una cotización = un pedido? | 💡 Sí, 1:1 (D-024) |
+| clientes ↔ vendedor | ¿Uno o varios vendedores por cliente? | 💡 Uno (D-024) |
+| motivos_rechazo | ¿Fijos o configurables? | 💡 Configurables con seed (D-024) |

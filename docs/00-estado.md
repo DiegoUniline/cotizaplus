@@ -4,13 +4,12 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Paso 1c (preguntas de relaciones y reglas). Paso 1b ✅ diagrama-er.md
-- **Módulo en curso:** relaciones de todo el mapa; después Plataforma · tabla `empresas`
-- **Última pregunta:** P-022 (¿folio por marca o por empresa?) — ABIERTA · P-019 (campos de empresas) EN PAUSA por pedido del dueño
-- **Siguiente paso exacto:** terminar Paso 1c (P-021 en adelante, una por mensaje con clic); luego retomar P-019 marcando campos de `empresas` con selección múltiple; luego Paso 3 (comportamiento de campos de `empresas` que lo requieran, uno por mensaje), Paso 4 procesos, Paso 5 resumen y siguiente tabla (`usuarios_empresa`).
+- **Fase:** FASE 1 — Paso 2 (campos por tabla). Paso 1b ✅ · Paso 1c cerrado con 💡 (D-024)
+- **Módulo en curso:** Plataforma · tabla `empresas` (P-019 reanudada, campos ajustados por marcas)
+- **Última pregunta:** P-019 (marcar campos de `empresas` que se quedan) — ABIERTA
+- **Siguiente paso exacto:** registrar P-019; luego campos de `marcas` (logo, colores, datos fiscales, prefijo de folio, plantilla).
 
 ## Decisiones recientes (últimas 10)
-- [D-014](decisiones.md) · reportes · seis reportes + Excel
 - [D-015](decisiones.md) · super-admin · panel de plataforma
 - [D-016](decisiones.md) · integraciones · importar Excel y pedidos
 - [D-017](decisiones.md) · plataforma · plantillas, subdominio, correo noreply con Gmail API
@@ -20,8 +19,11 @@
 - [D-021](decisiones.md) · usuarios · un correo = una empresa
 - [D-022](decisiones.md) · marcas · varias marcas por empresa; clientes compartidos o separados (lo decide la empresa)
 - [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
+- [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
 
 ## Propuestas pendientes de aprobación 💡
+- Relaciones del Paso 1c no confirmadas (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables.
+- Nota del dueño: "estamos probando, no hacemos realmente una app" — sesión de prueba del proceso.
 - Campos de `empresas` — P-019.
 - Límites por plan: Básico 1 usuario / 30 cotizaciones; Pro 5 / 300; Empresa ilimitado (D-006).
 - Prueba de 14 días, funciones de Pro, sin tarjeta (D-007).
