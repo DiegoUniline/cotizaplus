@@ -230,3 +230,8 @@
 **Decisión:** los días de anticipación del aviso son configurables por empresa; por defecto 3. ✅
 **Origen:** OT-001, pregunta de programador 3
 **Consecuencias:** cambio a módulo aprobado (Plataforma): nuevo campo `empresas.dias_aviso_vencimiento int not null default 3` (aditivo). Se confirma con el OK de la OT-001.
+
+### D-047 · seguimiento / OT-001 · 2026-10-15
+**Decisión:** el aviso se repite en cada resumen diario desde N días antes hasta el día de vencimiento; deja de salir si la cotización se acepta, rechaza o vence. ✅
+**Origen:** OT-001, pregunta de programador 4
+**Consecuencias:** no se registra en la bitácora de la cotización cada día (evita ruido); se calcula al armar el resumen.

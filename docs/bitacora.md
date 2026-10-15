@@ -54,3 +54,4 @@
 - 2026-10-15 · desarrollador · OT-001 'aviso de vencimiento' (simulación) · canal: resumen diario · D-044
 - 2026-10-15 · desarrollador · OT-001: a quién → vendedor y gerente · D-045
 - 2026-10-15 · desarrollador · OT-001: cuándo → configurable, 3 días por defecto · D-046 (agrega campo a empresas)
+- 2026-10-15 · desarrollador · OT-001: repetir cada día hasta vencer · D-047
