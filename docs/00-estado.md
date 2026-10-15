@@ -6,7 +6,7 @@
 ## Dónde vamos
 - **Fase:** FASE 1 — Cierre de módulo Plataforma (contradicciones → propuestas → %)
 - **Módulo en curso:** Plataforma — propuesta lista, NO aprobada (prueba del flujo)
-- **Última pregunta:** X-01 (contradicción subdominio) — ABIERTA
+- **Última pregunta:** cierre Plataforma — marcar propuestas grupo 1 (tablas y reglas) — ABIERTA
 - **Siguiente paso exacto:** resolver X-01; marcar propuestas por grupos (§12); preguntar ❓ uno por uno; si ≥ 90% pedir APROBADO, si no, mostrar lo que falta y no pasar a otro módulo.
 
 ## Decisiones recientes (últimas 10)
@@ -33,7 +33,6 @@
 - Plan anual con descuento para reducir comisión de Stripe (~8% en $69).
 
 ## Pendientes / bloqueos ❓
-- ⚠️ Subdominio: el dueño lo quitó de empresas (P-019) y de marcas (P-029), pero D-017 lo pide. Confirmar si sale de la Fase 2.
 - Precio de los paquetes de WhatsApp (D-013).
 - ¿Los precios de planes incluyen IVA? ¿Se factura la renta?
 - Opciones A/B en una cotización y retenciones (D-009).
@@ -52,7 +51,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 2 · propuesta | 8% | P-032 + 8 ❓ |
+| Plataforma | diseño | 2 · propuesta | 9% | P-032 + 8 ❓ |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |

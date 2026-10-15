@@ -140,3 +140,8 @@
 **Decisión:** el dueño pidió terminar el Paso 2 y avanzar: `invitaciones`, `usuario_marcas`, `planes`, `suscripciones` y `pagos` quedan con campos 💡 PROPUESTOS; se pasa a FASE 2 con la propuesta completa del módulo. ✅ (avanzar) / 💡 (contenido)
 **Origen:** P-031
 **Consecuencias:** modulos/plataforma.md completo con estados, procesos, casos borde, permisos, escalabilidad y criterios de aceptación. Espera `APROBADO plataforma`.
+
+### D-029 · plataforma · 2026-10-15
+**Decisión:** sin subdominio. Todos entran a cotizaplus.com; la liga del cliente es cotizaplus.com/c/<código> con el logo de la marca. ✅ Reemplaza la parte de subdominio de D-017.
+**Origen:** cierre de módulo X-01 (contradicción D-017 vs P-019/P-029)
+**Consecuencias:** se quita "Subdominio propio por empresa" de la Fase 2; sin campo subdominio.

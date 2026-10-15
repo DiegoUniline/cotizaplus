@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 8% (✅ 5 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 9% (✅ 6 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -250,7 +250,7 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 ## 10. Inconsistencias ⚠️
 | # | Descripción | Dónde | Impacto | Severidad |
 |---|---|---|---|---|
-| 1 | Se quitó `subdominio` de empresas (P-019) y de marcas (P-029), pero D-017 decidió subdominio propio | P-019, P-029 vs D-017 | ¿se elimina el subdominio de la Fase 2? | baja |
+| 1 | ~~Subdominio~~ resuelto: sin subdominio (D-029) | — | — | — |
 
 ## 11. Preguntas abiertas
 - P-031 invitaciones: no contestada; campos 💡.
@@ -259,15 +259,14 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 - Doble pago en el mismo periodo (§7 #3).
 - Activar clientes_por_marca con clientes existentes (§7 #12).
 - A quién se reasignan clientes y cotizaciones de un usuario dado de baja.
-- Confirmar si el subdominio (D-017) se elimina.
 - Plantillas PDF iniciales.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **8%** (✅ 5 / 65). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **9%** (✅ 6 / 65). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
-| X-01 | Contradicción | Subdominio: D-017 lo pide; se quitó de empresas (P-019) y marcas (P-029) | ⚠️ |
+| X-01 | Contradicción | Subdominio: sin subdominio (D-029) | ✅ |
 | C-01 | Campos | empresas: 10 campos | ✅ |
 | C-02 | Campos | marcas: 11 campos | ✅ |
 | C-03 | Campos | usuarios_empresa: 9 campos | ✅ |

@@ -64,7 +64,7 @@ Hacer cotizaciones profesionales rápido, saber si el cliente las vio y no perde
 - Firma del cliente al aceptar
 - Pedidos con folio propio
 - Seis reportes con exportación a Excel
-- Subdominio propio por empresa
+- ~~Subdominio propio por empresa~~ → eliminado (D-029)
 - Aprobación de descuentos (plan Empresa)
 
 ### Fuera de alcance

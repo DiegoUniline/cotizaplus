@@ -180,3 +180,9 @@
 **Recomendación:** B si alguno de los 💡 de §5–§7 no te convence; los ❓ pueden quedar abiertos y no bloquean el SQL.
 **Impacto en datos:** con APROBADO se genera la migración SQL (FASE 3).
 **Respuesta:** "No crees nada, recuerda que no haremos la app, estamos probando el flujo." → sin APROBADO; no se genera SQL ni rama.
+
+### P-033 · plataforma · cierre X-01 · RESPONDIDA
+**Pregunta:** Antes "subdominio propio" (D-017), luego lo quitaste de empresas y marcas. ¿Cuál queda?
+**Opciones:** A) Sin subdominio  B) Por empresa  C) Por marca
+**Recomendación:** A
+**Respuesta:** A) Sin subdominio. (D-029)
