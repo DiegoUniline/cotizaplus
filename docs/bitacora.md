@@ -37,3 +37,4 @@
 - 2026-10-15 · arquitecto · cierre Catálogo grupo 1: 12 aprobados; desmarcados R-09, PR-01, PR-03, PE-02 → se repreguntan · cierre catálogo 54%
 - 2026-10-15 · arquitecto · reglas actualizadas (selección negativa '¿cuáles quitas?') · error detectado: 'no marcado' se tomó como 'quitar' en P-034/P-036 · D-036 · se repregunta
 - 2026-10-15 · arquitecto · repregunta negativa: atributos sin orden ni editable; productos con sku y descripción · D-037 · aprobados PR-01, PR-03, PE-02, QS-01..05 · cierre catálogo 82%
+- 2026-10-15 · arquitecto · R-09: orden alfabético · cierre catálogo 86%

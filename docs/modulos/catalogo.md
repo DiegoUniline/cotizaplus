@@ -1,5 +1,5 @@
 # Módulo: Catálogo
-Conocimiento: 82% (✅ 23 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
+Conocimiento: 86% (✅ 24 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
 
 ## 1. Propósito
 Atributos que define cada empresa y su catálogo de productos con imagen, precio, unidad y tipo de cobro. ✅ (D-009, D-010)
@@ -47,7 +47,7 @@ Lleva `atributo_id uuid not null references atributos(id)`.
 P-036.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **82%** (✅ 23 / 28). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **86%** (✅ 24 / 28). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -63,7 +63,7 @@ Confirmado por el dueño: **82%** (✅ 23 / 28). Mínimo para APROBADO: 90%.
 | R-06 | Reglas de campos | Precio ≥ 0 con 2 decimales | ✅ |
 | R-07 | Reglas de campos | Imagen png/jpg de hasta 2 MB | ✅ |
 | R-08 | Reglas de campos | Atributo obligatorio: la partida no se guarda sin ese valor | ✅ |
-| R-09 | Reglas de campos | Sin campo orden: ¿alfabético u orden de creación? (orden quitado, D-037) | 💡 |
+| R-09 | Reglas de campos | Atributos en orden alfabético | ✅ |
 | PR-01 | Procesos | Al cotizar se copian nombre, precio, unidad, imagen, tipo de cobro y atributos a la partida (congelados) | ✅ |
 | PR-02 | Procesos | Cambiar el precio de un producto no afecta cotizaciones ya hechas | ✅ |
 | PR-03 | Procesos | Producto desactivado: no aparece en cotizaciones nuevas; las existentes no cambian | ✅ |

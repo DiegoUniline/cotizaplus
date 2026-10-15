@@ -6,7 +6,7 @@
 ## Dónde vamos
 - **Fase:** FASE 1 — Cierre de módulo Catálogo (propuestas para marcar + ❓)
 - **Módulo en curso:** Catálogo (atributos D-033, atributo_opciones D-034, productos D-035 ✅)
-- **Última pregunta:** cierre Catálogo — R-09 (orden de atributos) — ABIERTA
+- **Última pregunta:** cierre Catálogo — Q-01 (¿precio de producto con IVA?) — ABIERTA
 - **Siguiente paso exacto:** marcar propuestas (§12 de modulos/catalogo.md); resolver ❓ uno por uno; si ≥ 90% pedir APROBADO catálogo (sin SQL); luego módulo Clientes.
 
 ## Decisiones recientes (últimas 10)
