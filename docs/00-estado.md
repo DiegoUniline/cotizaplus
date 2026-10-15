@@ -4,10 +4,10 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Cierre de módulo Catálogo (propuestas para marcar + ❓)
-- **Módulo en curso:** Catálogo (atributos D-033, atributo_opciones D-034, productos D-035 ✅)
-- **Última pregunta:** cierre Catálogo — Q-04 (importar Excel con producto existente) — ABIERTA
-- **Siguiente paso exacto:** marcar propuestas (§12 de modulos/catalogo.md); resolver ❓ uno por uno; si ≥ 90% pedir APROBADO catálogo (sin SQL); luego módulo Clientes.
+- **Fase:** FASE 1 — Cierre de módulo Catálogo terminado (100%)
+- **Módulo en curso:** Catálogo — listo para APROBADO (sin SQL: prueba del flujo)
+- **Última pregunta:** ¿APROBADO catálogo? — ABIERTA
+- **Siguiente paso exacto:** con APROBADO: registrar D-XXX y pasar a FASE 1 del módulo Clientes (clientes, contactos_cliente). Sin SQL.
 
 ## Decisiones recientes (últimas 10)
 - [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio

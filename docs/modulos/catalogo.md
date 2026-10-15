@@ -1,5 +1,5 @@
 # Módulo: Catálogo
-Conocimiento: 96% (✅ 27 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
+Conocimiento: 100% (✅ 28 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
 
 ## 1. Propósito
 Atributos que define cada empresa y su catálogo de productos con imagen, precio, unidad y tipo de cobro. ✅ (D-009, D-010)
@@ -54,7 +54,7 @@ Si un producto no tiene filas aquí, se puede usar en todas las marcas.
 P-036.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **96%** (✅ 27 / 28). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **100%** (✅ 28 / 28). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -85,4 +85,4 @@ Confirmado por el dueño: **96%** (✅ 27 / 28). Mínimo para APROBADO: 90%.
 | Q-01 | Pendientes | Precio del producto sin IVA; la cotización suma el IVA | ✅ |
 | Q-02 | Pendientes | Catálogo compartido; producto limitable a marcas (producto_marcas, D-038) | ✅ |
 | Q-03 | Pendientes | El vendedor puede cambiar precio y atributos en la partida; el catálogo no cambia | ✅ |
-| Q-04 | Pendientes | Importar Excel: si el producto ya existe (mismo nombre), ¿actualizar o saltar? | ❓ |
+| Q-04 | Pendientes | Importar Excel: si existe (SKU, si no nombre) se actualiza (D-039) | ✅ |

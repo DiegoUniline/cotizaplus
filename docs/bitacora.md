@@ -41,3 +41,4 @@
 - 2026-10-15 · arquitecto · Q-01: precio de producto sin IVA · cierre catálogo 89%
 - 2026-10-15 · arquitecto · Q-02: catálogo compartido, marca opcional · D-038 · mapa y diagrama +producto_marcas · cierre catálogo 93%
 - 2026-10-15 · arquitecto · Q-03: vendedor cambia precio y atributos en la partida · cierre catálogo 96%
+- 2026-10-15 · arquitecto · Q-04: importar actualiza · D-039 · cierre Catálogo 100% · cierre catálogo 100%

@@ -190,3 +190,8 @@
 **Decisión:** catálogo compartido entre marcas; cada producto puede limitarse a ciertas marcas (opcional). ✅
 **Origen:** cierre Catálogo Q-02
 **Consecuencias:** nueva tabla `producto_marcas` (N:M); sin filas = todas las marcas. Mapa y diagrama actualizados.
+
+### D-039 · catálogo · 2026-10-15
+**Decisión:** ✅ atributos en orden alfabético; precio de producto sin IVA (la cotización lo suma); el vendedor puede cambiar precio y atributos en la partida sin tocar el catálogo; importar Excel actualiza el producto existente (empareja por SKU, si no hay por nombre).
+**Origen:** cierre Catálogo R-09, Q-01, Q-03, Q-04
+**Consecuencias:** la partida guarda precio y atributos propios (congelados, PR-01); importación con upsert por (empresa_id, sku) o (empresa_id, nombre).
