@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 54% (✅ 35 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 75% (✅ 49 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -262,7 +262,7 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 - Plantillas PDF iniciales.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **54%** (✅ 35 / 65). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **75%** (✅ 49 / 65). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -299,20 +299,20 @@ Confirmado por el dueño: **54%** (✅ 35 / 65). Mínimo para APROBADO: 90%.
 | E-05 | Estados | Pago por transferencia: por validar → aprobado / rechazado (motivo obligatorio) | ✅ |
 | E-06 | Estados | Pago fallido activa la gracia; reembolso lo hace el super-admin | ✅ |
 | E-07 | Estados | Invitación: pendiente → aceptada / cancelada / vencida | ✅ |
-| PR-01 | Procesos | Registro crea empresa + primera marca + dueño + suscripción en prueba, todo o nada | 💡 |
-| PR-02 | Procesos | Invitar valida el límite del plan y que el correo no sea de otra empresa | 💡 |
-| PR-03 | Procesos | Dueño y gerente editan datos de empresa y marcas | 💡 |
-| PR-04 | Procesos | Usuarios y marcas: baja lógica; empresas no se borran, se cancelan | 💡 |
-| PR-05 | Procesos | Reactivar usuario o marca solo si cabe en el plan | 💡 |
-| PR-06 | Procesos | Stripe: cada cobro se registra una sola vez y activa/extiende el periodo | 💡 |
-| PR-07 | Procesos | Transferencia: el dueño sube comprobante y el super-admin aprueba o rechaza | 💡 |
-| PR-08 | Procesos | Subir de plan inmediato (prorrateo); bajar al fin del periodo si caben los usuarios | 💡 |
-| PR-09 | Procesos | Revisión diaria: vence pruebas, periodos, gracia e invitaciones | 💡 |
-| PE-01 | Permisos | Ver y editar empresa y marcas: dueño y gerente | 💡 |
-| PE-02 | Permisos | Invitar y desactivar usuarios: solo dueño | 💡 |
-| PE-03 | Permisos | Plan, pagos y comprobantes: solo dueño | 💡 |
-| PE-04 | Permisos | Cambiar de plan o cancelar: solo dueño | 💡 |
-| PE-05 | Permisos | Validar pagos, suspender y editar planes: super-admin | 💡 |
+| PR-01 | Procesos | Registro crea empresa + primera marca + dueño + suscripción en prueba, todo o nada | ✅ |
+| PR-02 | Procesos | Invitar valida el límite del plan y que el correo no sea de otra empresa | ✅ |
+| PR-03 | Procesos | Dueño y gerente editan datos de empresa y marcas | ✅ |
+| PR-04 | Procesos | Usuarios y marcas: baja lógica; empresas no se borran, se cancelan | ✅ |
+| PR-05 | Procesos | Reactivar usuario o marca solo si cabe en el plan | ✅ |
+| PR-06 | Procesos | Stripe: cada cobro se registra una sola vez y activa/extiende el periodo | ✅ |
+| PR-07 | Procesos | Transferencia: el dueño sube comprobante y el super-admin aprueba o rechaza | ✅ |
+| PR-08 | Procesos | Subir de plan inmediato (prorrateo); bajar al fin del periodo si caben los usuarios | ✅ |
+| PR-09 | Procesos | Revisión diaria: vence pruebas, periodos, gracia e invitaciones | ✅ |
+| PE-01 | Permisos | Ver y editar empresa y marcas: dueño y gerente | ✅ |
+| PE-02 | Permisos | Invitar y desactivar usuarios: solo dueño | ✅ |
+| PE-03 | Permisos | Plan, pagos y comprobantes: solo dueño | ✅ |
+| PE-04 | Permisos | Cambiar de plan o cancelar: solo dueño | ✅ |
+| PE-05 | Permisos | Validar pagos, suspender y editar planes: super-admin | ✅ |
 | PE-06 | Permisos | Vendedor solo ve sus marcas cuando la empresa lo activa | ✅ |
 | QS-01 | Casos borde | Cobro de Stripe duplicado: se registra una vez | 💡 |
 | QS-02 | Casos borde | Avisos de Stripe fuera de orden: se verifica en Stripe antes de cambiar | 💡 |
