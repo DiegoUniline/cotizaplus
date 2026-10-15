@@ -52,3 +52,4 @@
 - 2026-10-15 · arquitecto · dueño pregunta qué sigue suponiendo todos los módulos listos · P-039 queda en pausa
 - 2026-10-15 · arquitecto · dueño elige simular una orden de trabajo (sin código)
 - 2026-10-15 · desarrollador · OT-001 'aviso de vencimiento' (simulación) · canal: resumen diario · D-044
+- 2026-10-15 · desarrollador · OT-001: a quién → vendedor y gerente · D-045

@@ -220,3 +220,8 @@
 **Decisión:** el aviso de "cotización por vencer" llega como sección del resumen diario por correo (D-012). ✅
 **Origen:** OT-001, pregunta de programador 1
 **Consecuencias:** sin canal nuevo ni costo de WhatsApp.
+
+### D-045 · seguimiento / OT-001 · 2026-10-15
+**Decisión:** el aviso de por vencer llega al vendedor (sus cotizaciones) y al gerente (las de todo el equipo). ✅
+**Origen:** OT-001, pregunta de programador 2
+**Consecuencias:** el resumen diario del gerente incluye la sección "por vencer" de todos los vendedores.
