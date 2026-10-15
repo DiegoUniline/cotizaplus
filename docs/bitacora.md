@@ -19,3 +19,4 @@
 - 2026-10-15 · arquitecto · P-030 respondida: 6 campos + fecha_alta, nombre_completo, leyenda_contacto · D-027 · P-031 abierta
 - 2026-10-15 · arquitecto · P-031: dueño pide terminar y avanzar · D-028 · FASE 2 plataforma generada · P-032 abierta
 - 2026-10-15 · arquitecto · P-032: dueño indica prueba del flujo, no crear SQL ni app · flujo detenido antes de FASE 3
+- 2026-10-15 · arquitecto · inicia cierre de módulo Plataforma; checklist §12 con 65 ítems · cierre plataforma 8%

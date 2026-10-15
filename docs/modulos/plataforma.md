@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 20% (✅ 24 / total 123 filas con certeza; las de "✅ / 💡" cuentan como no confirmadas) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 8% (✅ 5 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -261,3 +261,74 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 - A quién se reasignan clientes y cotizaciones de un usuario dado de baja.
 - Confirmar si el subdominio (D-017) se elimina.
 - Plantillas PDF iniciales.
+
+## 12. Cierre de módulo
+Confirmado por el dueño: **8%** (✅ 5 / 65). Mínimo para APROBADO: 90%.
+
+| ID | Grupo | Qué | Estado |
+|---|---|---|---|
+| X-01 | Contradicción | Subdominio: D-017 lo pide; se quitó de empresas (P-019) y marcas (P-029) | ⚠️ |
+| C-01 | Campos | empresas: 10 campos | ✅ |
+| C-02 | Campos | marcas: 11 campos | ✅ |
+| C-03 | Campos | usuarios_empresa: 9 campos | ✅ |
+| C-04 | Campos | usuario_marcas: vendedor ↔ marca (solo llaves) | 💡 |
+| C-05 | Campos | invitaciones: correo, nombre_completo, rol, marcas, mensaje, estado, vence_at, invitado_por | 💡 |
+| C-06 | Campos | planes: código, nombre, precio_mensual, max_usuarios, max_cotizaciones_mes, recordatorios, aprobación descuentos, stripe_price_id, público | 💡 |
+| C-07 | Campos | suscripciones: plan, estado, método, precio_acordado, prueba_hasta, periodo, gracia, ids de Stripe, cancelada_at | 💡 |
+| C-08 | Campos | pagos: método, monto, periodo, estado, comprobante, referencia, stripe_invoice_id, validado_por, motivo_rechazo | 💡 |
+| C-09 | Campos | Super-admin sin tabla: marca en el login de Supabase | 💡 |
+| R-01 | Reglas de campos | El nombre de una marca no se repite dentro de la empresa | 💡 |
+| R-02 | Reglas de campos | El prefijo de folio no se repite en la empresa; cambiarlo solo afecta folios nuevos | 💡 |
+| R-03 | Reglas de campos | Teléfonos de 10 dígitos | 💡 |
+| R-04 | Reglas de campos | RFC en mayúsculas con formato SAT | 💡 |
+| R-05 | Reglas de campos | Logo y foto: png/jpg/svg de hasta 2 MB | 💡 |
+| R-06 | Reglas de campos | Valores por defecto de empresa: MXN, IVA 16%, vigencia 15 días, zona CDMX, clientes y vendedores por marca = no | 💡 |
+| R-07 | Reglas de campos | nombre = nombre corto en la app; nombre_completo = firma del PDF | 💡 |
+| R-08 | Reglas de campos | fecha_alta editable; por defecto el día del alta | 💡 |
+| R-09 | Reglas de campos | leyenda_contacto se copia al PDF y la cotización guarda la copia al emitirse | 💡 |
+| R-10 | Reglas de campos | Rol por defecto al invitar: vendedor | 💡 |
+| R-11 | Reglas de campos | Una invitación vence en 7 días | 💡 |
+| R-12 | Reglas de campos | Límites: Básico 1 usuario/30 cotizaciones; Pro 5/300; Empresa ilimitado | 💡 |
+| R-13 | Reglas de campos | Recordatorios automáticos desde Pro; aprobación de descuentos solo en Empresa | 💡 |
+| R-14 | Reglas de campos | Prueba de 14 días con funciones de Pro, sin tarjeta | 💡 |
+| R-15 | Reglas de campos | 5 días de gracia si falla un cobro | 💡 |
+| R-16 | Reglas de campos | Plan Empresa requiere precio acordado | 💡 |
+| E-01 | Estados | Suscripción: prueba → activa / vencida / cancelada | 💡 |
+| E-02 | Estados | Vencida = todo en solo lectura | 💡 |
+| E-03 | Estados | Suspendida solo por super-admin; el dueño solo ve facturación | 💡 |
+| E-04 | Estados | Cancelada: acceso hasta el fin del periodo pagado | 💡 |
+| E-05 | Estados | Pago por transferencia: por validar → aprobado / rechazado (motivo obligatorio) | 💡 |
+| E-06 | Estados | Pago fallido activa la gracia; reembolso lo hace el super-admin | 💡 |
+| E-07 | Estados | Invitación: pendiente → aceptada / cancelada / vencida | 💡 |
+| PR-01 | Procesos | Registro crea empresa + primera marca + dueño + suscripción en prueba, todo o nada | 💡 |
+| PR-02 | Procesos | Invitar valida el límite del plan y que el correo no sea de otra empresa | 💡 |
+| PR-03 | Procesos | Dueño y gerente editan datos de empresa y marcas | 💡 |
+| PR-04 | Procesos | Usuarios y marcas: baja lógica; empresas no se borran, se cancelan | 💡 |
+| PR-05 | Procesos | Reactivar usuario o marca solo si cabe en el plan | 💡 |
+| PR-06 | Procesos | Stripe: cada cobro se registra una sola vez y activa/extiende el periodo | 💡 |
+| PR-07 | Procesos | Transferencia: el dueño sube comprobante y el super-admin aprueba o rechaza | 💡 |
+| PR-08 | Procesos | Subir de plan inmediato (prorrateo); bajar al fin del periodo si caben los usuarios | 💡 |
+| PR-09 | Procesos | Revisión diaria: vence pruebas, periodos, gracia e invitaciones | 💡 |
+| PE-01 | Permisos | Ver y editar empresa y marcas: dueño y gerente | 💡 |
+| PE-02 | Permisos | Invitar y desactivar usuarios: solo dueño | 💡 |
+| PE-03 | Permisos | Plan, pagos y comprobantes: solo dueño | 💡 |
+| PE-04 | Permisos | Cambiar de plan o cancelar: solo dueño | 💡 |
+| PE-05 | Permisos | Validar pagos, suspender y editar planes: super-admin | 💡 |
+| PE-06 | Permisos | Vendedor solo ve sus marcas cuando la empresa lo activa | ✅ |
+| QS-01 | Casos borde | Cobro de Stripe duplicado: se registra una vez | 💡 |
+| QS-02 | Casos borde | Avisos de Stripe fuera de orden: se verifica en Stripe antes de cambiar | 💡 |
+| QS-03 | Casos borde | Pago doble del mismo periodo (transferencia + tarjeta) | ❓ |
+| QS-04 | Casos borde | Bajar de Pro a Básico con 5 usuarios: no se permite hasta dejar 1 | 💡 |
+| QS-05 | Casos borde | Siempre al menos un dueño activo | 💡 |
+| QS-06 | Casos borde | Invitar un correo de otra empresa: rechazado | ✅ |
+| QS-07 | Casos borde | Invitación vencida: no entra, se reenvía | 💡 |
+| QS-08 | Casos borde | Fin de prueba sin pago: solo lectura | 💡 |
+| QS-09 | Casos borde | Qué pasa con los datos cuando una empresa cancela | ❓ |
+| QS-10 | Casos borde | Marca desactivada con cotizaciones abiertas: siguen; no aparece en nuevas | 💡 |
+| QS-11 | Casos borde | Cambio de prefijo de folio: consecutivo no se reinicia | 💡 |
+| QS-12 | Casos borde | Activar clientes por marca con clientes existentes | ❓ |
+| QS-13 | Casos borde | Dos aceptan la misma invitación a la vez: solo una gana | 💡 |
+| QS-14 | Casos borde | Límite de usuarios alcanzado: no deja invitar, ofrece subir de plan | 💡 |
+| Q-01 | Pendientes | ¿Los precios de los planes incluyen IVA? | ❓ |
+| Q-02 | Pendientes | A quién se reasignan clientes y cotizaciones de un usuario dado de baja | ❓ |
+| Q-03 | Pendientes | Plantillas de PDF iniciales | ❓ |
