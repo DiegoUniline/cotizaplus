@@ -6,7 +6,7 @@
 ## Dónde vamos
 - **Fase:** FASE 1 — módulo Cotizaciones, Paso 2 (campos por tabla)
 - **Módulo en curso:** Cotizaciones · tabla `cotizaciones` (Clientes ✅ APROBADO D-043, sin SQL)
-- **Última pregunta:** P-039 (¿qué campos de `cotizaciones` quitas?) — ABIERTA
+- **Última pregunta:** P-039 (campos de `cotizaciones`) — EN PAUSA: el dueño preguntó qué sigue suponiendo todos los módulos listos
 - **Siguiente paso exacto:** registrar P-039; luego `cotizacion_partidas`, `folios`, `plantillas_pdf`; cierre de módulo Cotizaciones (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
