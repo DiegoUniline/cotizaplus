@@ -126,10 +126,18 @@
 **Repregunta:** ¿varias empresas separadas con el mismo correo, una cuenta con varias marcas, o las dos?
 **Respuesta final:** "Una empresa puede tener muchas marcas, y [la empresa] debe decidir si se separa el cliente por [marca] o cada cliente para una sola [marca]." → un correo = una empresa; varias marcas dentro de la empresa; la empresa configura si los clientes se comparten o se separan por marca. (D-021, D-022)
 
-### P-021 · plataforma / marcas · ALTA · ABIERTA
+### P-021 · plataforma / marcas · ALTA · RESPONDIDA
 **Contexto:** Con varias marcas por empresa (D-022) hay que definir qué ve y usa cada vendedor.
 **Pregunta:** ¿Un vendedor puede cotizar con todas las marcas de la empresa, o solo con las que el dueño le asigne?
 **Opciones:** A) Solo con las marcas asignadas  B) Con todas las marcas  C) Lo decide cada empresa
 **Recomendación:** A — si un vendedor trabaja solo para una de tus marcas no debe ver ni cotizar con las otras; asignarle todas sigue siendo posible.
 **Impacto en datos:** tabla usuario_marcas (N:M) y RLS por marca.
-**Respuesta:** <!--resp P-021-->
+**Respuesta:** C) Lo decide cada empresa. (D-023)
+
+### P-022 · plataforma / folios · ALTA · ABIERTA
+**Contexto:** Con varias marcas (D-022) hay que definir cómo se numeran las cotizaciones.
+**Pregunta:** ¿El folio de las cotizaciones es por marca o uno solo para toda la empresa?
+**Opciones:** A) Por marca (ACME-00001, BETA-00001)  B) Uno solo por empresa  C) Lo decide cada empresa
+**Recomendación:** A — si cada marca se presenta como un negocio distinto, sus folios no deben brincar números de la otra.
+**Impacto en datos:** folios con llave (empresa, marca, tipo) o (empresa, tipo); prefijo en marcas o en empresas.
+**Respuesta:** <!--resp P-022-->

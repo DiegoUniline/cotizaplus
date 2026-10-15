@@ -6,11 +6,10 @@
 ## Dónde vamos
 - **Fase:** FASE 1 — Paso 1c (preguntas de relaciones y reglas). Paso 1b ✅ diagrama-er.md
 - **Módulo en curso:** relaciones de todo el mapa; después Plataforma · tabla `empresas`
-- **Última pregunta:** P-021 (¿vendedor con todas las marcas o solo asignadas?) — ABIERTA · P-019 (campos de empresas) EN PAUSA por pedido del dueño
+- **Última pregunta:** P-022 (¿folio por marca o por empresa?) — ABIERTA · P-019 (campos de empresas) EN PAUSA por pedido del dueño
 - **Siguiente paso exacto:** terminar Paso 1c (P-021 en adelante, una por mensaje con clic); luego retomar P-019 marcando campos de `empresas` con selección múltiple; luego Paso 3 (comportamiento de campos de `empresas` que lo requieran, uno por mensaje), Paso 4 procesos, Paso 5 resumen y siguiente tabla (`usuarios_empresa`).
 
 ## Decisiones recientes (últimas 10)
-- [D-013](decisiones.md) · seguimiento · WhatsApp automático con API oficial, paquetes aparte
 - [D-014](decisiones.md) · reportes · seis reportes + Excel
 - [D-015](decisiones.md) · super-admin · panel de plataforma
 - [D-016](decisiones.md) · integraciones · importar Excel y pedidos
@@ -20,6 +19,7 @@
 - [D-020](decisiones.md) · mapa · 29 tablas aprobadas + contactos_cliente
 - [D-021](decisiones.md) · usuarios · un correo = una empresa
 - [D-022](decisiones.md) · marcas · varias marcas por empresa; clientes compartidos o separados (lo decide la empresa)
+- [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
 
 ## Propuestas pendientes de aprobación 💡
 - Campos de `empresas` — P-019.

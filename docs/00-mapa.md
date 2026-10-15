@@ -8,6 +8,7 @@ Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`
 | 1 | Plataforma | empresas | Cada negocio que renta Cotizaplus: logo, colores, subdominio, prefijo de folio, plantilla por defecto | 1 | D-001, D-017 | ✅ |
 | 1b | Plataforma | marcas | Marcas de una empresa: logo, colores y datos con los que sale la cotización | 1 | D-022 | ✅ |
 | 2 | Plataforma | usuarios_empresa | Qué usuario pertenece a qué empresa (una sola, D-021) y con qué rol (el login lo guarda Supabase Auth) | 1 | D-008 | ✅ |
+| 2b | Plataforma | usuario_marcas | Marcas asignadas a cada vendedor (solo si la empresa lo activa) | 1 | D-023 | ✅ |
 | 3 | Plataforma | invitaciones | Invitaciones por correo pendientes de aceptar | 1 | D-007 | ✅ |
 | 4 | Plataforma | planes | Básico, Pro, Empresa con precio y límites | 1 | D-004, D-006 | ✅ |
 | 5 | Plataforma | suscripciones | Plan vigente de cada empresa, periodo y estado (prueba, activa, vencida, suspendida) | 1 | D-004, D-007 | ✅ |

@@ -110,3 +110,8 @@
 **Decisión:** una empresa puede tener varias marcas, cada una con su logo, colores y datos. Cada empresa configura si sus clientes se comparten entre marcas o cada cliente pertenece a una sola marca. ✅
 **Origen:** P-020
 **Consecuencias:** nueva tabla `marcas`; `empresas` guarda el ajuste `clientes_por_marca` (sí/no); `clientes.marca_id` obligatorio solo si la empresa separa por marca; `cotizaciones.marca_id` = con qué marca sale. ❓ Pendiente: qué datos son de la marca y cuáles de la empresa, folios por marca, vendedores por marca.
+
+### D-023 · plataforma / marcas · 2026-10-15
+**Decisión:** cada empresa configura si sus vendedores cotizan con todas las marcas o solo con las asignadas. ✅
+**Origen:** P-021
+**Consecuencias:** ajuste `vendedores_por_marca` en empresas; tabla `usuario_marcas` (N:M) usada solo si está activo; RLS filtra por marca cuando aplica.

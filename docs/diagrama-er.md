@@ -13,7 +13,10 @@ erDiagram
     empresas ||--o{ usuarios_empresa : "tiene"
     auth_users ||--|| usuarios_empresa : "pertenece a una sola"
     empresas ||--o{ marcas : "tiene"
-    %% ❓ ¿qué datos son de la marca y cuáles de la empresa? ¿folios por marca? ¿vendedores por marca?
+    usuarios_empresa ||--o{ usuario_marcas : "asignado a"
+    marcas ||--o{ usuario_marcas : "atendida por"
+    %% usuario_marcas aplica solo si la empresa activa vendedores por marca (D-023)
+    %% ❓ ¿qué datos son de la marca y cuáles de la empresa? ¿folios por marca?
     empresas ||--o{ invitaciones : "envía"
     plantillas_pdf |o--o{ empresas : "por defecto de"
     empresas ||--o{ folios : "lleva consecutivos en"
@@ -82,7 +85,7 @@ erDiagram
 |---|---|---|
 | auth_users ↔ empresas | ¿Un usuario en varias empresas? | ✅ No (D-021) |
 | empresas ↔ marcas | ¿Varias marcas por empresa? | ✅ Sí (D-022) |
-| marcas ↔ vendedores | ¿Un vendedor cotiza para todas las marcas o solo las asignadas? | ❓ |
+| marcas ↔ vendedores | ¿Un vendedor cotiza para todas las marcas o solo las asignadas? | ✅ Lo decide cada empresa (D-023) |
 | marcas ↔ folios | ¿Folio por marca o uno por empresa? | ❓ |
 | contactos_cliente ↔ clientes | ¿Un contacto en dos clientes? | ❓ |
 | cotizaciones ↔ contactos_cliente | ¿A quién le llega la cotización? | ❓ |
