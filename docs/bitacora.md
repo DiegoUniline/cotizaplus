@@ -1,3 +1,8 @@
 # Bitácora
 
 - 2026-10-15 · instalación · agentes Uniline instalados, proyecto desde cero
+- 2026-10-15 · arquitecto · (fuera de reglas) prototipo Apps Script en rama claude/nifty-carson-mjb4zu antes de entrevistar
+- 2026-10-15 · arquitecto · entrevista de visión P-001 a P-017 respondidas · D-001 a D-019
+- 2026-10-15 · arquitecto · investigación del giro (tardía) en investigacion-giro.md
+- 2026-10-15 · arquitecto · /docs actualizado: visión, preguntas, decisiones, glosario, mapa 💡, estado
+- 2026-10-15 · arquitecto · FASE 1 paso 1: mapa de 29 tablas propuesto · P-018 abierta
