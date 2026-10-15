@@ -145,3 +145,8 @@
 **Decisión:** sin subdominio. Todos entran a cotizaplus.com; la liga del cliente es cotizaplus.com/c/<código> con el logo de la marca. ✅ Reemplaza la parte de subdominio de D-017.
 **Origen:** cierre de módulo X-01 (contradicción D-017 vs P-019/P-029)
 **Consecuencias:** se quita "Subdominio propio por empresa" de la Fase 2; sin campo subdominio.
+
+### D-030 · plataforma · 2026-10-15
+**Decisión:** se confirman límites y funciones por plan (Básico 1 usuario/30 cotizaciones; Pro 5/300; Empresa ilimitado; recordatorios desde Pro; aprobación de descuentos solo Empresa), prueba de 14 días con funciones de Pro sin tarjeta y 5 días de gracia. ✅ Confirma los 💡 de D-005, D-006 y D-007.
+**Origen:** cierre de módulo Plataforma, grupo 2
+**Consecuencias:** valores de `planes` y `suscripciones` confirmados.

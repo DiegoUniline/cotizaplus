@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 31% (✅ 20 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 54% (✅ 35 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -262,7 +262,7 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 - Plantillas PDF iniciales.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **31%** (✅ 20 / 65). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **54%** (✅ 35 / 65). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -284,21 +284,21 @@ Confirmado por el dueño: **31%** (✅ 20 / 65). Mínimo para APROBADO: 90%.
 | R-06 | Reglas de campos | Valores por defecto de empresa: MXN, IVA 16%, vigencia 15 días, zona CDMX, clientes y vendedores por marca = no | ✅ |
 | R-07 | Reglas de campos | nombre = nombre corto en la app; nombre_completo = firma del PDF | ✅ |
 | R-08 | Reglas de campos | fecha_alta editable; por defecto el día del alta | ✅ |
-| R-09 | Reglas de campos | leyenda_contacto se copia al PDF y la cotización guarda la copia al emitirse | 💡 |
-| R-10 | Reglas de campos | Rol por defecto al invitar: vendedor | 💡 |
-| R-11 | Reglas de campos | Una invitación vence en 7 días | 💡 |
-| R-12 | Reglas de campos | Límites: Básico 1 usuario/30 cotizaciones; Pro 5/300; Empresa ilimitado | 💡 |
-| R-13 | Reglas de campos | Recordatorios automáticos desde Pro; aprobación de descuentos solo en Empresa | 💡 |
-| R-14 | Reglas de campos | Prueba de 14 días con funciones de Pro, sin tarjeta | 💡 |
-| R-15 | Reglas de campos | 5 días de gracia si falla un cobro | 💡 |
-| R-16 | Reglas de campos | Plan Empresa requiere precio acordado | 💡 |
-| E-01 | Estados | Suscripción: prueba → activa / vencida / cancelada | 💡 |
-| E-02 | Estados | Vencida = todo en solo lectura | 💡 |
-| E-03 | Estados | Suspendida solo por super-admin; el dueño solo ve facturación | 💡 |
-| E-04 | Estados | Cancelada: acceso hasta el fin del periodo pagado | 💡 |
-| E-05 | Estados | Pago por transferencia: por validar → aprobado / rechazado (motivo obligatorio) | 💡 |
-| E-06 | Estados | Pago fallido activa la gracia; reembolso lo hace el super-admin | 💡 |
-| E-07 | Estados | Invitación: pendiente → aceptada / cancelada / vencida | 💡 |
+| R-09 | Reglas de campos | leyenda_contacto se copia al PDF y la cotización guarda la copia al emitirse | ✅ |
+| R-10 | Reglas de campos | Rol por defecto al invitar: vendedor | ✅ |
+| R-11 | Reglas de campos | Una invitación vence en 7 días | ✅ |
+| R-12 | Reglas de campos | Límites: Básico 1 usuario/30 cotizaciones; Pro 5/300; Empresa ilimitado | ✅ |
+| R-13 | Reglas de campos | Recordatorios automáticos desde Pro; aprobación de descuentos solo en Empresa | ✅ |
+| R-14 | Reglas de campos | Prueba de 14 días con funciones de Pro, sin tarjeta | ✅ |
+| R-15 | Reglas de campos | 5 días de gracia si falla un cobro | ✅ |
+| R-16 | Reglas de campos | Plan Empresa requiere precio acordado | ✅ |
+| E-01 | Estados | Suscripción: prueba → activa / vencida / cancelada | ✅ |
+| E-02 | Estados | Vencida = todo en solo lectura | ✅ |
+| E-03 | Estados | Suspendida solo por super-admin; el dueño solo ve facturación | ✅ |
+| E-04 | Estados | Cancelada: acceso hasta el fin del periodo pagado | ✅ |
+| E-05 | Estados | Pago por transferencia: por validar → aprobado / rechazado (motivo obligatorio) | ✅ |
+| E-06 | Estados | Pago fallido activa la gracia; reembolso lo hace el super-admin | ✅ |
+| E-07 | Estados | Invitación: pendiente → aceptada / cancelada / vencida | ✅ |
 | PR-01 | Procesos | Registro crea empresa + primera marca + dueño + suscripción en prueba, todo o nada | 💡 |
 | PR-02 | Procesos | Invitar valida el límite del plan y que el correo no sea de otra empresa | 💡 |
 | PR-03 | Procesos | Dueño y gerente editan datos de empresa y marcas | 💡 |
