@@ -18,7 +18,14 @@ Campos técnicos (💡): `id`, `empresa_id`, `activo`, `created_at/by`, `updated
 Quitados por el dueño: orden, editable_al_cotizar (❓ Paso 3: ¿el vendedor puede cambiar el valor en la partida?).
 
 ### Tabla `atributo_opciones`
-❓ P-035.
+Lleva `atributo_id uuid not null references atributos(id)`.
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| valor | text | no | — | Rojo, Azul, 2×3 m… | unique (atributo_id, valor) 💡 | ✅ / 💡 regla | P-035 |
+| ajuste_precio | numeric(14,2) | no | 0 | Suma o resta al precio al elegir la opción | puede ser negativo 💡 | ✅ / 💡 | P-035 |
+
+### Tabla `productos`
+❓ P-036.
 
 ## 11. Preguntas abiertas
-P-035.
+P-036.

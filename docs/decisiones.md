@@ -165,3 +165,8 @@
 **Decisión:** `atributos` guarda nombre, tipo (texto, lista, medida, número), unidad y obligatorio. Sin orden ni editable_al_cotizar. ✅
 **Origen:** P-034
 **Consecuencias:** orden de aparición = alfabético o de creación (💡, se define en Paso 3); si el vendedor puede cambiar el valor en la partida queda ❓ para el Paso 3.
+
+### D-034 · catálogo / atributo_opciones · 2026-10-15
+**Decisión:** `atributo_opciones` guarda valor y ajuste_precio. ✅
+**Origen:** P-035 (con repregunta)
+**Consecuencias:** al elegir una opción en la partida, el precio unitario suma o resta el ajuste (💡 cómo se calcula, Paso 3).

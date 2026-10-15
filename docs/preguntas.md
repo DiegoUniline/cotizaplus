@@ -194,9 +194,17 @@
 **Impacto en datos:** estructura de `atributos`.
 **Respuesta:** se quedan nombre, tipo, unidad, obligatorio. Quitó: editable_al_cotizar, orden. (D-033)
 
-### P-035 · catálogo / atributo_opciones · MEDIA · ABIERTA
+### P-035 · catálogo / atributo_opciones · MEDIA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2. Opciones de un atributo tipo lista (Rojo, Azul).
 **Pregunta:** ¿Cuáles campos de `atributo_opciones` se quedan? Propuestos: valor, ajuste_precio.
 **Recomendación:** valor; ajuste_precio solo si una opción cambia el precio (ej. color especial +$50).
 **Impacto en datos:** estructura de `atributo_opciones`.
 **Respuesta:** ⚠️ marcó solo ajuste_precio y quitó valor; sin valor la opción no tendría nombre → se repregunta solo esa parte.
+**Respuesta final:** valor + ajuste_precio. (D-034)
+
+### P-036 · catálogo / productos · ALTA · ABIERTA
+**Contexto:** FASE 1 Paso 2. Campos propuestos: sku, nombre, descripcion, imagen, unidad, precio, tipo_cobro (único/mensual/por hora), atributos (valores).
+**Pregunta:** ¿Cuáles campos de `productos` se quedan?
+**Recomendación:** todos.
+**Impacto en datos:** estructura de `productos`.
+**Respuesta:**
