@@ -210,3 +210,8 @@
 **Decisión:** `contactos_cliente` guarda cliente (D-020), nombre, puesto, correo, telefono, es_principal, notas. ✅ (no quitó ninguno)
 **Origen:** P-038
 **Consecuencias:** la cotización se dirige al contacto principal por defecto (💡 D-024, se confirma en el cierre).
+
+### D-043 · clientes · 2026-10-15
+**Decisión:** APROBADO clientes (96%). Pendiente aceptado: Q-01 (vendedor ve que un cliente ya existe sin ver sus datos) queda 💡 con la recomendación. ✅ Sin SQL (prueba).
+**Origen:** cierre de módulo + aprobación del dueño ("ya termina todo esto, avanza")
+**Consecuencias:** sigue FASE 1 del módulo Cotizaciones.

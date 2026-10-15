@@ -4,13 +4,12 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Cierre de módulo Clientes terminado (96%)
-- **Módulo en curso:** Clientes — listo para APROBADO (sin SQL); 1 💡 sin confirmar (Q-01)
-- **Última pregunta:** ¿APROBADO clientes? — ABIERTA
-- **Siguiente paso exacto:** con APROBADO: módulo Cotizaciones (cotizaciones, cotizacion_partidas, folios, plantillas_pdf). Sin SQL.
+- **Fase:** FASE 1 — módulo Cotizaciones, Paso 2 (campos por tabla)
+- **Módulo en curso:** Cotizaciones · tabla `cotizaciones` (Clientes ✅ APROBADO D-043, sin SQL)
+- **Última pregunta:** P-039 (¿qué campos de `cotizaciones` quitas?) — ABIERTA
+- **Siguiente paso exacto:** registrar P-039; luego `cotizacion_partidas`, `folios`, `plantillas_pdf`; cierre de módulo Cotizaciones (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
-- [D-033](decisiones.md) · atributos · nombre, tipo, unidad, obligatorio
 - [D-034](decisiones.md) · atributo_opciones · valor + ajuste_precio
 - [D-035](decisiones.md) · productos · como el mapa, sin sku ni descripción
 - [D-036](decisiones.md) · catálogo · corrección: no marcado ≠ quitar
@@ -20,6 +19,7 @@
 - [D-040](decisiones.md) · catálogo · APROBADO (sin SQL)
 - [D-041](decisiones.md) · clientes · 10 campos
 - [D-042](decisiones.md) · contactos · 7 campos
+- [D-043](decisiones.md) · clientes · APROBADO (96%, Q-01 💡)
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.
@@ -45,8 +45,8 @@
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
 | Catálogo | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Clientes | diseño | 1 · cierre | 96% | ver §12 |
-| Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
+| Clientes | diseño | ✅ APROBADO (sin SQL) | 96% | Q-01 💡 |
+| Cotizaciones | diseño | 1 · paso 2 (cotizaciones) | — | P-039 |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |
 | Seguimiento | diseño | 1 · paso 1 ✅ | — | — |
 | Super-admin | diseño | 1 · paso 1 ✅ | — | — |

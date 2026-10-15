@@ -45,5 +45,6 @@ Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`
 |---|---|---|---|
 | Plataforma | ✅ APROBADO (sin SQL) | 100% | — |
 | Catálogo | ✅ APROBADO (sin SQL) | 100% | — |
-| Clientes | 1 · paso 2 | — | P-037 |
+| Clientes | ✅ APROBADO (sin SQL) | 96% | Q-01 💡 |
+| Cotizaciones | 1 · paso 2 | — | P-039 |
 | resto | 1 · paso 1 ✅ | — | — |

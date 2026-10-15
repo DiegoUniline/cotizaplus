@@ -223,3 +223,10 @@
 **Recomendación:** no quitar ninguno.
 **Impacto en datos:** estructura de `contactos_cliente`.
 **Respuesta:** no quitó ninguno. (D-042)
+
+### P-039 · cotizaciones / cotizaciones · ALTA · ABIERTA
+**Contexto:** FASE 1 Paso 2. Ya definidos (no se ofrecen para quitar): folio (prefijo de la marca, D-026), marca (D-022), cliente (D-020), vendedor (D-008), estado (D-012), vigencia (D-012), moneda y tasa IVA (D-025), plantilla PDF (D-017), condiciones (D-025), totales por tipo de cobro (D-009), código de liga pública (D-011), firma (D-011, Fase 2), motivo de rechazo (D-012), leyenda del vendedor (D-027), próximo seguimiento y acción (D-012). Propuestos 💡: fecha, contacto principal, contactos en copia, version (D-024), titulo, tiempo_entrega, forma_pago, notas_internas.
+**Pregunta:** ¿Cuáles QUITAS? (sin marcar = se quedan)
+**Recomendación:** no quitar ninguno.
+**Impacto en datos:** estructura de `cotizaciones`.
+**Respuesta:**
