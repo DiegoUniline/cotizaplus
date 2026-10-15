@@ -200,6 +200,9 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Ejemplo lleno de referencia
+En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
+
 ## Estructura de /docs
 ```
 /docs/00-estado.md        DOCUMENTO VIVO: fase, módulo en curso, última pregunta, siguiente paso, pendientes
@@ -1095,6 +1098,9 @@ end $$;
 ## Lovable
 - `src/integrations/supabase/types.ts` se regenera: tras migración, regenerar tipos.
 - Lovable tiende a validar solo en front: toda regla también va en BD.
+
+## Reglas que dependen de la fecha actual
+Nunca en CHECK (`check (fecha >= current_date - 3)`): los registros viejos dejan de cumplir y falla restaurar respaldos o re-validar. Van en trigger `before insert or update` o en la función RPC.
 
 ---
 
