@@ -210,9 +210,16 @@
 **Respuesta:** marcó solo nombre y tipo_cobro. ⚠️ Contradice el mapa aprobado (D-020: productos "con imagen, precio, unidad, tipo de cobro y valores de atributos") y D-010 (valores de atributos en producto). Se resuelve antes de seguir.
 **Repregunta:** ¿como el mapa, producto mínimo o mixto? → **Como el mapa.** Quedan nombre, imagen, unidad, precio, tipo_cobro y atributos; sku y descripcion fuera. (D-035)
 
-### P-037 · clientes / clientes · ALTA · ABIERTA
+### P-037 · clientes / clientes · ALTA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2, módulo Clientes. Ya definidos: vendedor asignado (D-008), marca si la empresa separa por marca (D-022). Propuestos 💡: nombre, razon_social, rfc, tipo_persona, correo, telefono, direccion, notas.
 **Pregunta:** ¿Cuáles QUITAS? (sin marcar = se quedan)
 **Recomendación:** no quitar ninguno.
 **Impacto en datos:** estructura de `clientes`.
+**Respuesta:** no quitó ninguno. (D-041)
+
+### P-038 · clientes / contactos_cliente · ALTA · ABIERTA
+**Contexto:** FASE 1 Paso 2. Ya definido: pertenece a un cliente (D-020). Propuestos 💡: nombre, puesto, correo, telefono, es_principal, notas.
+**Pregunta:** ¿Cuáles QUITAS? (sin marcar = se quedan)
+**Recomendación:** no quitar ninguno.
+**Impacto en datos:** estructura de `contactos_cliente`.
 **Respuesta:**

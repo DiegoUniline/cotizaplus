@@ -43,3 +43,4 @@
 - 2026-10-15 · arquitecto · Q-03: vendedor cambia precio y atributos en la partida · cierre catálogo 96%
 - 2026-10-15 · arquitecto · Q-04: importar actualiza · D-039 · cierre Catálogo 100% · cierre catálogo 100%
 - 2026-10-15 · arquitecto · APROBADO catálogo · D-040 · inicia Clientes · P-037 abierta
+- 2026-10-15 · arquitecto · P-037: no quitó campos · D-041 · modulos/clientes.md · P-038 abierta

@@ -5,12 +5,11 @@
 
 ## Dónde vamos
 - **Fase:** FASE 1 — módulo Clientes, Paso 2 (campos por tabla)
-- **Módulo en curso:** Clientes · tabla `clientes` (Catálogo ✅ APROBADO D-040, sin SQL)
-- **Última pregunta:** P-037 (¿qué campos de `clientes` quitas?) — ABIERTA
+- **Módulo en curso:** Clientes · tabla `contactos_cliente` (clientes ✅ D-041)
+- **Última pregunta:** P-038 (¿qué campos de `contactos_cliente` quitas?) — ABIERTA
 - **Siguiente paso exacto:** registrar P-037; luego `contactos_cliente`; cierre de módulo Clientes (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
-- [D-031](decisiones.md) · plataforma · IVA incluido, reasignación, plantillas, casos borde
 - [D-032](decisiones.md) · plataforma · APROBADO (sin SQL, prueba)
 - [D-033](decisiones.md) · atributos · nombre, tipo, unidad, obligatorio
 - [D-034](decisiones.md) · atributo_opciones · valor + ajuste_precio
@@ -20,6 +19,7 @@
 - [D-038](decisiones.md) · catálogo · compartido, producto limitable a marcas
 - [D-039](decisiones.md) · catálogo · alfabético, sin IVA, partida editable, importar actualiza
 - [D-040](decisiones.md) · catálogo · APROBADO (sin SQL)
+- [D-041](decisiones.md) · clientes · 10 campos
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.
@@ -45,7 +45,7 @@
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
 | Catálogo | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Clientes | diseño | 1 · paso 2 (clientes) | — | P-037 |
+| Clientes | diseño | 1 · paso 2 (contactos) | — | P-038 |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |
 | Seguimiento | diseño | 1 · paso 1 ✅ | — | — |

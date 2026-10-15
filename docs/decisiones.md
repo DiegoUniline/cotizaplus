@@ -200,3 +200,8 @@
 **Decisión:** APROBADO catálogo (100% confirmado). ✅ Sin SQL (prueba del flujo).
 **Origen:** cierre de módulo + aprobación del dueño
 **Consecuencias:** sigue FASE 1 del módulo Clientes.
+
+### D-041 · clientes / clientes · 2026-10-15
+**Decisión:** `clientes` guarda vendedor (D-008), marca (D-022, si separa por marca), nombre, razon_social, rfc, tipo_persona, correo, telefono, direccion, notas. ✅ (no quitó ninguno)
+**Origen:** P-037
+**Consecuencias:** diccionario en modulos/clientes.md.
