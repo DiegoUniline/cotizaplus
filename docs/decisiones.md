@@ -225,3 +225,8 @@
 **Decisión:** el aviso de por vencer llega al vendedor (sus cotizaciones) y al gerente (las de todo el equipo). ✅
 **Origen:** OT-001, pregunta de programador 2
 **Consecuencias:** el resumen diario del gerente incluye la sección "por vencer" de todos los vendedores.
+
+### D-046 · seguimiento / OT-001 · 2026-10-15
+**Decisión:** los días de anticipación del aviso son configurables por empresa; por defecto 3. ✅
+**Origen:** OT-001, pregunta de programador 3
+**Consecuencias:** cambio a módulo aprobado (Plataforma): nuevo campo `empresas.dias_aviso_vencimiento int not null default 3` (aditivo). Se confirma con el OK de la OT-001.
