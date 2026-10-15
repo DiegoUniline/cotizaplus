@@ -18,3 +18,4 @@
 - 2026-10-15 · arquitecto · P-029 respondida: 11 campos de marcas, sin subdominio ⚠️ · D-026 · P-030 abierta
 - 2026-10-15 · arquitecto · P-030 respondida: 6 campos + fecha_alta, nombre_completo, leyenda_contacto · D-027 · P-031 abierta
 - 2026-10-15 · arquitecto · P-031: dueño pide terminar y avanzar · D-028 · FASE 2 plataforma generada · P-032 abierta
+- 2026-10-15 · arquitecto · P-032: dueño indica prueba del flujo, no crear SQL ni app · flujo detenido antes de FASE 3

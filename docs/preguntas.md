@@ -173,10 +173,10 @@
 **Impacto en datos:** estructura de `invitaciones`.
 **Respuesta:** El dueño: "ya termina y avanza siguiente paso" → campos 💡 como se propusieron; tablas restantes de Plataforma (planes, suscripciones, pagos, usuario_marcas) propuestas 💡 y se pasa a FASE 2. (D-028)
 
-### P-032 · plataforma · ALTA · ABIERTA
+### P-032 · plataforma · ALTA · RESPONDIDA
 **Contexto:** FASE 2. Propuesta completa en modulos/plataforma.md.
 **Pregunta:** ¿Apruebas el módulo Plataforma?
 **Opciones:** A) APROBADO plataforma  B) Tengo correcciones
 **Recomendación:** B si alguno de los 💡 de §5–§7 no te convence; los ❓ pueden quedar abiertos y no bloquean el SQL.
 **Impacto en datos:** con APROBADO se genera la migración SQL (FASE 3).
-**Respuesta:**
+**Respuesta:** "No crees nada, recuerda que no haremos la app, estamos probando el flujo." → sin APROBADO; no se genera SQL ni rama.

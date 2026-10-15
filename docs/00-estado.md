@@ -5,9 +5,9 @@
 
 ## Dónde vamos
 - **Fase:** FASE 2 — Propuesta del módulo Plataforma (modulos/plataforma.md)
-- **Módulo en curso:** Plataforma — esperando `APROBADO plataforma`
-- **Última pregunta:** P-032 (¿APROBADO plataforma?) — ABIERTA
-- **Siguiente paso exacto:** con `APROBADO plataforma` → FASE 3: migración SQL en rama (no en main) /supabase/migrations/<ts>_plataforma.sql; sin APROBADO → aplicar correcciones. Después, FASE 1 del módulo Catálogo.
+- **Módulo en curso:** Plataforma — propuesta lista, NO aprobada (prueba del flujo)
+- **Última pregunta:** P-032 — RESPONDIDA: no crear nada, es prueba del flujo
+- **Siguiente paso exacto:** ninguno de construcción. Prueba del flujo detenida antes de FASE 3 por pedido del dueño. Si se retoma: correcciones o `APROBADO plataforma`.
 
 ## Decisiones recientes (últimas 10)
 - [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
