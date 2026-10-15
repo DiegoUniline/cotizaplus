@@ -207,4 +207,4 @@
 **Pregunta:** ¿Cuáles campos de `productos` se quedan?
 **Recomendación:** todos.
 **Impacto en datos:** estructura de `productos`.
-**Respuesta:**
+**Respuesta:** marcó solo nombre y tipo_cobro. ⚠️ Contradice el mapa aprobado (D-020: productos "con imagen, precio, unidad, tipo de cobro y valores de atributos") y D-010 (valores de atributos en producto). Se resuelve antes de seguir.
