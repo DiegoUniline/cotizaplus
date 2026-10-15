@@ -40,3 +40,4 @@
 - 2026-10-15 · arquitecto · R-09: orden alfabético · cierre catálogo 86%
 - 2026-10-15 · arquitecto · Q-01: precio de producto sin IVA · cierre catálogo 89%
 - 2026-10-15 · arquitecto · Q-02: catálogo compartido, marca opcional · D-038 · mapa y diagrama +producto_marcas · cierre catálogo 93%
+- 2026-10-15 · arquitecto · Q-03: vendedor cambia precio y atributos en la partida · cierre catálogo 96%
