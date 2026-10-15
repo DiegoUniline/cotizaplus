@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <?!= include('Styles') ?>
+</head>
+<body>
+  <div id="loader"></div>
+  <header>
+    <h1>Cotiza<span>plus</span></h1>
+    <nav>
+      <button data-v="tablero" onclick="go('tablero')">Tablero</button>
+      <button data-v="cotizaciones" onclick="go('cotizaciones')">Cotizaciones</button>
+      <button data-v="clientes" onclick="go('clientes')">Clientes</button>
+      <button data-v="productos" onclick="go('productos')">Productos</button>
+      <button data-v="config" onclick="go('config')">Configuración</button>
+    </nav>
+  </header>
+  <main id="main"><p class="muted">Cargando…</p></main>
+  <div id="modal" hidden></div>
+  <div id="toast"></div>
+  <datalist id="dl-prod"></datalist>
+  <?!= include('App') ?>
+</body>
+</html>

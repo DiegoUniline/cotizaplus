@@ -1,0 +1,511 @@
+<script>
+const S = { view: 'tablero', lineas: [], dirty: false };
+const ABIERTOS = ['Borrador', 'Enviada', 'En seguimiento'];
+const TIPOS = ['Llamada', 'Correo', 'WhatsApp', 'Reunión', 'Nota'];
+const VIEWS = {};
+
+/* ---------- utilidades ---------- */
+const $ = (s, el = document) => el.querySelector(s);
+const main = () => $('#main');
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const money = (n, cur) => (Number(n) || 0).toLocaleString('es-MX', { style: 'currency', currency: cur || 'MXN' });
+const fd = s => s ? String(s).slice(0, 10).split('-').reverse().join('/') : '';
+const fdt = s => s ? fd(s) + ' ' + String(s).slice(11, 16) : '';
+const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const addDays = (s, n) => { const d = new Date(s + 'T12:00:00'); d.setDate(d.getDate() + (Number(n) || 0)); return iso(d); };
+const slug = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '-');
+const badge = e => `<span class="badge b-${slug(e)}">${esc(e)}</span>`;
+const r2 = n => Math.round(n * 100) / 100;
+const sum = a => a.reduce((t, c) => t + (Number(c.Total) || 0), 0);
+const activo = p => p.Activo !== false && String(p.Activo).toUpperCase() !== 'FALSE';
+const segClass = f => !f ? '' : f < S.hoy ? 'late' : f === S.hoy ? 'today' : '';
+const fld = (label, name, val = '', type = 'text', attrs = '') => `<label>${label}<input type="${type}" name="${name}" value="${esc(val)}" ${attrs}></label>`;
+const area = (label, name, val = '', rows = 3) => `<label>${label}<textarea name="${name}" rows="${rows}">${esc(val)}</textarea></label>`;
+const kpi = (t, v, s, cls = '') => `<div class="card kpi ${cls}"><small>${t}</small><div class="v">${v}</div><small>${s}</small></div>`;
+
+let pending = 0;
+function loading(on) { pending = Math.max(0, pending + (on ? 1 : -1)); $('#loader').classList.toggle('on', pending > 0); }
+
+function toast(msg, err) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.className = 'show' + (err ? ' err' : '');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.className = '', 3500);
+}
+
+function run(fn, ...args) {
+  loading(true);
+  return new Promise((res, rej) => google.script.run
+    .withSuccessHandler(r => { loading(false); res(r); })
+    .withFailureHandler(e => { loading(false); toast(e.message || String(e), true); rej(e); })[fn](...args));
+}
+
+async function refresh() {
+  Object.assign(S, await run('api_bootstrap'));
+  $('#dl-prod').innerHTML = S.productos.filter(activo)
+    .map(p => `<option value="${esc(p.Descripcion)}">${esc(p.SKU)} · ${money(p.Precio)}</option>`).join('');
+}
+
+function go(view, arg) {
+  if (S.dirty && !confirm('Hay cambios sin guardar. ¿Salir de todos modos?')) return;
+  S.dirty = false;
+  S.view = view;
+  S.arg = arg;
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.v === (view === 'cot' ? 'cotizaciones' : view)));
+  VIEWS[view](arg);
+  window.scrollTo(0, 0);
+}
+
+function modal(title, body, onSubmit, okText = 'Guardar', extra = '') {
+  const m = $('#modal');
+  m.innerHTML = `<form class="dlg"><h3>${title}</h3>${body}<div class="acts">${extra}<span class="sp"></span>
+    <button type="button" onclick="closeModal()">Cancelar</button><button class="pri">${okText}</button></div></form>`;
+  m.hidden = false;
+  const f = $('form', m);
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const b = $('button.pri', f);
+    b.disabled = true;
+    try { await onSubmit(Object.fromEntries(new FormData(f))); closeModal(); } catch (_) { b.disabled = false; }
+  };
+  const first = $('input,textarea', f);
+  if (first) first.focus();
+}
+
+function closeModal() { $('#modal').hidden = true; $('#modal').innerHTML = ''; }
+
+async function borrar(fn, id) {
+  if (!confirm('¿Eliminar definitivamente?')) return;
+  await run(fn, id);
+  closeModal();
+  await refresh();
+  VIEWS[S.view](S.arg);
+  toast('Eliminado');
+}
+
+/* ---------- Tablero ---------- */
+VIEWS.tablero = () => {
+  const cots = S.cotizaciones;
+  const by = e => cots.filter(c => c.Estado === e);
+  const abiertas = cots.filter(c => ABIERTOS.includes(c.Estado));
+  const ganadas = by('Aceptada');
+  const cerradas = cots.filter(c => ['Aceptada', 'Rechazada', 'Vencida'].includes(c.Estado));
+  const tasa = cerradas.length ? Math.round(ganadas.length * 100 / cerradas.length) : 0;
+  const pend = abiertas.slice().sort((a, b) => (a.ProximoSeguimiento || '9999').localeCompare(b.ProximoSeguimiento || '9999'));
+  const atrasados = pend.filter(c => c.ProximoSeguimiento && c.ProximoSeguimiento < S.hoy).length;
+  const hoyN = pend.filter(c => c.ProximoSeguimiento === S.hoy).length;
+  const mes = S.hoy.slice(0, 7);
+  const ganadasMes = ganadas.filter(c => String(c.UltimaActualizacion).slice(0, 7) === mes);
+  const max = Math.max(1, ...S.estados.map(e => by(e).length));
+
+  main().innerHTML = `
+  <div class="kpis">
+    ${kpi('Abiertas', abiertas.length, money(sum(abiertas)))}
+    ${kpi('Ganadas este mes', ganadasMes.length, money(sum(ganadasMes)))}
+    ${kpi('Tasa de cierre', tasa + '%', `${ganadas.length} de ${cerradas.length} cerradas`)}
+    ${kpi('Seguimientos', atrasados + hoyN, `${atrasados} atrasados · ${hoyN} para hoy`, atrasados ? 'warn' : '')}
+  </div>
+  <div class="grid2">
+    <section class="card"><h3>Embudo</h3>
+      ${S.estados.map(e => { const n = by(e).length; return `<div class="bar"><span>${esc(e)}</span><div><i class="b-${slug(e)}" style="width:${n * 100 / max}%"></i></div><b>${n}</b><small>${money(sum(by(e)))}</small></div>`; }).join('')}
+    </section>
+    <section class="card"><h3>Próximos seguimientos</h3>
+      ${pend.length ? `<table class="list"><thead><tr><th>Fecha</th><th>Folio</th><th>Cliente</th><th class="hm">Acción</th><th class="num">Total</th></tr></thead><tbody>
+      ${pend.slice(0, 15).map(c => `<tr onclick="go('cot','${esc(c.ID)}')">
+        <td class="${segClass(c.ProximoSeguimiento)}">${fd(c.ProximoSeguimiento) || '<span class="muted">Sin fecha</span>'}</td>
+        <td>${esc(c.Folio)}</td><td>${esc(c.ClienteNombre)}</td><td class="hm">${esc(c.ProximaAccion)}</td>
+        <td class="num">${money(c.Total, c.Moneda)}</td></tr>`).join('')}
+      </tbody></table>` : '<p class="muted">No hay cotizaciones abiertas.</p>'}
+    </section>
+  </div>`;
+};
+
+/* ---------- Cotizaciones ---------- */
+VIEWS.cotizaciones = () => {
+  main().innerHTML = `
+  <div class="toolbar">
+    <input id="q" placeholder="Buscar folio o cliente" value="${esc(S.q || '')}">
+    <select id="fe"><option value="">Todos los estados</option>${S.estados.map(e => `<option ${S.fe === e ? 'selected' : ''}>${esc(e)}</option>`).join('')}</select>
+    <span class="sp"></span><button class="pri" onclick="nuevaCot()">+ Nueva cotización</button>
+  </div>
+  <section class="card"><table class="list"><thead><tr><th>Folio</th><th>Cliente</th><th>Fecha</th><th class="hm">Vigencia</th>
+    <th class="num">Total</th><th>Estado</th><th class="hm">Seguimiento</th></tr></thead><tbody id="tb"></tbody></table></section>`;
+  const paint = () => {
+    S.q = $('#q').value;
+    S.fe = $('#fe').value;
+    const q = S.q.toLowerCase();
+    const rows = S.cotizaciones
+      .filter(c => (!S.fe || c.Estado === S.fe) && (!q || `${c.Folio} ${c.ClienteNombre}`.toLowerCase().includes(q)))
+      .sort((a, b) => String(b.Fecha).localeCompare(String(a.Fecha)) || String(b.Folio).localeCompare(String(a.Folio)));
+    $('#tb').innerHTML = rows.map(c => `<tr onclick="go('cot','${esc(c.ID)}')">
+      <td><b>${esc(c.Folio)}</b></td><td>${esc(c.ClienteNombre)}</td><td>${fd(c.Fecha)}</td>
+      <td class="hm ${ABIERTOS.includes(c.Estado) && c.Vigencia < S.hoy ? 'late' : ''}">${fd(c.Vigencia)}</td>
+      <td class="num">${money(c.Total, c.Moneda)}</td><td>${badge(c.Estado)}</td>
+      <td class="hm ${segClass(c.ProximoSeguimiento)}">${fd(c.ProximoSeguimiento)}</td></tr>`).join('')
+      || '<tr><td colspan="7" class="muted">Sin resultados</td></tr>';
+  };
+  $('#q').oninput = paint;
+  $('#fe').onchange = paint;
+  paint();
+};
+
+function nuevaCot(clienteId) {
+  S.preCliente = clienteId || '';
+  go('cot');
+}
+
+/* ---------- Detalle de cotización ---------- */
+const linea = () => ({ ProductoID: '', Descripcion: '', Cantidad: 1, Unidad: '', PrecioUnitario: 0, DescuentoPct: 0 });
+const imp = l => r2((Number(l.Cantidad) || 0) * (Number(l.PrecioUnitario) || 0) * (1 - (Number(l.DescuentoPct) || 0) / 100));
+
+VIEWS.cot = async id => {
+  main().innerHTML = '<p class="muted">Cargando…</p>';
+  const d = id ? await run('api_getCotizacion', id) : {
+    cot: {
+      Fecha: S.hoy, Vigencia: addDays(S.hoy, S.config.VIGENCIA_DIAS || 15), Moneda: 'MXN',
+      TasaIVA: S.config.IVA_PCT, Condiciones: S.config.CONDICIONES, ClienteID: S.preCliente || ''
+    },
+    partidas: [], seguimiento: []
+  };
+  S.preCliente = '';
+  if (S.view !== 'cot' || S.arg !== id) return;
+
+  const c = d.cot;
+  const abierta = !c.Estado || ABIERTOS.includes(c.Estado);
+  if (c.TasaIVA === '' || c.TasaIVA == null) c.TasaIVA = S.config.IVA_PCT;
+  S.d = d;
+  S.lineas = d.partidas.length ? d.partidas.map(p => ({ ...p })) : [linea()];
+
+  const acts = [
+    `<button class="pri" onclick="guardar()">Guardar</button>`,
+    c.ID ? `<button onclick="verPdf()">PDF</button><button onclick="enviar()">Enviar correo</button><button onclick="whatsapp()">WhatsApp</button>` : '',
+    c.ID && abierta ? `<button class="ok" onclick="cambiarEstado('Aceptada')">Aceptada</button><button class="bad" onclick="cambiarEstado('Rechazada')">Rechazada</button>` : '',
+    c.ID && !abierta ? `<button onclick="cambiarEstado('En seguimiento')">Reabrir</button>` : '',
+    c.ID ? `<button onclick="duplicar()">Duplicar</button>` : '',
+    c.Estado === 'Borrador' ? `<button class="bad" onclick="eliminarCot()">Eliminar</button>` : ''
+  ].join('');
+
+  main().innerHTML = `
+  <div class="toolbar">
+    <button onclick="go('cotizaciones')">←</button>
+    <h2>${esc(c.Folio || 'Nueva cotización')}</h2>${c.Estado ? badge(c.Estado) : ''}
+    <span class="sp"></span>${acts}
+  </div>
+  <div class="grid-cot">
+    <section class="card" id="cotForm">
+      <div class="form5">
+        <label>Cliente<div class="row"><select id="f-ClienteID"></select><button type="button" title="Nuevo cliente" onclick="editCliente('', true)">+</button></div></label>
+        <label>Fecha<input type="date" id="f-Fecha"></label>
+        <label>Vigencia<input type="date" id="f-Vigencia"></label>
+        <label>Moneda<select id="f-Moneda" onchange="renderLineas()"><option>MXN</option><option>USD</option><option>EUR</option></select></label>
+        <label>IVA %<input type="number" step="any" min="0" id="f-TasaIVA" oninput="totales()"></label>
+      </div>
+      <div class="scroll"><table class="lines">
+        <thead><tr><th style="min-width:240px">Producto / descripción</th><th style="width:80px">Cant.</th><th style="width:90px">Unidad</th>
+        <th style="width:120px">P. unitario</th><th style="width:80px">Desc %</th><th class="num" style="width:120px">Importe</th><th></th></tr></thead>
+        <tbody id="lines"></tbody>
+      </table></div>
+      <button type="button" onclick="addLinea()">+ Agregar partida</button>
+      <div class="tot" id="tot"></div>
+      <label>Condiciones<textarea id="f-Condiciones" rows="4"></textarea></label>
+      ${c.Vendedor ? `<small>Vendedor: ${esc(c.Vendedor)} · Actualizada: ${fdt(c.UltimaActualizacion)}</small>` : ''}
+    </section>
+    <aside class="card">${panelSeg(d, abierta)}</aside>
+  </div>`;
+
+  fillClientes(c.ClienteID);
+  ['Fecha', 'Vigencia', 'Moneda', 'TasaIVA', 'Condiciones'].forEach(k => $('#f-' + k).value = c[k] ?? '');
+  renderLineas();
+  ['input', 'change'].forEach(ev => $('#cotForm').addEventListener(ev, () => S.dirty = true));
+  if ($('#segForm')) $('#segForm').onsubmit = addSeg;
+};
+
+function panelSeg(d, abierta) {
+  const c = d.cot;
+  if (!c.ID) return '<h3>Seguimiento</h3><p class="muted">Guarda la cotización para registrar seguimiento.</p>';
+  return `<h3>Seguimiento</h3>
+  ${abierta ? `<p>Próximo: <b class="${segClass(c.ProximoSeguimiento)}">${fd(c.ProximoSeguimiento) || '—'}</b> ${esc(c.ProximaAccion)}</p>
+  <form id="segForm">
+    <label>Tipo<select name="Tipo">${TIPOS.map(t => `<option>${t}</option>`).join('')}</select></label>
+    <label>Nota<textarea name="Nota" rows="3" required placeholder="¿Qué se habló con el cliente?"></textarea></label>
+    <label>Siguiente paso<input name="ProximaAccion" placeholder="Ej. Llamar para confirmar pedido"></label>
+    <label>Fecha del siguiente paso<input type="date" name="FechaProxima" value="${addDays(S.hoy, S.config.DIAS_SEGUIMIENTO || 3)}"></label>
+    <button class="pri">Registrar</button>
+  </form>` : ''}
+  <ul class="timeline">${d.seguimiento.map(s => `<li><b>${esc(s.Tipo)}</b> <small>${fdt(s.FechaHora)} · ${esc(s.Usuario)}</small>
+    <p>${esc(s.Nota)}</p>${s.ProximaAccion || s.FechaProxima ? `<small>→ ${esc(s.ProximaAccion)} ${fd(s.FechaProxima)}</small>` : ''}</li>`).join('')
+    || '<li class="muted">Sin actividad</li>'}</ul>`;
+}
+
+function fillClientes(sel) {
+  $('#f-ClienteID').innerHTML = '<option value="">— Selecciona —</option>' + S.clientes.slice()
+    .sort((a, b) => String(a.Nombre).localeCompare(String(b.Nombre)))
+    .map(c => `<option value="${esc(c.ID)}" ${c.ID === sel ? 'selected' : ''}>${esc(c.Nombre)}${c.Empresa ? ' · ' + esc(c.Empresa) : ''}</option>`).join('');
+}
+
+function renderLineas() {
+  const cur = $('#f-Moneda').value;
+  $('#lines').innerHTML = S.lineas.map((l, i) => `<tr>
+    <td><input list="dl-prod" value="${esc(l.Descripcion)}" oninput="setL(${i},'Descripcion',this.value,true)" placeholder="Busca producto o escribe"></td>
+    <td><input type="number" step="any" min="0" value="${esc(l.Cantidad)}" oninput="setL(${i},'Cantidad',this.value)"></td>
+    <td><input value="${esc(l.Unidad)}" oninput="setL(${i},'Unidad',this.value)"></td>
+    <td><input type="number" step="any" min="0" value="${esc(l.PrecioUnitario)}" oninput="setL(${i},'PrecioUnitario',this.value)"></td>
+    <td><input type="number" step="any" min="0" max="100" value="${esc(l.DescuentoPct)}" oninput="setL(${i},'DescuentoPct',this.value)"></td>
+    <td class="num" id="imp-${i}">${money(imp(l), cur)}</td>
+    <td><button type="button" class="x" title="Quitar" onclick="delLinea(${i})">×</button></td></tr>`).join('');
+  totales();
+}
+
+function setL(i, k, v, buscar) {
+  const l = S.lineas[i];
+  l[k] = v;
+  if (buscar) {
+    const p = S.productos.find(p => p.Descripcion === v && activo(p));
+    if (p) {
+      Object.assign(l, { ProductoID: p.ID, Unidad: p.Unidad, PrecioUnitario: p.Precio });
+      renderLineas();
+      return;
+    }
+    l.ProductoID = '';
+  }
+  $('#imp-' + i).textContent = money(imp(l), $('#f-Moneda').value);
+  totales();
+}
+
+function addLinea() { S.lineas.push(linea()); S.dirty = true; renderLineas(); }
+function delLinea(i) { S.lineas.splice(i, 1); if (!S.lineas.length) S.lineas.push(linea()); S.dirty = true; renderLineas(); }
+
+function calc() {
+  let bruto = 0, desc = 0;
+  S.lineas.forEach(l => {
+    const b = (Number(l.Cantidad) || 0) * (Number(l.PrecioUnitario) || 0);
+    bruto += b;
+    desc += b * (Number(l.DescuentoPct) || 0) / 100;
+  });
+  const iva = r2((bruto - desc) * (Number($('#f-TasaIVA').value) || 0) / 100);
+  return { sub: r2(bruto), desc: r2(desc), iva, total: r2(bruto - desc + iva) };
+}
+
+function totales() {
+  const t = calc(), cur = $('#f-Moneda').value;
+  $('#tot').innerHTML = `<div><span>Subtotal</span><b>${money(t.sub, cur)}</b></div>
+    ${t.desc ? `<div><span>Descuento</span><b>-${money(t.desc, cur)}</b></div>` : ''}
+    <div><span>IVA ${esc($('#f-TasaIVA').value)}%</span><b>${money(t.iva, cur)}</b></div>
+    <div class="big"><span>Total ${esc(cur)}</span><span>${money(t.total, cur)}</span></div>`;
+}
+
+function leerCot() {
+  const cot = { ID: S.d.cot.ID || '' };
+  ['ClienteID', 'Fecha', 'Vigencia', 'Moneda', 'TasaIVA', 'Condiciones'].forEach(k => cot[k] = $('#f-' + k).value);
+  return cot;
+}
+
+async function guardar(quedarse) {
+  const id = await run('api_saveCotizacion', { cot: leerCot(), partidas: S.lineas });
+  S.dirty = false;
+  await refresh();
+  if (!quedarse) { toast('Cotización guardada'); go('cot', id); }
+  else S.d.cot.ID = id;
+  return id;
+}
+
+async function asegurarGuardado() {
+  return S.dirty ? guardar(true) : S.d.cot.ID;
+}
+
+async function recargar(id, msg) {
+  S.dirty = false;
+  await refresh();
+  if (msg) toast(msg);
+  go('cot', id);
+}
+
+async function verPdf() {
+  const w = window.open('', '_blank');
+  try {
+    const reusar = !S.dirty && S.d.cot.PDF;
+    const id = await asegurarGuardado();
+    const url = reusar || await run('api_generarPdf', id);
+    S.d.cot.PDF = url;
+    if (w) w.location = url; else window.open(url, '_blank');
+  } catch (e) {
+    if (w) w.close();
+  }
+}
+
+function enviar() {
+  const c = S.d.cot, emp = S.config.EMPRESA_NOMBRE || '';
+  const cli = S.clientes.find(x => x.ID === $('#f-ClienteID').value) || {};
+  const msg = `Hola ${cli.Nombre || ''},\n\nAdjunto la cotización ${c.Folio} por ${money(calc().total, $('#f-Moneda').value)}, ` +
+    `vigente hasta el ${fd($('#f-Vigencia').value)}.\n\nQuedo atento a tus comentarios.\n\nSaludos,\n${emp}`;
+  modal('Enviar cotización por correo',
+    fld('Para', 'para', cli.Email, 'email', 'required multiple') +
+    fld('CC', 'cc', '', 'email', 'multiple') +
+    fld('Asunto', 'asunto', `Cotización ${c.Folio}${emp ? ' - ' + emp : ''}`, 'text', 'required') +
+    area('Mensaje', 'mensaje', msg, 8),
+    async data => {
+      const id = await asegurarGuardado();
+      await run('api_enviarCotizacion', id, data);
+      await recargar(id, 'Cotización enviada');
+    }, 'Enviar');
+}
+
+async function whatsapp() {
+  const cli = S.clientes.find(x => x.ID === $('#f-ClienteID').value) || {};
+  let tel = String(cli.Telefono || '').replace(/\D/g, '');
+  if (!tel) return toast('El cliente no tiene teléfono registrado', true);
+  if (tel.length === 10) tel = '52' + tel;
+  const w = window.open('', '_blank');
+  try {
+    const id = await asegurarGuardado();
+    const url = await run('api_whatsapp', id);
+    const c = S.d.cot;
+    const txt = `Hola ${cli.Nombre || ''}, te comparto la cotización ${c.Folio} por ${money(calc().total, $('#f-Moneda').value)}, ` +
+      `vigente hasta el ${fd($('#f-Vigencia').value)}:\n${url}`;
+    const wa = `https://wa.me/${tel}?text=${encodeURIComponent(txt)}`;
+    if (w) w.location = wa; else window.open(wa, '_blank');
+    await recargar(id, 'Envío por WhatsApp registrado');
+  } catch (e) {
+    if (w) w.close();
+  }
+}
+
+async function cambiarEstado(estado) {
+  const nota = prompt(`Marcar como "${estado}". Comentario (opcional):`, '');
+  if (nota === null) return;
+  const id = await asegurarGuardado();
+  await run('api_setEstado', id, estado, nota);
+  await recargar(id, 'Estado actualizado');
+}
+
+async function duplicar() {
+  const id = await run('api_duplicarCotizacion', await asegurarGuardado());
+  await recargar(id, 'Cotización duplicada');
+}
+
+async function eliminarCot() {
+  if (!confirm('¿Eliminar esta cotización?')) return;
+  await run('api_deleteCotizacion', S.d.cot.ID);
+  S.dirty = false;
+  await refresh();
+  toast('Cotización eliminada');
+  go('cotizaciones');
+}
+
+async function addSeg(e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const id = await asegurarGuardado();
+  data.CotizacionID = id;
+  await run('api_addSeguimiento', data);
+  await recargar(id, 'Seguimiento registrado');
+}
+
+/* ---------- Clientes ---------- */
+VIEWS.clientes = () => {
+  main().innerHTML = `
+  <div class="toolbar"><input id="q" placeholder="Buscar cliente"><span class="sp"></span>
+    <button class="pri" onclick="editCliente()">+ Nuevo cliente</button></div>
+  <section class="card"><table class="list"><thead><tr><th>Nombre</th><th>Empresa</th><th class="hm">Email</th><th class="hm">Teléfono</th>
+    <th class="num">Cotizaciones</th><th class="num hm">Ganado</th><th></th></tr></thead><tbody id="tb"></tbody></table></section>`;
+  const paint = () => {
+    const q = $('#q').value.toLowerCase();
+    $('#tb').innerHTML = S.clientes
+      .filter(c => !q || [c.Nombre, c.Empresa, c.Email, c.Telefono, c.RFC].join(' ').toLowerCase().includes(q))
+      .sort((a, b) => String(a.Nombre).localeCompare(String(b.Nombre)))
+      .map(c => {
+        const cs = S.cotizaciones.filter(x => x.ClienteID === c.ID);
+        return `<tr onclick="editCliente('${esc(c.ID)}')"><td><b>${esc(c.Nombre)}</b></td><td>${esc(c.Empresa)}</td>
+          <td class="hm">${esc(c.Email)}</td><td class="hm">${esc(c.Telefono)}</td><td class="num">${cs.length}</td>
+          <td class="num hm">${money(sum(cs.filter(x => x.Estado === 'Aceptada')))}</td>
+          <td class="num"><button onclick="event.stopPropagation();nuevaCot('${esc(c.ID)}')">Cotizar</button></td></tr>`;
+      }).join('') || '<tr><td colspan="7" class="muted">Sin clientes</td></tr>';
+  };
+  $('#q').oninput = paint;
+  paint();
+};
+
+function editCliente(id, desdeCot) {
+  const c = S.clientes.find(x => x.ID === id) || {};
+  modal(c.ID ? 'Editar cliente' : 'Nuevo cliente',
+    fld('Nombre / contacto', 'Nombre', c.Nombre, 'text', 'required') + fld('Empresa', 'Empresa', c.Empresa) +
+    fld('RFC', 'RFC', c.RFC) + fld('Email', 'Email', c.Email, 'email') + fld('Teléfono', 'Telefono', c.Telefono, 'tel') +
+    fld('Dirección', 'Direccion', c.Direccion) + area('Notas', 'Notas', c.Notas),
+    async data => {
+      data.ID = c.ID || '';
+      const saved = await run('api_saveCliente', data);
+      await refresh();
+      toast('Cliente guardado');
+      if (desdeCot) { fillClientes(saved.ID); S.dirty = true; }
+      else VIEWS[S.view](S.arg);
+    }, 'Guardar',
+    c.ID && !desdeCot ? `<button type="button" class="bad" onclick="borrar('api_deleteCliente','${esc(c.ID)}')">Eliminar</button>` : '');
+}
+
+/* ---------- Productos ---------- */
+VIEWS.productos = () => {
+  main().innerHTML = `
+  <div class="toolbar"><input id="q" placeholder="Buscar producto"><span class="sp"></span>
+    <button class="pri" onclick="editProducto()">+ Nuevo producto</button></div>
+  <section class="card"><table class="list"><thead><tr><th>SKU</th><th>Descripción</th><th class="hm">Unidad</th>
+    <th class="num">Precio</th><th>Activo</th></tr></thead><tbody id="tb"></tbody></table></section>`;
+  const paint = () => {
+    const q = $('#q').value.toLowerCase();
+    $('#tb').innerHTML = S.productos
+      .filter(p => !q || `${p.SKU} ${p.Descripcion}`.toLowerCase().includes(q))
+      .sort((a, b) => String(a.Descripcion).localeCompare(String(b.Descripcion)))
+      .map(p => `<tr onclick="editProducto('${esc(p.ID)}')"><td>${esc(p.SKU)}</td><td>${esc(p.Descripcion)}</td>
+        <td class="hm">${esc(p.Unidad)}</td><td class="num">${money(p.Precio)}</td><td>${activo(p) ? 'Sí' : '<span class="muted">No</span>'}</td></tr>`).join('')
+      || '<tr><td colspan="5" class="muted">Sin productos</td></tr>';
+  };
+  $('#q').oninput = paint;
+  paint();
+};
+
+function editProducto(id) {
+  const p = S.productos.find(x => x.ID === id) || {};
+  modal(p.ID ? 'Editar producto' : 'Nuevo producto',
+    fld('SKU', 'SKU', p.SKU) + fld('Descripción', 'Descripcion', p.Descripcion, 'text', 'required') +
+    fld('Unidad', 'Unidad', p.Unidad || 'pza') + fld('Precio', 'Precio', p.Precio ?? '', 'number', 'step="any" min="0" required') +
+    `<label class="chk"><input type="checkbox" name="Activo" ${activo(p) ? 'checked' : ''}> Activo</label>`,
+    async data => {
+      data.ID = p.ID || '';
+      await run('api_saveProducto', data);
+      await refresh();
+      toast('Producto guardado');
+      VIEWS.productos();
+    }, 'Guardar',
+    p.ID ? `<button type="button" class="bad" onclick="borrar('api_deleteProducto','${esc(p.ID)}')">Eliminar</button>` : '');
+}
+
+/* ---------- Configuración ---------- */
+const CFG = [
+  ['EMPRESA_NOMBRE', 'Nombre de la empresa'], ['EMPRESA_RFC', 'RFC'], ['EMPRESA_DIRECCION', 'Dirección'],
+  ['EMPRESA_TELEFONO', 'Teléfono'], ['EMPRESA_EMAIL', 'Email', 'email'], ['LOGO_URL', 'Logo (URL o ID de Drive)'],
+  ['IVA_PCT', 'IVA %', 'number'], ['FOLIO_PREFIJO', 'Prefijo de folio'], ['FOLIO_CONSECUTIVO', 'Último consecutivo', 'number'],
+  ['VIGENCIA_DIAS', 'Días de vigencia', 'number'], ['DIAS_SEGUIMIENTO', 'Días para primer seguimiento', 'number'],
+  ['EMAIL_NOTIFICACIONES', 'Email para resumen diario', 'email'], ['CARPETA_PDF_ID', 'ID carpeta de PDFs en Drive'],
+  ['CONDICIONES', 'Condiciones por defecto', 'area']
+];
+
+VIEWS.config = () => {
+  main().innerHTML = `<form class="card" id="cfgForm" style="max-width:760px"><h3>Configuración</h3><div class="grid2">
+    ${CFG.map(([k, l, t]) => t === 'area'
+      ? `<div class="full">${area(l, k, S.config[k], 5)}</div>`
+      : fld(l, k, S.config[k], t || 'text', t === 'number' ? 'step="any"' : '')).join('')}
+    </div><div class="acts"><span class="sp"></span><button class="pri">Guardar</button></div></form>`;
+  $('#cfgForm').onsubmit = async e => {
+    e.preventDefault();
+    S.config = await run('api_saveConfig', Object.fromEntries(new FormData(e.target)));
+    toast('Configuración guardada');
+  };
+};
+
+/* ---------- inicio ---------- */
+window.addEventListener('load', () => {
+  refresh().then(() => go('tablero')).catch(() => {
+    main().innerHTML = '<div class="card">No se pudo cargar. Ejecuta <b>Cotizaplus → Configurar hojas</b> en la hoja de cálculo.</div>';
+  });
+});
+</script>
