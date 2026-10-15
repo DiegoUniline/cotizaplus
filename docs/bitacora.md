@@ -10,3 +10,4 @@
 - 2026-10-15 · arquitecto · FASE 1 paso 2: campos de empresas propuestos · P-019 abierta
 - 2026-10-15 · arquitecto · reglas actualizadas (Paso 1b/1c, preguntas con clic); P-019 en pausa
 - 2026-10-15 · arquitecto · Paso 1b: diagrama-er.md creado (validado con mermaid-cli)
+- 2026-10-15 · arquitecto · P-020 respuesta ambigua (No + aclaración de varias empresas con su logo) · se repregunta

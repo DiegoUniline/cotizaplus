@@ -122,4 +122,4 @@
 **Opciones:** A) Sí, con un selector de empresa al entrar  B) No, un correo = una sola empresa
 **Recomendación:** A — ya está modelado así, permite contadores, consultores o un vendedor que trabaja para dos negocios; costo: un selector de empresa.
 **Impacto en datos:** usuarios_empresa (N:M usuario↔empresa) o empresa_id directo en el perfil.
-**Respuesta:** <!--resp P-020-->
+**Respuesta:** ⚠️ AMBIGUA — eligió "No, un correo = una empresa" y enseguida aclaró: "yo Diego León tengo muchas empresas y cada una su logotipo, colores, etc." Se repregunta. <!--resp P-020-->
