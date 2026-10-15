@@ -95,3 +95,8 @@
 **Decisión:** dos fases; Fase 1 (MVP) a fin de diciembre de 2026, Fase 2 después (ver 00-vision.md). ✅
 **Origen:** P-017
 **Consecuencias:** ~11 semanas para la Fase 1.
+
+### D-020 · mapa de tablas · 2026-10-15
+**Decisión:** se aprueba el mapa de 29 tablas propuesto y se agrega `contactos_cliente`. ✅
+**Origen:** P-018
+**Consecuencias:** un cliente puede tener varios contactos; los campos de cada tabla se definen una por una (FASE 1, Paso 2).

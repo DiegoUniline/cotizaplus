@@ -4,13 +4,12 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Diseño de datos, Paso 1 (mapa de tablas)
-- **Módulo en curso:** mapa general del sistema
-- **Última pregunta:** P-018 (¿agrego, quito o cambio alguna tabla del mapa?) — ABIERTA
-- **Siguiente paso exacto:** esperar respuesta a P-018; después Paso 2 con la primera tabla del orden (empresas), una tabla por mensaje.
+- **Fase:** FASE 1 — Diseño de datos, Paso 2 (campos por tabla)
+- **Módulo en curso:** Plataforma · tabla `empresas`
+- **Última pregunta:** P-019 (campos de `empresas`: ¿agrego, quito o cambio alguno?) — ABIERTA
+- **Siguiente paso exacto:** esperar P-019; luego Paso 3 (comportamiento de campos de `empresas` que lo requieran, uno por mensaje), Paso 4 procesos, Paso 5 resumen y siguiente tabla (`usuarios_empresa`).
 
 ## Decisiones recientes (últimas 10)
-- [D-010](decisiones.md) · catálogo · atributos definidos por cada empresa; serie al cotizar
 - [D-011](decisiones.md) · envío · correo, WhatsApp, liga pública, firma, visto
 - [D-012](decisiones.md) · seguimiento · estados, bitácora, Kanban, recordatorios configurables
 - [D-013](decisiones.md) · seguimiento · WhatsApp automático con API oficial, paquetes aparte
@@ -20,9 +19,10 @@
 - [D-017](decisiones.md) · plataforma · plantillas, subdominio, correo noreply con Gmail API
 - [D-018](decisiones.md) · visión · PWA con Next.js + Supabase
 - [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
+- [D-020](decisiones.md) · mapa · 29 tablas aprobadas + contactos_cliente
 
 ## Propuestas pendientes de aprobación 💡
-- Mapa de 29 tablas (00-mapa.md) — P-018.
+- Campos de `empresas` — P-019.
 - Límites por plan: Básico 1 usuario / 30 cotizaciones; Pro 5 / 300; Empresa ilimitado (D-006).
 - Prueba de 14 días, funciones de Pro, sin tarjeta (D-007).
 - El dueño de la cuenta invita a sus usuarios por correo (D-007).
@@ -49,10 +49,10 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 1 · paso 1 | — | P-018 |
-| Catálogo | diseño | 1 · paso 1 | — | P-018 |
-| Clientes | diseño | 1 · paso 1 | — | P-018 |
-| Cotizaciones | diseño | 1 · paso 1 | — | P-018 |
-| Envío | diseño | 1 · paso 1 | — | P-018 |
-| Seguimiento | diseño | 1 · paso 1 | — | P-018 |
-| Super-admin | diseño | 1 · paso 1 | — | P-018 |
+| Plataforma | diseño | 1 · paso 2 (empresas) | — | P-019 |
+| Catálogo | diseño | 1 · paso 1 ✅ | — | — |
+| Clientes | diseño | 1 · paso 1 ✅ | — | — |
+| Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
+| Envío | diseño | 1 · paso 1 ✅ | — | — |
+| Seguimiento | diseño | 1 · paso 1 ✅ | — | — |
+| Super-admin | diseño | 1 · paso 1 ✅ | — | — |

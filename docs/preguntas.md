@@ -83,9 +83,35 @@
 **Pregunta:** ¿Estás de acuerdo con la división Fase 1 (MVP) / Fase 2 y cuál es la fecha meta?
 **Respuesta:** "Sí de acuerdo, para fin de diciembre." (D-019)
 
-### P-018 · mapa de tablas · ALTA · ABIERTA
+### P-018 · mapa de tablas · ALTA · RESPONDIDA
 **Contexto:** FASE 1, Paso 1. Mapa de tablas propuesto en /docs/00-mapa.md.
 **Pregunta:** ¿Agrego, quito o cambio alguna tabla? (o "OK")
 **Recomendación:** revisar sobre todo contactos de cliente y plantillas, que no se han decidido.
 **Impacto en datos:** define todas las tablas a detallar.
+**Respuesta:** "OK. Sí agrega contactos_cliente." (D-020)
+
+### P-019 · plataforma / empresas · ALTA · ABIERTA
+**Contexto:** FASE 1, Paso 2. Primera tabla del orden: `empresas`. Campos propuestos (sin técnicos):
+| campo | qué guarda | tipo | ¿obligatorio? | certeza |
+|---|---|---|---|---|
+| nombre_comercial | nombre que ven sus clientes | texto | sí | 💡 |
+| razon_social | nombre fiscal | texto | no | 💡 |
+| rfc | RFC de la empresa | texto 12–13 | no | 💡 |
+| logo | logo para PDF, liga y app | archivo/foto | no | 💡 (D-017) |
+| color_marca | color principal en PDF y liga | texto (#RRGGBB) | no | 💡 (D-017) |
+| subdominio | acme.cotizaplus.com | texto | sí | 💡 (D-017, Fase 2) |
+| correo | correo de contacto de la empresa | correo | sí | 💡 |
+| telefono | teléfono o WhatsApp de la empresa | texto 10 dígitos | no | 💡 |
+| direccion | dirección que sale en el PDF | texto | no | 💡 |
+| sitio_web | página web | texto | no | 💡 |
+| prefijo_folio | inicio del folio (ACME-) | texto | sí | 💡 (D-017) |
+| plantilla_pdf | plantilla por defecto | relación con plantillas_pdf | sí | 💡 (D-017) |
+| moneda | moneda por defecto | lista fija: MXN, USD | sí | 💡 |
+| tasa_iva | IVA por defecto | lista fija: 16%, 8%, 0%, exento | sí | 💡 |
+| vigencia_dias | días de vigencia por defecto | número | sí | 💡 |
+| condiciones | texto por defecto del pie de la cotización | texto largo | no | 💡 |
+| zona_horaria | para resumen diario y recordatorios | lista fija | sí | 💡 |
+**Pregunta:** ¿Agrego, quito o cambio algún campo? (o "OK")
+**Recomendación:** OK — cubre lo decidido en D-017 y lo que sale en el PDF.
+**Impacto en datos:** estructura de `empresas`.
 **Respuesta:**

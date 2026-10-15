@@ -6,3 +6,5 @@
 - 2026-10-15 · arquitecto · investigación del giro (tardía) en investigacion-giro.md
 - 2026-10-15 · arquitecto · /docs actualizado: visión, preguntas, decisiones, glosario, mapa 💡, estado
 - 2026-10-15 · arquitecto · FASE 1 paso 1: mapa de 29 tablas propuesto · P-018 abierta
+- 2026-10-15 · arquitecto · P-018 respondida: OK + contactos_cliente · D-020
+- 2026-10-15 · arquitecto · FASE 1 paso 2: campos de empresas propuestos · P-019 abierta
