@@ -205,3 +205,8 @@
 **Decisión:** `clientes` guarda vendedor (D-008), marca (D-022, si separa por marca), nombre, razon_social, rfc, tipo_persona, correo, telefono, direccion, notas. ✅ (no quitó ninguno)
 **Origen:** P-037
 **Consecuencias:** diccionario en modulos/clientes.md.
+
+### D-042 · clientes / contactos_cliente · 2026-10-15
+**Decisión:** `contactos_cliente` guarda cliente (D-020), nombre, puesto, correo, telefono, es_principal, notas. ✅ (no quitó ninguno)
+**Origen:** P-038
+**Consecuencias:** la cotización se dirige al contacto principal por defecto (💡 D-024, se confirma en el cierre).

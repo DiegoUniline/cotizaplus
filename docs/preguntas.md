@@ -217,9 +217,9 @@
 **Impacto en datos:** estructura de `clientes`.
 **Respuesta:** no quitó ninguno. (D-041)
 
-### P-038 · clientes / contactos_cliente · ALTA · ABIERTA
+### P-038 · clientes / contactos_cliente · ALTA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2. Ya definido: pertenece a un cliente (D-020). Propuestos 💡: nombre, puesto, correo, telefono, es_principal, notas.
 **Pregunta:** ¿Cuáles QUITAS? (sin marcar = se quedan)
 **Recomendación:** no quitar ninguno.
 **Impacto en datos:** estructura de `contactos_cliente`.
-**Respuesta:**
+**Respuesta:** no quitó ninguno. (D-042)
