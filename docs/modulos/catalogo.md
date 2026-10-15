@@ -1,5 +1,5 @@
 # Módulo: Catálogo
-Conocimiento: 86% (✅ 24 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
+Conocimiento: 89% (✅ 25 / 28 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
 
 ## 1. Propósito
 Atributos que define cada empresa y su catálogo de productos con imagen, precio, unidad y tipo de cobro. ✅ (D-009, D-010)
@@ -47,7 +47,7 @@ Lleva `atributo_id uuid not null references atributos(id)`.
 P-036.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **86%** (✅ 24 / 28). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **89%** (✅ 25 / 28). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -75,7 +75,7 @@ Confirmado por el dueño: **86%** (✅ 24 / 28). Mínimo para APROBADO: 90%.
 | QS-03 | Casos borde | Importación de Excel con filas con error: se importan las buenas y se muestra la lista de errores | ✅ |
 | QS-04 | Casos borde | Cambiar ajuste_precio de una opción no afecta partidas existentes | ✅ |
 | QS-05 | Casos borde | Atributo obligatorio agregado después: solo se exige en partidas nuevas | ✅ |
-| Q-01 | Pendientes | ¿El precio del producto incluye IVA? | ❓ |
+| Q-01 | Pendientes | Precio del producto sin IVA; la cotización suma el IVA | ✅ |
 | Q-02 | Pendientes | ¿Catálogo compartido entre marcas o por marca? | ❓ |
 | Q-03 | Pendientes | ¿El vendedor puede cambiar precio y atributos en la partida? | ❓ |
 | Q-04 | Pendientes | Importar Excel: si el producto ya existe (mismo nombre), ¿actualizar o saltar? | ❓ |
