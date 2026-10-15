@@ -7,19 +7,19 @@
 - **Fase:** FASE 1 — módulo Cotizaciones, Paso 2 (campos por tabla)
 - **Módulo en curso:** Cotizaciones · tabla `cotizaciones` (Clientes ✅ APROBADO D-043, sin SQL)
 - **Última pregunta:** P-039 (campos de `cotizaciones`) — EN PAUSA: el dueño preguntó qué sigue suponiendo todos los módulos listos
-- **Siguiente paso exacto:** simular una orden de trabajo (skill orden-de-trabajo) con un pedido del dueño en sus palabras; OT en /docs/ordenes/OT-001.md, sin código. P-039 en pausa.
+- **Siguiente paso exacto:** OT-001 redactada (docs/ordenes/OT-001.md); esperar OK / cambiar / ver completa. Simulación: con OK se marca como terminada sin código. P-039 en pausa.
 
 ## Decisiones recientes (últimas 10)
-- [D-034](decisiones.md) · atributo_opciones · valor + ajuste_precio
-- [D-035](decisiones.md) · productos · como el mapa, sin sku ni descripción
-- [D-036](decisiones.md) · catálogo · corrección: no marcado ≠ quitar
-- [D-037](decisiones.md) · catálogo · atributos sin orden/editable; productos con sku y descripción
-- [D-038](decisiones.md) · catálogo · compartido, producto limitable a marcas
 - [D-039](decisiones.md) · catálogo · alfabético, sin IVA, partida editable, importar actualiza
 - [D-040](decisiones.md) · catálogo · APROBADO (sin SQL)
 - [D-041](decisiones.md) · clientes · 10 campos
 - [D-042](decisiones.md) · contactos · 7 campos
 - [D-043](decisiones.md) · clientes · APROBADO (96%, Q-01 💡)
+- [D-044](decisiones.md) · OT-001 · aviso en resumen diario
+- [D-045](decisiones.md) · OT-001 · a vendedor y gerente
+- [D-046](decisiones.md) · OT-001 · días configurables (3), campo nuevo en empresas
+- [D-047](decisiones.md) · OT-001 · cada día hasta vencer
+- [D-048](decisiones.md) · OT-001 · solo enviada/vista/en negociación
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c fuera de Plataforma (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables → se confirman en el cierre de cada módulo.

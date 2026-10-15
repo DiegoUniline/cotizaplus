@@ -235,3 +235,8 @@
 **Decisión:** el aviso se repite en cada resumen diario desde N días antes hasta el día de vencimiento; deja de salir si la cotización se acepta, rechaza o vence. ✅
 **Origen:** OT-001, pregunta de programador 4
 **Consecuencias:** no se registra en la bitácora de la cotización cada día (evita ruido); se calcula al armar el resumen.
+
+### D-048 · seguimiento / OT-001 · 2026-10-15
+**Decisión:** se avisa de cotizaciones en estado Enviada, Vista o En negociación; los borradores no. ✅
+**Origen:** OT-001, pregunta de programador 5
+**Consecuencias:** filtro por estado en la consulta del resumen diario.
