@@ -11,3 +11,4 @@
 - 2026-10-15 · arquitecto · reglas actualizadas (Paso 1b/1c, preguntas con clic); P-019 en pausa
 - 2026-10-15 · arquitecto · Paso 1b: diagrama-er.md creado (validado con mermaid-cli)
 - 2026-10-15 · arquitecto · P-020 respuesta ambigua (No + aclaración de varias empresas con su logo) · se repregunta
+- 2026-10-15 · arquitecto · P-020 respondida tras repregunta: un correo = una empresa; varias marcas por empresa · D-021, D-022 · mapa +marcas, diagrama actualizado

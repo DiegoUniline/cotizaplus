@@ -116,10 +116,20 @@
 **Impacto en datos:** estructura de `empresas`.
 **Respuesta:** EN PAUSA — el dueño pidió primero diagrama ER y preguntas de relaciones (Paso 1b/1c).
 
-### P-020 · plataforma / usuarios · ALTA · ABIERTA
+### P-020 · plataforma / usuarios · ALTA · RESPONDIDA
 **Contexto:** usuarios_empresa une un login con una empresa; define si el login es por empresa o compartido.
 **Pregunta:** ¿Un mismo usuario (mismo correo) puede trabajar en varias empresas de Cotizaplus?
 **Opciones:** A) Sí, con un selector de empresa al entrar  B) No, un correo = una sola empresa
 **Recomendación:** A — ya está modelado así, permite contadores, consultores o un vendedor que trabaja para dos negocios; costo: un selector de empresa.
 **Impacto en datos:** usuarios_empresa (N:M usuario↔empresa) o empresa_id directo en el perfil.
-**Respuesta:** ⚠️ AMBIGUA — eligió "No, un correo = una empresa" y enseguida aclaró: "yo Diego León tengo muchas empresas y cada una su logotipo, colores, etc." Se repregunta. <!--resp P-020-->
+**Respuesta:** ⚠️ AMBIGUA — eligió "No, un correo = una empresa" y enseguida aclaró: "yo Diego León tengo muchas empresas y cada una su logotipo, colores, etc." Se repregunta.
+**Repregunta:** ¿varias empresas separadas con el mismo correo, una cuenta con varias marcas, o las dos?
+**Respuesta final:** "Una empresa puede tener muchas marcas, y [la empresa] debe decidir si se separa el cliente por [marca] o cada cliente para una sola [marca]." → un correo = una empresa; varias marcas dentro de la empresa; la empresa configura si los clientes se comparten o se separan por marca. (D-021, D-022)
+
+### P-021 · plataforma / marcas · ALTA · ABIERTA
+**Contexto:** Con varias marcas por empresa (D-022) hay que definir qué ve y usa cada vendedor.
+**Pregunta:** ¿Un vendedor puede cotizar con todas las marcas de la empresa, o solo con las que el dueño le asigne?
+**Opciones:** A) Solo con las marcas asignadas  B) Con todas las marcas  C) Lo decide cada empresa
+**Recomendación:** A — si un vendedor trabaja solo para una de tus marcas no debe ver ni cotizar con las otras; asignarle todas sigue siendo posible.
+**Impacto en datos:** tabla usuario_marcas (N:M) y RLS por marca.
+**Respuesta:** <!--resp P-021-->

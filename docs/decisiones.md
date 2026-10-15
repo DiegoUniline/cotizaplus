@@ -100,3 +100,13 @@
 **Decisión:** se aprueba el mapa de 29 tablas propuesto y se agrega `contactos_cliente`. ✅
 **Origen:** P-018
 **Consecuencias:** un cliente puede tener varios contactos; los campos de cada tabla se definen una por una (FASE 1, Paso 2).
+
+### D-021 · plataforma / usuarios · 2026-10-15
+**Decisión:** un correo (usuario) pertenece a una sola empresa. ✅
+**Origen:** P-020
+**Consecuencias:** `usuarios_empresa` con `unique(user_id)`; sin selector de empresa. Las varias "empresas" del dueño se manejan como marcas (D-022).
+
+### D-022 · plataforma / marcas · 2026-10-15
+**Decisión:** una empresa puede tener varias marcas, cada una con su logo, colores y datos. Cada empresa configura si sus clientes se comparten entre marcas o cada cliente pertenece a una sola marca. ✅
+**Origen:** P-020
+**Consecuencias:** nueva tabla `marcas`; `empresas` guarda el ajuste `clientes_por_marca` (sí/no); `clientes.marca_id` obligatorio solo si la empresa separa por marca; `cotizaciones.marca_id` = con qué marca sale. ❓ Pendiente: qué datos son de la marca y cuáles de la empresa, folios por marca, vendedores por marca.
