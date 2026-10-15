@@ -5,12 +5,11 @@
 
 ## Dónde vamos
 - **Fase:** FASE 1 — Paso 2 (campos por tabla). Paso 1b ✅ · Paso 1c cerrado con 💡 (D-024)
-- **Módulo en curso:** Plataforma · tabla `empresas` (P-019 reanudada, campos ajustados por marcas)
-- **Última pregunta:** P-019 (marcar campos de `empresas` que se quedan) — ABIERTA
-- **Siguiente paso exacto:** registrar P-019; luego campos de `marcas` (logo, colores, datos fiscales, prefijo de folio, plantilla).
+- **Módulo en curso:** Plataforma · tabla `marcas` (empresas ✅ D-025, ver modulos/plataforma.md)
+- **Última pregunta:** P-029 (marcar campos de `marcas`) — ABIERTA
+- **Siguiente paso exacto:** registrar P-029; luego `usuarios_empresa` (Paso 2). Pasos 3–4 se están suponiendo (💡) por pedido del dueño.
 
 ## Decisiones recientes (últimas 10)
-- [D-015](decisiones.md) · super-admin · panel de plataforma
 - [D-016](decisiones.md) · integraciones · importar Excel y pedidos
 - [D-017](decisiones.md) · plataforma · plantillas, subdominio, correo noreply con Gmail API
 - [D-018](decisiones.md) · visión · PWA con Next.js + Supabase
@@ -20,6 +19,7 @@
 - [D-022](decisiones.md) · marcas · varias marcas por empresa; clientes compartidos o separados (lo decide la empresa)
 - [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
 - [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
+- [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c no confirmadas (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables.
@@ -33,6 +33,7 @@
 - Plan anual con descuento para reducir comisión de Stripe (~8% en $69).
 
 ## Pendientes / bloqueos ❓
+- ⚠️ Subdominio: se quitó de empresas (P-019) pero D-017 lo pide; 💡 moverlo a marcas (P-029).
 - Precio de los paquetes de WhatsApp (D-013).
 - ¿Los precios de planes incluyen IVA? ¿Se factura la renta?
 - Opciones A/B en una cotización y retenciones (D-009).
@@ -51,7 +52,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 1 · paso 2 (empresas) | — | P-019 |
+| Plataforma | diseño | 1 · paso 2 (marcas) | — | P-029 |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |

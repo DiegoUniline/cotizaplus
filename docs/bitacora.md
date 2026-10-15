@@ -14,3 +14,4 @@
 - 2026-10-15 · arquitecto · P-020 respondida tras repregunta: un correo = una empresa; varias marcas por empresa · D-021, D-022 · mapa +marcas, diagrama actualizado
 - 2026-10-15 · arquitecto · P-021 respondida: C (lo decide cada empresa) · D-023
 - 2026-10-15 · arquitecto · dueño pide suponer y avanzar (prueba) · Paso 1c cerrado con 💡 · D-024 · P-019 reanudada
+- 2026-10-15 · arquitecto · P-019 respondida: 10 campos, sin subdominio ⚠️ · D-025 · modulos/plataforma.md creado · P-029 abierta

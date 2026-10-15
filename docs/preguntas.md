@@ -90,7 +90,7 @@
 **Impacto en datos:** define todas las tablas a detallar.
 **Respuesta:** "OK. Sí agrega contactos_cliente." (D-020)
 
-### P-019 · plataforma / empresas · ALTA · ABIERTA
+### P-019 · plataforma / empresas · ALTA · RESPONDIDA
 **Contexto:** FASE 1, Paso 2. Primera tabla del orden: `empresas`. Campos propuestos (sin técnicos):
 | campo | qué guarda | tipo | ¿obligatorio? | certeza |
 |---|---|---|---|---|
@@ -115,6 +115,7 @@
 **Recomendación:** OK — cubre lo decidido en D-017 y lo que sale en el PDF.
 **Impacto en datos:** estructura de `empresas`.
 **Respuesta:** EN PAUSA — el dueño pidió primero diagrama ER y preguntas de relaciones (Paso 1b/1c). Reanudada con lista ajustada: datos de imagen, fiscales y folio pasan a `marcas` (D-022, D-024).
+**Respuesta final (selección):** se quedan nombre, correo, telefono, clientes_por_marca, vendedores_por_marca, zona_horaria, moneda, tasa_iva, vigencia_dias, condiciones. Quitó: subdominio ⚠️ (choca con D-017). (D-025)
 
 ### P-020 · plataforma / usuarios · ALTA · RESPONDIDA
 **Contexto:** usuarios_empresa une un login con una empresa; define si el login es por empresa o compartido.
@@ -150,3 +151,10 @@
 - P-026 · ¿Cotización ↔ pedido? → 💡 Una cotización aceptada genera un solo pedido.
 - P-027 · ¿Vendedores por cliente? → 💡 Uno solo; dueño o gerente lo reasignan.
 - P-028 · ¿Motivos de rechazo? → 💡 Lista configurable por empresa con valores iniciales (precio, tiempo de entrega, eligió a la competencia, otro).
+
+### P-029 · plataforma / marcas · ALTA · ABIERTA
+**Contexto:** FASE 1 Paso 2, tabla `marcas` (D-022). Campos propuestos: nombre, logo, color_marca, razon_social, rfc, direccion, telefono, correo, sitio_web, prefijo_folio, plantilla_pdf, subdominio (💡 movido desde empresas por la inconsistencia con D-017).
+**Pregunta:** ¿Cuáles campos de `marcas` se quedan?
+**Recomendación:** todos.
+**Impacto en datos:** estructura de `marcas`.
+**Respuesta:**
