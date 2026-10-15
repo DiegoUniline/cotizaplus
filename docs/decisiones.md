@@ -135,3 +135,8 @@
 **Decisión:** `usuarios_empresa` guarda nombre, nombre_completo, correo, telefono, foto, rol, puesto, fecha_alta y leyenda_contacto. ✅
 **Origen:** P-030
 **Consecuencias:** 💡 interpretación: nombre = nombre corto en la app y nombre_completo = firma del PDF; fecha_alta es editable y distinta de created_at; leyenda_contacto se copia al PDF de las cotizaciones del usuario (la cotización guarda copia al emitirse).
+
+### D-028 · plataforma · 2026-10-15
+**Decisión:** el dueño pidió terminar el Paso 2 y avanzar: `invitaciones`, `usuario_marcas`, `planes`, `suscripciones` y `pagos` quedan con campos 💡 PROPUESTOS; se pasa a FASE 2 con la propuesta completa del módulo. ✅ (avanzar) / 💡 (contenido)
+**Origen:** P-031
+**Consecuencias:** modulos/plataforma.md completo con estados, procesos, casos borde, permisos, escalabilidad y criterios de aceptación. Espera `APROBADO plataforma`.

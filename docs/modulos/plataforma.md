@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: en diseño (FASE 1, Paso 2) | Última actualización: 2026-10-15 | Fuente: diseño
+Conocimiento: 35% (✅ 31 / total 88: campos y reglas) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -62,10 +62,202 @@ Campos confirmados en P-030 (D-027). Lleva `empresa_id` y `user_id uuid not null
 
 Nota: en "Rol y firma" el dueño marcó "Something else" sin texto → no se agregó nada.
 
+### Tabla `usuario_marcas` 💡
+Solo llaves (D-023). Se usa cuando `empresas.vendedores_por_marca = true`.
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| empresa_id | uuid → empresas | no | — | Empresa | igual a la del usuario y la marca (trigger) | 💡 | D-023 |
+| usuario_empresa_id | uuid → usuarios_empresa | no | — | Vendedor | unique (usuario_empresa_id, marca_id) | 💡 | D-023 |
+| marca_id | uuid → marcas | no | — | Marca asignada | — | 💡 | D-023 |
+
+### Tabla `invitaciones` 💡 (el dueño pidió suponer, P-031 sin respuesta)
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| empresa_id | uuid → empresas | no | — | Empresa que invita | — | 💡 | D-007 |
+| correo | text | no | — | A quién se invita | lower; no puede pertenecer ya a otra empresa (D-021); unique (empresa_id, correo) where estado='pendiente' | 💡 | D-007, D-021 |
+| nombre_completo | text | no | — | Prellenado del usuario | — | 💡 | D-027 |
+| rol | text | no | 'vendedor' | Rol que tendrá | check in ('dueno','gerente','vendedor') | 💡 | D-008 |
+| marca_ids | uuid[] | sí | null | Marcas que se le asignarán | solo si vendedores_por_marca | 💡 | D-023 |
+| mensaje | text | sí | null | Texto opcional del correo | ≤ 500 | 💡 | — |
+| token_hash | text | no | — | Hash del enlace (el token nunca se guarda en claro) | unique | 💡 | seguridad |
+| estado | text | no | 'pendiente' | pendiente, aceptada, cancelada, vencida | check | 💡 | — |
+| vence_at | timestamptz | no | now() + 7 días | Caducidad del enlace | — | 💡 | — |
+| invitado_por | uuid → usuarios_empresa | no | — | Quién invitó | rol dueño | 💡 | D-007 |
+
+### Tabla `planes` 💡 (global, la administra el super-admin; sin empresa_id)
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| codigo | text | no | — | basico, pro, empresa | unique | ✅ planes / 💡 campo | D-004 |
+| nombre | text | no | — | Básico, Pro, Empresa | — | ✅ | D-004 |
+| precio_mensual | numeric(14,2) | sí | — | 69.00, 150.00; null = a cotizar | ≥ 0 | ✅ montos / ❓ ¿incluye IVA? | D-006 |
+| max_usuarios | int | sí | — | 1, 5, null = ilimitado | > 0 | 💡 | D-006 |
+| max_cotizaciones_mes | int | sí | — | 30, 300, null = ilimitado | > 0 | 💡 | D-006 |
+| recordatorios_automaticos | boolean | no | false | Pro y Empresa | — | 💡 | D-006 |
+| aprobacion_descuentos | boolean | no | false | Solo Empresa | — | 💡 | D-006 |
+| stripe_price_id | text | sí | null | Precio en Stripe | null en Empresa | 💡 | D-005 |
+| publico | boolean | no | true | Se muestra en la página de registro | Empresa = false | 💡 | — |
+
+### Tabla `suscripciones` 💡
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| empresa_id | uuid → empresas | no | — | Empresa | una sola vigente: unique (empresa_id) where estado <> 'cancelada' | 💡 | D-004 |
+| plan_id | uuid → planes | no | — | Plan contratado | — | ✅ | D-004 |
+| estado | text | no | 'prueba' | prueba, activa, vencida, suspendida, cancelada | máquina de estados §5 | 💡 | D-007 |
+| metodo_pago | text | sí | null | stripe, transferencia | check | ✅ | D-005 |
+| precio_acordado | numeric(14,2) | sí | null | Precio del plan Empresa (a cotizar) | obligatorio si plan = empresa | 💡 | D-006 |
+| prueba_hasta | date | sí | alta + 14 días | Fin de la prueba | — | 💡 14 días | D-007 |
+| periodo_inicio | date | sí | null | Inicio del periodo pagado | — | 💡 | — |
+| periodo_fin | date | sí | null | Fin del periodo pagado | > periodo_inicio | 💡 | — |
+| gracia_hasta | date | sí | null | Fin de días de gracia tras fallo de cobro | periodo_fin + 5 días | 💡 5 días | D-005 |
+| stripe_customer_id | text | sí | null | Cliente en Stripe | unique | 💡 | D-005 |
+| stripe_subscription_id | text | sí | null | Suscripción en Stripe | unique | 💡 | D-005 |
+| cancelada_at | timestamptz | sí | null | Cuándo se pidió la cancelación | — | 💡 | — |
+
+### Tabla `pagos` 💡
+| Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
+|---|---|---|---|---|---|---|---|
+| empresa_id | uuid → empresas | no | — | Empresa | — | 💡 | D-005 |
+| suscripcion_id | uuid → suscripciones | no | — | Suscripción que paga | — | 💡 | D-005 |
+| metodo | text | no | — | stripe, transferencia | check | ✅ | D-005 |
+| monto | numeric(14,2) | no | — | Monto pagado | > 0 | 💡 | — |
+| moneda | text | no | 'MXN' | Moneda | check in ('MXN') | 💡 | — |
+| periodo_desde / periodo_hasta | date | no | — | Periodo que cubre | hasta > desde | 💡 | — |
+| estado | text | no | — | por_validar, aprobado, rechazado, fallido, reembolsado | §5 | 💡 | D-005 |
+| comprobante | text (Storage) | sí | null | Archivo de la transferencia | obligatorio si metodo = transferencia | ✅ | D-005 |
+| referencia | text | sí | null | Referencia bancaria | — | 💡 | — |
+| stripe_invoice_id | text | sí | null | Factura de Stripe | unique (idempotencia de webhooks) | 💡 | D-005 |
+| validado_por / validado_at | uuid / timestamptz | sí | null | Super-admin que validó | solo super-admin | ✅ | D-005, D-015 |
+| motivo_rechazo | text | sí | null | Por qué se rechazó | obligatorio si estado = rechazado | 💡 | — |
+| registrado_por | uuid | sí | null | Quién subió el comprobante (dueño) | — | 💡 | — |
+
+**Super-admin** 💡: no es una tabla; se marca en Supabase Auth (`app_metadata.rol = 'super_admin'`) y lo lee una función `es_super_admin()`.
+
+## 3. Catálogos
+| Catálogo | FIJO / CONFIGURABLE | Valores iniciales (seed) | ¿El cliente puede borrar seed? | Certeza |
+|---|---|---|---|---|
+| Roles | FIJO | dueno, gerente, vendedor | no | ✅ D-008 |
+| Planes | Tabla global (super-admin) | basico $69, pro $150, empresa a cotizar | solo super-admin; no se borra si tiene suscripciones | ✅ D-006 / 💡 límites |
+| Estado suscripción | FIJO | prueba, activa, vencida, suspendida, cancelada | no | 💡 |
+| Estado pago | FIJO | por_validar, aprobado, rechazado, fallido, reembolsado | no | 💡 |
+| Estado invitación | FIJO | pendiente, aceptada, cancelada, vencida | no | 💡 |
+| Moneda | FIJO | MXN, USD | no | ✅ P-019 |
+| Tasa IVA | FIJO | 16%, 8%, 0%, exento | no | ✅ P-019 |
+| Zona horaria | FIJO | zonas IANA de México | no | ✅ P-019 |
+| Plantillas PDF | Tabla global de Cotizaplus | ❓ cuáles | no | 💡 (módulo Cotizaciones) |
+
+## 4. Relaciones
+| Campo | Apunta a | Cardinalidad | ON DELETE | Qué pasa si se da de baja el padre | Certeza |
+|---|---|---|---|---|---|
+| marcas.empresa_id | empresas | N:1 | restrict | empresa cancelada → ver §7 #9 | 💡 |
+| usuarios_empresa.empresa_id | empresas | N:1 | restrict | — | 💡 |
+| usuarios_empresa.user_id | auth.users | 1:1 | restrict | — | ✅ D-021 |
+| usuario_marcas.* | usuarios_empresa, marcas | N:M | cascade | al desactivar marca o usuario la asignación deja de aplicar | 💡 |
+| invitaciones.empresa_id | empresas | N:1 | cascade | — | 💡 |
+| suscripciones.plan_id | planes | N:1 | restrict | un plan con suscripciones no se borra, se oculta (publico=false) | 💡 |
+| suscripciones.empresa_id | empresas | N:1 | restrict | historial de suscripciones se conserva | 💡 |
+| pagos.suscripcion_id | suscripciones | N:1 | restrict | pagos nunca se borran | 💡 |
+| marcas.plantilla_pdf_id | plantillas_pdf | N:1 | restrict | — | 💡 |
+
+## 5. Estados
+### Suscripción 💡
+| Estado | Significado | Pasa a | Quién lo cambia | Condición | Certeza |
+|---|---|---|---|---|---|
+| prueba | 14 días con funciones de Pro | activa / vencida / cancelada | sistema / dueño | pago aprobado → activa; fin de prueba sin pago → vencida | 💡 |
+| activa | pagada y al corriente | vencida / cancelada | sistema (webhook o cron) / dueño | periodo_fin + gracia sin pago → vencida | 💡 |
+| vencida | sin pago; **solo lectura** | activa / suspendida / cancelada | sistema / super-admin | pago aprobado → activa | 💡 |
+| suspendida | bloqueada por el super-admin; sin acceso salvo dueño a facturación | activa | super-admin | — | ✅ D-015 / 💡 alcance |
+| cancelada | el dueño canceló; acceso hasta periodo_fin | — (final) | dueño / super-admin | datos ❓ (§7 #9) | 💡 |
+
+### Pago 💡
+| Estado | Significado | Pasa a | Quién lo cambia | Condición | Certeza |
+|---|---|---|---|---|---|
+| por_validar | transferencia con comprobante subido | aprobado / rechazado | super-admin | — | ✅ D-005 |
+| aprobado | cuenta para el periodo | reembolsado | sistema (Stripe) / super-admin | — | 💡 |
+| fallido | cargo de Stripe rechazado | — | sistema | activa gracia | 💡 |
+| rechazado | comprobante inválido | — | super-admin | motivo obligatorio | 💡 |
+| reembolsado | devuelto | — | super-admin | — | 💡 |
+
+### Invitación 💡: pendiente → aceptada (el invitado crea su acceso) · cancelada (dueño) · vencida (7 días, cron).
+
+## 6. Procesos 💡 (todos en RPC transaccional)
+### 6.1 Alta de empresa (registro libre, D-007)
+Disparador: alguien se registra. Pasos en `registrar_empresa()`: crea auth user → `empresas` con defaults → primera `marcas` (con el nombre de la empresa y prefijo derivado) → `usuarios_empresa` rol dueño → `suscripciones` estado prueba, plan Pro, prueba_hasta = hoy + 14 → seeds (motivos de rechazo, etc.). Si algo falla, no queda nada.
+### 6.2 Invitar usuario
+Dueño → `invitar_usuario()`: valida límite de usuarios del plan (contando activos + invitaciones pendientes), que el correo no esté en otra empresa, crea invitación, envía correo (Gmail API). Aceptar → `aceptar_invitacion(token)`: crea usuarios_empresa (+ usuario_marcas), marca aceptada.
+### 6.3 Edición
+Empresa y marcas: dueño y gerente. Cambiar `prefijo_folio` solo afecta folios futuros. Cambiar `leyenda_contacto` no altera cotizaciones ya emitidas (guardan copia).
+### 6.4 Baja
+Usuarios: baja lógica (`activo=false`); sus clientes y cotizaciones deben reasignarse (❓ a quién por defecto). Marcas: baja lógica; no se usan en cotizaciones nuevas. Empresas: no se borran; se cancelan.
+### 6.5 Reactivación
+Usuario o marca: `activo=true` si el plan lo permite (límite de usuarios).
+### 6.6 Pago con Stripe
+Checkout → webhook `invoice.paid` → `registrar_pago_stripe()` idempotente por `stripe_invoice_id` → pago aprobado → suscripción activa con nuevo periodo. `invoice.payment_failed` → pago fallido → gracia 5 días.
+### 6.7 Pago por transferencia
+Dueño sube comprobante → pago por_validar → super-admin aprueba (`validar_pago()`: pago aprobado + periodo + suscripción activa) o rechaza con motivo.
+### 6.8 Cambio de plan
+Subir: inmediato (Stripe prorratea). Bajar: al fin del periodo y solo si los usuarios activos caben en el nuevo límite.
+### 6.9 Revisión diaria (cron)
+Vence pruebas y periodos, aplica gracia, vence invitaciones.
+
+## 7. Qué pasa si… (casos borde) 💡
+| # | Escenario | Comportamiento esperado | Certeza |
+|---|---|---|---|
+| 1 | Stripe manda el mismo webhook dos veces | `stripe_invoice_id` único: el segundo no hace nada | 💡 |
+| 2 | Webhooks de Stripe llegan fuera de orden | se procesa por fecha del evento y se consulta el estado en Stripe antes de cambiar la suscripción | 💡 |
+| 3 | Paga por transferencia y también con tarjeta el mismo periodo | se aprueban ambos y el segundo extiende un periodo | ❓ |
+| 4 | Baja de Pro (5 usuarios) a Básico (1) | no se permite hasta dejar 1 usuario activo | 💡 |
+| 5 | Desactivar o cambiar de rol al único dueño | bloqueado: siempre al menos un dueño activo | 💡 |
+| 6 | Invitar un correo que ya es de otra empresa | rechazado con mensaje (D-021) | ✅ D-021 |
+| 7 | Abrir una invitación vencida | no entra; el dueño reenvía (nueva invitación) | 💡 |
+| 8 | Termina la prueba sin pago | suscripción vencida; todo queda en solo lectura | 💡 |
+| 9 | La empresa cancela | acceso hasta fin de periodo; luego ❓ (propuesta: solo lectura 30 días y borrado) | ❓ |
+| 10 | Se desactiva una marca con cotizaciones abiertas | las existentes siguen; no aparece para nuevas | 💡 |
+| 11 | Se cambia el prefijo de folio con cotizaciones emitidas | solo cambia folios nuevos; consecutivo no se reinicia | 💡 |
+| 12 | Se activa `clientes_por_marca` con clientes ya existentes | ❓ pedir asignar marca a cada cliente antes de activar | ❓ |
+| 13 | Dos personas aceptan la misma invitación al mismo tiempo | lock en la fila: solo una gana | 💡 |
+| 14 | Se llega al límite de usuarios del plan | no se puede invitar; se ofrece subir de plan | 💡 |
+
+## 8. Permisos 💡
+| Acción | Roles | Validado en UI | Validado en BD (RLS/función) | Certeza |
+|---|---|---|---|---|
+| Ver/editar datos de la empresa y marcas | dueño, gerente | sí | RLS empresa_id = mi_empresa_id() + mi_rol() in (dueno, gerente) | ✅ D-008 / 💡 gerente edita |
+| Invitar / desactivar usuarios | dueño | sí | `invitar_usuario()` valida rol | 💡 D-007 |
+| Ver plan, pagos, subir comprobante | dueño | sí | RLS + rol | ✅ D-008 |
+| Cambiar de plan / cancelar | dueño | sí | RPC | 💡 |
+| Validar transferencias, suspender, cargar planes | super-admin | sí | `es_super_admin()` | ✅ D-015 |
+| Ver lista de marcas | todos | sí | RLS; vendedor solo asignadas si vendedores_por_marca | ✅ D-023 |
+
+## 8b. Consultas y escalabilidad 💡
+| Consulta / pantalla | Filtros y orden | Índice que la soporta | Volumen 1 año | Volumen 3 años | Estrategia |
+|---|---|---|---|---|---|
+| Resolver empresa y rol del usuario (cada petición) | user_id | unique(user_id) en usuarios_empresa | ~250 | ❓ meta 3 años | función `security definer stable` cacheable |
+| Marcas de la empresa / del vendedor | empresa_id, activo | (empresa_id, activo); (usuario_empresa_id) en usuario_marcas | ~100 | — | — |
+| Panel super-admin: empresas por estado | estado, periodo_fin | (estado, periodo_fin) en suscripciones | 50 | — | — |
+| Pagos por validar | estado = por_validar | parcial where estado='por_validar' | ~600/año | — | — |
+| Cron diario de vencimientos | estado, prueba_hasta, gracia_hasta | (estado, prueba_hasta) | 50 | — | una corrida diaria |
+Volumen muy bajo; no requiere particionamiento ni archivado.
+
+## 9. Criterios de aceptación
+- Dado un registro nuevo, cuando termina, entonces existen empresa, una marca, un usuario dueño y una suscripción en prueba con fin a 14 días.
+- Dado un usuario de la empresa A, cuando consulta marcas, entonces nunca ve marcas de la empresa B.
+- Dado `vendedores_por_marca = true`, cuando un vendedor lista marcas, entonces solo ve las asignadas.
+- Dado el plan Básico con 1 usuario activo, cuando el dueño invita a otro, entonces se rechaza por límite.
+- Dado un webhook `invoice.paid` repetido, cuando llega dos veces, entonces existe un solo pago.
+- Dada una transferencia por validar, cuando el super-admin la aprueba, entonces la suscripción queda activa con el periodo del pago.
+- Dada una suscripción vencida, cuando un usuario intenta crear una cotización, entonces se bloquea (solo lectura).
+- Dado el único dueño, cuando se intenta desactivarlo, entonces se rechaza.
+
 ## 10. Inconsistencias ⚠️
 | # | Descripción | Dónde | Impacto | Severidad |
 |---|---|---|---|---|
 | 1 | Se quitó `subdominio` de empresas (P-019) y de marcas (P-029), pero D-017 decidió subdominio propio | P-019, P-029 vs D-017 | ¿se elimina el subdominio de la Fase 2? | baja |
 
 ## 11. Preguntas abiertas
-P-031 (campos de `invitaciones`). Confirmar si el subdominio (D-017) se elimina.
+- P-031 invitaciones: no contestada; campos 💡.
+- ¿Precios incluyen IVA? ¿Se factura la renta?
+- Qué pasa con datos de una empresa que cancela (§7 #9).
+- Doble pago en el mismo periodo (§7 #3).
+- Activar clientes_por_marca con clientes existentes (§7 #12).
+- A quién se reasignan clientes y cotizaciones de un usuario dado de baja.
+- Confirmar si el subdominio (D-017) se elimina.
+- Plantillas PDF iniciales.

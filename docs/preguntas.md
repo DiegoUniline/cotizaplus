@@ -166,9 +166,17 @@
 **Impacto en datos:** estructura de `usuarios_empresa`.
 **Respuesta:** se quedan nombre, correo, telefono, foto, rol, puesto. Agregó: "Fecha de Alta", "Nombre Completo", "Leyenda donde podamos poner sus datos de contacto y se jalen". Marcó "Something else" sin texto (ignorado). (D-027)
 
-### P-031 · plataforma / invitaciones · MEDIA · ABIERTA
+### P-031 · plataforma / invitaciones · MEDIA · RESPONDIDA
 **Contexto:** FASE 1 Paso 2. Campos propuestos: correo, nombre_completo, rol, marcas (si vendedores_por_marca), mensaje. Automáticos: estado, vence_el, invitado_por.
 **Pregunta:** ¿Cuáles campos de `invitaciones` se quedan?
 **Recomendación:** todos.
 **Impacto en datos:** estructura de `invitaciones`.
+**Respuesta:** El dueño: "ya termina y avanza siguiente paso" → campos 💡 como se propusieron; tablas restantes de Plataforma (planes, suscripciones, pagos, usuario_marcas) propuestas 💡 y se pasa a FASE 2. (D-028)
+
+### P-032 · plataforma · ALTA · ABIERTA
+**Contexto:** FASE 2. Propuesta completa en modulos/plataforma.md.
+**Pregunta:** ¿Apruebas el módulo Plataforma?
+**Opciones:** A) APROBADO plataforma  B) Tengo correcciones
+**Recomendación:** B si alguno de los 💡 de §5–§7 no te convence; los ❓ pueden quedar abiertos y no bloquean el SQL.
+**Impacto en datos:** con APROBADO se genera la migración SQL (FASE 3).
 **Respuesta:**

@@ -5,6 +5,7 @@ Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`
 
 | # | Módulo | Tabla | Para qué | Fase | Origen | Certeza |
 |---|---|---|---|---|---|---|
+| 0 | Plataforma | (super-admin) | Marca en Supabase Auth, sin tabla 💡 | 1 | D-015 | 💡 |
 | 1 | Plataforma | empresas | Cada negocio que renta Cotizaplus: logo, colores, subdominio, prefijo de folio, plantilla por defecto | 1 | D-001, D-017 | ✅ |
 | 1b | Plataforma | marcas | Marcas de una empresa: logo, colores y datos con los que sale la cotización | 1 | D-022 | ✅ |
 | 2 | Plataforma | usuarios_empresa | Qué usuario pertenece a qué empresa (una sola, D-021) y con qué rol (el login lo guarda Supabase Auth) | 1 | D-008 | ✅ |
@@ -41,4 +42,5 @@ Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`
 ## % conocimiento por módulo
 | módulo | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|
-| (se llena al detallar cada tabla) | | | |
+| Plataforma | 2 · propuesta | 35% | 8 ❓ (ver modulos/plataforma.md §11) |
+| resto | 1 · paso 1 ✅ | — | — |

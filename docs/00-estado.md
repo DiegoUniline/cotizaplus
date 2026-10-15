@@ -4,13 +4,12 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Paso 2 (campos por tabla). Paso 1b ✅ · Paso 1c cerrado con 💡 (D-024)
-- **Módulo en curso:** Plataforma · tabla `invitaciones` (empresas D-025, marcas D-026, usuarios_empresa D-027 ✅; usuario_marcas solo llaves)
-- **Última pregunta:** P-031 (marcar campos de `invitaciones`) — ABIERTA
-- **Siguiente paso exacto:** registrar P-031; luego `planes`, `suscripciones`, `pagos` (Paso 2). Pasos 3–4 se suponen (💡) por pedido del dueño.
+- **Fase:** FASE 2 — Propuesta del módulo Plataforma (modulos/plataforma.md)
+- **Módulo en curso:** Plataforma — esperando `APROBADO plataforma`
+- **Última pregunta:** P-032 (¿APROBADO plataforma?) — ABIERTA
+- **Siguiente paso exacto:** con `APROBADO plataforma` → FASE 3: migración SQL en rama (no en main) /supabase/migrations/<ts>_plataforma.sql; sin APROBADO → aplicar correcciones. Después, FASE 1 del módulo Catálogo.
 
 ## Decisiones recientes (últimas 10)
-- [D-018](decisiones.md) · visión · PWA con Next.js + Supabase
 - [D-019](decisiones.md) · visión · Fase 1 a fin de diciembre 2026
 - [D-020](decisiones.md) · mapa · 29 tablas aprobadas + contactos_cliente
 - [D-021](decisiones.md) · usuarios · un correo = una empresa
@@ -20,6 +19,7 @@
 - [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
 - [D-026](decisiones.md) · marcas · 11 campos confirmados, sin subdominio
 - [D-027](decisiones.md) · usuarios_empresa · 9 campos (3 agregados por el dueño)
+- [D-028](decisiones.md) · plataforma · tablas restantes 💡, pasa a FASE 2
 
 ## Propuestas pendientes de aprobación 💡
 - Relaciones del Paso 1c no confirmadas (D-024): folio por marca, contacto de un cliente, contacto principal + copias, versiones, 1 cotización = 1 pedido, un vendedor por cliente, motivos configurables.
@@ -52,7 +52,7 @@
 ## Módulos
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
-| Plataforma | diseño | 1 · paso 2 (invitaciones) | — | P-031 |
+| Plataforma | diseño | 2 · propuesta | 35% | P-032 + 8 ❓ |
 | Catálogo | diseño | 1 · paso 1 ✅ | — | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
