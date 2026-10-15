@@ -8,3 +8,5 @@
 - 2026-10-15 · arquitecto · FASE 1 paso 1: mapa de 29 tablas propuesto · P-018 abierta
 - 2026-10-15 · arquitecto · P-018 respondida: OK + contactos_cliente · D-020
 - 2026-10-15 · arquitecto · FASE 1 paso 2: campos de empresas propuestos · P-019 abierta
+- 2026-10-15 · arquitecto · reglas actualizadas (Paso 1b/1c, preguntas con clic); P-019 en pausa
+- 2026-10-15 · arquitecto · Paso 1b: diagrama-er.md creado (validado con mermaid-cli)

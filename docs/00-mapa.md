@@ -1,5 +1,5 @@
 # Mapa del sistema
-Última actualización: 2026-10-15 · Estado: ✅ tablas aprobadas en P-018 (D-020); campos por definir tabla por tabla
+Última actualización: 2026-10-15 · Estado: ✅ tablas aprobadas en P-018 (D-020); campos por definir tabla por tabla · diagrama: [diagrama-er.md](diagrama-er.md)
 
 Todas las tablas de negocio llevan `id`, `empresa_id`, `activo`, `created_at/by`, `updated_at/by` y RLS por empresa (D-001).
 

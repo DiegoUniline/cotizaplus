@@ -114,4 +114,12 @@
 **Pregunta:** ¿Agrego, quito o cambio algún campo? (o "OK")
 **Recomendación:** OK — cubre lo decidido en D-017 y lo que sale en el PDF.
 **Impacto en datos:** estructura de `empresas`.
-**Respuesta:**
+**Respuesta:** EN PAUSA — el dueño pidió primero diagrama ER y preguntas de relaciones (Paso 1b/1c).
+
+### P-020 · plataforma / usuarios · ALTA · ABIERTA
+**Contexto:** usuarios_empresa une un login con una empresa; define si el login es por empresa o compartido.
+**Pregunta:** ¿Un mismo usuario (mismo correo) puede trabajar en varias empresas de Cotizaplus?
+**Opciones:** A) Sí, con un selector de empresa al entrar  B) No, un correo = una sola empresa
+**Recomendación:** A — ya está modelado así, permite contadores, consultores o un vendedor que trabaja para dos negocios; costo: un selector de empresa.
+**Impacto en datos:** usuarios_empresa (N:M usuario↔empresa) o empresa_id directo en el perfil.
+**Respuesta:** <!--resp P-020-->
