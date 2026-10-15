@@ -60,4 +60,4 @@ Confirmado por el dueño: **96%** (✅ 23 / 24). Mínimo para APROBADO: 90%.
 | QS-04 | Casos borde | Borrar cliente: solo si no tiene cotizaciones; si tiene, solo desactivar | ✅ |
 | QS-05 | Casos borde | Vendedor dado de baja: sus clientes se reasignan (D-031) | ✅ |
 | QS-06 | Casos borde | Cliente/contacto sin correo: no se puede enviar por correo; sí por WhatsApp o PDF | ✅ |
-| Q-01 | Pendientes | ¿Un vendedor puede ver que un cliente ya existe aunque sea de otro vendedor (para no duplicar)? | ❓ |
+| Q-01 | Pendientes | Vendedor ve que un cliente ya existe y quién lo atiende, sin ver sus datos — 💡 recomendación aplicada, el dueño pidió avanzar sin contestar | 💡 |

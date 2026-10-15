@@ -4,10 +4,10 @@
 **Última actualización:** 2026-10-15 · **Agente:** arquitecto
 
 ## Dónde vamos
-- **Fase:** FASE 1 — Cierre de módulo Clientes
-- **Módulo en curso:** Clientes (clientes D-041, contactos D-042 ✅)
-- **Última pregunta:** cierre Clientes — Q-01 (¿vendedor ve que un cliente ya existe?) — ABIERTA
-- **Siguiente paso exacto:** cierre Clientes: marcar qué NO se aprueba (§12 modulos/clientes.md), resolver ❓; si ≥ 90% pedir APROBADO clientes (sin SQL); luego módulo Cotizaciones.
+- **Fase:** FASE 1 — Cierre de módulo Clientes terminado (96%)
+- **Módulo en curso:** Clientes — listo para APROBADO (sin SQL); 1 💡 sin confirmar (Q-01)
+- **Última pregunta:** ¿APROBADO clientes? — ABIERTA
+- **Siguiente paso exacto:** con APROBADO: módulo Cotizaciones (cotizaciones, cotizacion_partidas, folios, plantillas_pdf). Sin SQL.
 
 ## Decisiones recientes (últimas 10)
 - [D-033](decisiones.md) · atributos · nombre, tipo, unidad, obligatorio

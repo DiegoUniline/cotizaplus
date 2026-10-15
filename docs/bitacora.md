@@ -47,3 +47,4 @@
 - 2026-10-15 · arquitecto · P-038: no quitó campos · D-042 · checklist cierre Clientes (24 ítems) · cierre clientes 17%
 - 2026-10-15 · arquitecto · cierre Clientes: reglas, procesos y permisos aprobados (ninguno rechazado) · cierre clientes 75%
 - 2026-10-15 · arquitecto · cierre Clientes: casos borde aprobados · cierre clientes 96%
+- 2026-10-15 · arquitecto · Q-01 sin respuesta: dueño pide terminar y avanzar · queda 💡 · cierre Clientes 96% · cierre clientes 96%
