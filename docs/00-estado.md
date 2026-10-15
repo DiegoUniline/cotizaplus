@@ -6,7 +6,7 @@
 ## Dónde vamos
 - **Fase:** FASE 1 — Cierre de módulo Clientes
 - **Módulo en curso:** Clientes (clientes D-041, contactos D-042 ✅)
-- **Última pregunta:** P-038 (¿qué campos de `contactos_cliente` quitas?) — ABIERTA
+- **Última pregunta:** cierre Clientes — casos borde (¿cuáles NO apruebas?) — ABIERTA
 - **Siguiente paso exacto:** cierre Clientes: marcar qué NO se aprueba (§12 modulos/clientes.md), resolver ❓; si ≥ 90% pedir APROBADO clientes (sin SQL); luego módulo Cotizaciones.
 
 ## Decisiones recientes (últimas 10)
@@ -45,7 +45,7 @@
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
 | Catálogo | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Clientes | diseño | 1 · cierre | 17% | ver §12 |
+| Clientes | diseño | 1 · cierre | 75% | ver §12 |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |
 | Seguimiento | diseño | 1 · paso 1 ✅ | — | — |

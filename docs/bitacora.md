@@ -45,3 +45,4 @@
 - 2026-10-15 · arquitecto · APROBADO catálogo · D-040 · inicia Clientes · P-037 abierta
 - 2026-10-15 · arquitecto · P-037: no quitó campos · D-041 · modulos/clientes.md · P-038 abierta
 - 2026-10-15 · arquitecto · P-038: no quitó campos · D-042 · checklist cierre Clientes (24 ítems) · cierre clientes 17%
+- 2026-10-15 · arquitecto · cierre Clientes: reglas, procesos y permisos aprobados (ninguno rechazado) · cierre clientes 75%

@@ -1,5 +1,5 @@
 # Módulo: Clientes
-Conocimiento: 17% (✅ 4 / 24 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
+Conocimiento: 75% (✅ 18 / 24 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño (prueba del flujo, sin SQL)
 
 ## 1. Propósito
 A quién se le cotiza y sus personas de contacto. ✅ (D-008, D-020, D-022)
@@ -33,27 +33,27 @@ Campos técnicos (💡): `id`, `empresa_id`, `activo`, `created_at/by`, `updated
 | notas | text | sí | null | Comentarios | — | ✅ | P-038 |
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **17%** (✅ 4 / 24). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **75%** (✅ 18 / 24). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
 | C-01 | Campos | clientes: vendedor, marca, nombre, razón social, RFC, tipo de persona, correo, teléfono, dirección, notas | ✅ |
 | C-02 | Campos | contactos_cliente: cliente, nombre, puesto, correo, teléfono, es_principal, notas | ✅ |
-| R-01 | Reglas de campos | Nombre de cliente repetido: solo avisa, no bloquea | 💡 |
-| R-02 | Reglas de campos | RFC no se repite en la empresa (bloquea), salvo vacío o público en general XAXX010101000 | 💡 |
-| R-03 | Reglas de campos | RFC en mayúsculas formato SAT; teléfonos 10 dígitos; correos válidos | 💡 |
-| R-04 | Reglas de campos | Vendedor por defecto = quien da de alta el cliente | 💡 |
-| R-05 | Reglas de campos | Un solo contacto principal por cliente; el primero creado es el principal | 💡 |
-| R-06 | Reglas de campos | Un contacto pertenece a un solo cliente (D-024) | 💡 |
-| R-07 | Reglas de campos | Un vendedor por cliente; dueño o gerente lo reasignan (D-024) | 💡 |
-| PR-01 | Procesos | Cualquier rol da de alta clientes; el vendedor queda asignado a sí mismo | 💡 |
-| PR-02 | Procesos | Desactivar cliente: se permite aunque tenga cotizaciones abiertas; éstas siguen | 💡 |
-| PR-03 | Procesos | Reasignar vendedor: las cotizaciones abiertas pasan al nuevo; las cerradas se quedan con quien las hizo | 💡 |
-| PR-04 | Procesos | Editar datos del cliente no cambia cotizaciones ya enviadas (copian datos al emitirse) | 💡 |
-| PR-05 | Procesos | Importar clientes de Excel: si existe (por RFC, si no por nombre) se actualiza | 💡 |
+| R-01 | Reglas de campos | Nombre de cliente repetido: solo avisa, no bloquea | ✅ |
+| R-02 | Reglas de campos | RFC no se repite en la empresa (bloquea), salvo vacío o público en general XAXX010101000 | ✅ |
+| R-03 | Reglas de campos | RFC en mayúsculas formato SAT; teléfonos 10 dígitos; correos válidos | ✅ |
+| R-04 | Reglas de campos | Vendedor por defecto = quien da de alta el cliente | ✅ |
+| R-05 | Reglas de campos | Un solo contacto principal por cliente; el primero creado es el principal | ✅ |
+| R-06 | Reglas de campos | Un contacto pertenece a un solo cliente (D-024) | ✅ |
+| R-07 | Reglas de campos | Un vendedor por cliente; dueño o gerente lo reasignan (D-024) | ✅ |
+| PR-01 | Procesos | Cualquier rol da de alta clientes; el vendedor queda asignado a sí mismo | ✅ |
+| PR-02 | Procesos | Desactivar cliente: se permite aunque tenga cotizaciones abiertas; éstas siguen | ✅ |
+| PR-03 | Procesos | Reasignar vendedor: las cotizaciones abiertas pasan al nuevo; las cerradas se quedan con quien las hizo | ✅ |
+| PR-04 | Procesos | Editar datos del cliente no cambia cotizaciones ya enviadas (copian datos al emitirse) | ✅ |
+| PR-05 | Procesos | Importar clientes de Excel: si existe (por RFC, si no por nombre) se actualiza | ✅ |
 | PE-01 | Permisos | Vendedor ve y edita solo sus clientes (D-008) | ✅ |
-| PE-02 | Permisos | Dueño y gerente ven y editan todos los clientes | 💡 |
-| PE-03 | Permisos | Solo dueño y gerente reasignan vendedor y desactivan clientes | 💡 |
+| PE-02 | Permisos | Dueño y gerente ven y editan todos los clientes | ✅ |
+| PE-03 | Permisos | Solo dueño y gerente reasignan vendedor y desactivan clientes | ✅ |
 | QS-01 | Casos borde | Dos vendedores dan de alta el mismo RFC: se bloquea el segundo con aviso | 💡 |
 | QS-02 | Casos borde | Cliente de la marca X (si se separa por marca) no recibe cotizaciones de la marca Y | 💡 |
 | QS-03 | Casos borde | Desactivar el contacto principal: el sistema pide elegir otro principal | 💡 |
