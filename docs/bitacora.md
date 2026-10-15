@@ -21,3 +21,4 @@
 - 2026-10-15 · arquitecto · P-032: dueño indica prueba del flujo, no crear SQL ni app · flujo detenido antes de FASE 3
 - 2026-10-15 · arquitecto · inicia cierre de módulo Plataforma; checklist §12 con 65 ítems · cierre plataforma 8%
 - 2026-10-15 · arquitecto · X-01 resuelta: sin subdominio · D-029 · cierre plataforma 9%
+- 2026-10-15 · arquitecto · cierre grupo 1 aprobado completo: C-04..C-09, R-01..R-08 · cierre plataforma 31%

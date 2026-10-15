@@ -1,5 +1,5 @@
 # Módulo: Plataforma
-Conocimiento: 9% (✅ 6 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
+Conocimiento: 31% (✅ 20 / 65 ítems del cierre, §12) | Última actualización: 2026-10-15 | Fuente: diseño | FASE 2 — propuesta, espera `APROBADO plataforma`
 
 ## 1. Propósito
 Cuentas que rentan Cotizaplus (empresas), sus marcas, usuarios, planes, suscripciones y pagos. ✅ (D-001, D-004, D-022)
@@ -262,7 +262,7 @@ Volumen muy bajo; no requiere particionamiento ni archivado.
 - Plantillas PDF iniciales.
 
 ## 12. Cierre de módulo
-Confirmado por el dueño: **9%** (✅ 6 / 65). Mínimo para APROBADO: 90%.
+Confirmado por el dueño: **31%** (✅ 20 / 65). Mínimo para APROBADO: 90%.
 
 | ID | Grupo | Qué | Estado |
 |---|---|---|---|
@@ -270,20 +270,20 @@ Confirmado por el dueño: **9%** (✅ 6 / 65). Mínimo para APROBADO: 90%.
 | C-01 | Campos | empresas: 10 campos | ✅ |
 | C-02 | Campos | marcas: 11 campos | ✅ |
 | C-03 | Campos | usuarios_empresa: 9 campos | ✅ |
-| C-04 | Campos | usuario_marcas: vendedor ↔ marca (solo llaves) | 💡 |
-| C-05 | Campos | invitaciones: correo, nombre_completo, rol, marcas, mensaje, estado, vence_at, invitado_por | 💡 |
-| C-06 | Campos | planes: código, nombre, precio_mensual, max_usuarios, max_cotizaciones_mes, recordatorios, aprobación descuentos, stripe_price_id, público | 💡 |
-| C-07 | Campos | suscripciones: plan, estado, método, precio_acordado, prueba_hasta, periodo, gracia, ids de Stripe, cancelada_at | 💡 |
-| C-08 | Campos | pagos: método, monto, periodo, estado, comprobante, referencia, stripe_invoice_id, validado_por, motivo_rechazo | 💡 |
-| C-09 | Campos | Super-admin sin tabla: marca en el login de Supabase | 💡 |
-| R-01 | Reglas de campos | El nombre de una marca no se repite dentro de la empresa | 💡 |
-| R-02 | Reglas de campos | El prefijo de folio no se repite en la empresa; cambiarlo solo afecta folios nuevos | 💡 |
-| R-03 | Reglas de campos | Teléfonos de 10 dígitos | 💡 |
-| R-04 | Reglas de campos | RFC en mayúsculas con formato SAT | 💡 |
-| R-05 | Reglas de campos | Logo y foto: png/jpg/svg de hasta 2 MB | 💡 |
-| R-06 | Reglas de campos | Valores por defecto de empresa: MXN, IVA 16%, vigencia 15 días, zona CDMX, clientes y vendedores por marca = no | 💡 |
-| R-07 | Reglas de campos | nombre = nombre corto en la app; nombre_completo = firma del PDF | 💡 |
-| R-08 | Reglas de campos | fecha_alta editable; por defecto el día del alta | 💡 |
+| C-04 | Campos | usuario_marcas: vendedor ↔ marca (solo llaves) | ✅ |
+| C-05 | Campos | invitaciones: correo, nombre_completo, rol, marcas, mensaje, estado, vence_at, invitado_por | ✅ |
+| C-06 | Campos | planes: código, nombre, precio_mensual, max_usuarios, max_cotizaciones_mes, recordatorios, aprobación descuentos, stripe_price_id, público | ✅ |
+| C-07 | Campos | suscripciones: plan, estado, método, precio_acordado, prueba_hasta, periodo, gracia, ids de Stripe, cancelada_at | ✅ |
+| C-08 | Campos | pagos: método, monto, periodo, estado, comprobante, referencia, stripe_invoice_id, validado_por, motivo_rechazo | ✅ |
+| C-09 | Campos | Super-admin sin tabla: marca en el login de Supabase | ✅ |
+| R-01 | Reglas de campos | El nombre de una marca no se repite dentro de la empresa | ✅ |
+| R-02 | Reglas de campos | El prefijo de folio no se repite en la empresa; cambiarlo solo afecta folios nuevos | ✅ |
+| R-03 | Reglas de campos | Teléfonos de 10 dígitos | ✅ |
+| R-04 | Reglas de campos | RFC en mayúsculas con formato SAT | ✅ |
+| R-05 | Reglas de campos | Logo y foto: png/jpg/svg de hasta 2 MB | ✅ |
+| R-06 | Reglas de campos | Valores por defecto de empresa: MXN, IVA 16%, vigencia 15 días, zona CDMX, clientes y vendedores por marca = no | ✅ |
+| R-07 | Reglas de campos | nombre = nombre corto en la app; nombre_completo = firma del PDF | ✅ |
+| R-08 | Reglas de campos | fecha_alta editable; por defecto el día del alta | ✅ |
 | R-09 | Reglas de campos | leyenda_contacto se copia al PDF y la cotización guarda la copia al emitirse | 💡 |
 | R-10 | Reglas de campos | Rol por defecto al invitar: vendedor | 💡 |
 | R-11 | Reglas de campos | Una invitación vence en 7 días | 💡 |
