@@ -180,3 +180,8 @@
 **Decisión:** corrección: en P-034 y P-036 se interpretó "no marcado" como "quitar", pero la herramienta no pre-marca opciones (regla actualizada 53694ba). `orden` y `editable_al_cotizar` (atributos) y `sku` y `descripcion` (productos) vuelven a 💡 y se repreguntan en sentido negativo. Ídem R-09, PR-01, PR-03, PE-02 del cierre de Catálogo.
 **Origen:** error del agente; regla "¿cuáles quitas?"
 **Consecuencias:** D-033 y D-035 quedan parcialmente abiertas hasta la repregunta.
+
+### D-037 · catálogo · 2026-10-15
+**Decisión:** (repregunta en sentido negativo) `atributos` sin orden ni editable_al_cotizar (confirmado: los quitó explícitamente). `productos` conserva sku y descripcion (no los quitó). ✅ Corrige D-035: productos = sku, nombre, descripcion, imagen, unidad, precio, tipo_cobro, atributos.
+**Origen:** repregunta D-036
+**Consecuencias:** importar Excel puede emparejar por sku si existe, si no por nombre (💡, Q-04).
