@@ -175,3 +175,8 @@
 **Decisión:** `productos` guarda nombre, imagen, unidad, precio, tipo_cobro y valores de atributos (como el mapa D-020). Sin sku ni descripcion. ✅
 **Origen:** P-036 (contradicción resuelta)
 **Consecuencias:** al cotizar se copian a la partida; la descripción de la partida se captura en la cotización (D-009). Importar de Excel se empareja por nombre (sin SKU).
+
+### D-036 · catálogo · 2026-10-15
+**Decisión:** corrección: en P-034 y P-036 se interpretó "no marcado" como "quitar", pero la herramienta no pre-marca opciones (regla actualizada 53694ba). `orden` y `editable_al_cotizar` (atributos) y `sku` y `descripcion` (productos) vuelven a 💡 y se repreguntan en sentido negativo. Ídem R-09, PR-01, PR-03, PE-02 del cierre de Catálogo.
+**Origen:** error del agente; regla "¿cuáles quitas?"
+**Consecuencias:** D-033 y D-035 quedan parcialmente abiertas hasta la repregunta.

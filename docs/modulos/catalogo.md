@@ -15,7 +15,7 @@ Campos técnicos (💡): `id`, `empresa_id`, `activo`, `created_at/by`, `updated
 | unidad | text | sí | null | m, cm, kg… | solo para medida o número 💡 | ✅ | P-034 |
 | obligatorio | boolean | no | false | Si hay que llenarlo al cotizar | — | ✅ / 💡 default | P-034 |
 
-Quitados por el dueño: orden, editable_al_cotizar (❓ Paso 3: ¿el vendedor puede cambiar el valor en la partida?).
+⚠️ `orden` y `editable_al_cotizar`: se tomaron como quitados por error (D-036); en repregunta.
 
 ### Tabla `atributo_opciones`
 Lleva `atributo_id uuid not null references atributos(id)`.

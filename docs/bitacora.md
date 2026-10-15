@@ -35,3 +35,4 @@
 - 2026-10-15 · arquitecto · P-036 resuelta: productos como el mapa · D-035 · inicia cierre Catálogo
 - 2026-10-15 · arquitecto · checklist de cierre Catálogo (28 ítems) · cierre catálogo 11%
 - 2026-10-15 · arquitecto · cierre Catálogo grupo 1: 12 aprobados; desmarcados R-09, PR-01, PR-03, PE-02 → se repreguntan · cierre catálogo 54%
+- 2026-10-15 · arquitecto · reglas actualizadas (selección negativa '¿cuáles quitas?') · error detectado: 'no marcado' se tomó como 'quitar' en P-034/P-036 · D-036 · se repregunta
