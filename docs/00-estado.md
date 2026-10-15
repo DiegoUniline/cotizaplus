@@ -6,8 +6,8 @@
 ## Dónde vamos
 - **Fase:** FASE 1 — Paso 1c (preguntas de relaciones y reglas). Paso 1b ✅ diagrama-er.md
 - **Módulo en curso:** relaciones de todo el mapa; después Plataforma · tabla `empresas`
-- **Última pregunta:** P-020 (¿un usuario puede estar en varias empresas?) — RESPONDIDA (D-021, D-022) · P-019 (campos de empresas) EN PAUSA por pedido del dueño
-- **Siguiente paso exacto:** terminar Paso 1c (P-020 en adelante, una por mensaje con clic); luego retomar P-019 marcando campos de `empresas` con selección múltiple; luego Paso 3 (comportamiento de campos de `empresas` que lo requieran, uno por mensaje), Paso 4 procesos, Paso 5 resumen y siguiente tabla (`usuarios_empresa`).
+- **Última pregunta:** P-021 (¿vendedor con todas las marcas o solo asignadas?) — ABIERTA · P-019 (campos de empresas) EN PAUSA por pedido del dueño
+- **Siguiente paso exacto:** terminar Paso 1c (P-021 en adelante, una por mensaje con clic); luego retomar P-019 marcando campos de `empresas` con selección múltiple; luego Paso 3 (comportamiento de campos de `empresas` que lo requieran, uno por mensaje), Paso 4 procesos, Paso 5 resumen y siguiente tabla (`usuarios_empresa`).
 
 ## Decisiones recientes (últimas 10)
 - [D-013](decisiones.md) · seguimiento · WhatsApp automático con API oficial, paquetes aparte
