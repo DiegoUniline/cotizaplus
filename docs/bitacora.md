@@ -29,3 +29,4 @@
 - 2026-10-15 · arquitecto · APROBADO plataforma (100%, sin SQL) · D-032 · inicia Catálogo · P-034 abierta
 - 2026-10-15 · arquitecto · dueño: "sí, todo aprobado" → confirma APROBADO plataforma (D-032)
 - 2026-10-15 · arquitecto · dueño: "son solo pruebas mientras avancemos" · P-034 respondida: 4 campos · D-033 · modulos/catalogo.md · P-035 abierta
+- 2026-10-15 · arquitecto · P-035: quitó 'valor' (dudoso) · se repregunta

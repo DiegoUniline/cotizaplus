@@ -199,4 +199,4 @@
 **Pregunta:** ¿Cuáles campos de `atributo_opciones` se quedan? Propuestos: valor, ajuste_precio.
 **Recomendación:** valor; ajuste_precio solo si una opción cambia el precio (ej. color especial +$50).
 **Impacto en datos:** estructura de `atributo_opciones`.
-**Respuesta:**
+**Respuesta:** ⚠️ marcó solo ajuste_precio y quitó valor; sin valor la opción no tendría nombre → se repregunta solo esa parte.
