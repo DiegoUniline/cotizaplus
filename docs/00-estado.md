@@ -44,7 +44,7 @@
 | módulo | fuente | fase | % conocimiento | ❓ abiertas |
 |---|---|---|---|---|
 | Plataforma | diseño | ✅ APROBADO (sin SQL) | 100% | — |
-| Catálogo | diseño | 1 · cierre | — | ver §12 |
+| Catálogo | diseño | cierre ✅ | 100% | — |
 | Clientes | diseño | 1 · paso 1 ✅ | — | — |
 | Cotizaciones | diseño | 1 · paso 1 ✅ | — | — |
 | Envío | diseño | 1 · paso 1 ✅ | — | — |
