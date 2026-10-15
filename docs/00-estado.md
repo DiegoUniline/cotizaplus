@@ -10,7 +10,6 @@
 - **Siguiente paso exacto:** registrar P-034; luego `atributo_opciones` y `productos` (Paso 2), pasos 3–4 con propuestas para marcar, y cierre de módulo Catálogo (≥ 90%).
 
 ## Decisiones recientes (últimas 10)
-- [D-022](decisiones.md) · marcas · varias marcas por empresa; clientes compartidos o separados (lo decide la empresa)
 - [D-023](decisiones.md) · plataforma / marcas · vendedores con todas las marcas o solo asignadas: lo decide la empresa
 - [D-024](decisiones.md) · relaciones · recomendaciones del Paso 1c aplicadas como 💡
 - [D-025](decisiones.md) · empresas · 10 campos confirmados, sin subdominio
